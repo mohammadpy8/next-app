@@ -103,9 +103,10 @@ const DndCompoent = () => {
             {activeId ? (
               <div
                 style={{
-                  width: "100px",
+                  width: "250px",
                   height: "100px",
                   backgroundColor: "red",
+                  borderRadius: "15px"
                 }}
               ></div>
             ) : null}

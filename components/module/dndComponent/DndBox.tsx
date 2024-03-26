@@ -11,6 +11,7 @@ interface DndBoxProps {
 }
 
 const DndBox = (props: DndBoxProps) => {
+  const { id, value } = props;
   const {
     attributes,
     listeners,
@@ -18,35 +19,54 @@ const DndBox = (props: DndBoxProps) => {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: props.id });
+  } = useSortable({ id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    width: "100px",
+    width: "250px",
     height: "100px",
     border: "2px solid red",
-    backgroundColor: "#cccccc",
+    borderRadius: "15px",
+    backgroundColor: "pink",
     margin: "10px",
     zIndex: isDragging ? "100" : "auto",
-    opacity: isDragging ? 0.3 : 1,
+    opacity: isDragging ? 0.5 : 1,
   };
 
   return (
     <div ref={setNodeRef} style={style}>
       <div>
-        <button {...listeners} {...attributes}>
+        <button
+          {...listeners}
+          {...attributes}
+          style={{
+            backgroundColor: "red",
+            border: "none",
+            borderRadius: "20px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "5px",
+            margin: "5px 10px",
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: "11px",
+          }}
+        >
           Drag handle
         </button>
         <div
           style={{
             minWidth: "30px",
             minHeight: "20px",
-            border: "1px solid balck",
-            borderColor: "black",
+            color: "red",
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "10px",
           }}
         >
-          {props.value}
+          {value}
         </div>
       </div>
     </div>
