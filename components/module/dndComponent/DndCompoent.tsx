@@ -19,7 +19,11 @@ import {
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
 
+import Stack from "@mui/material/Stack";
+import { styled } from "@mui/material/styles";
+
 import DndBox from "./DndBox";
+import { wrap } from "module";
 
 const DndCompoent = () => {
   const [activeId, setActiveId] = useState<null | UniqueIdentifier>(null);
@@ -87,14 +91,7 @@ const DndCompoent = () => {
       onDragEnd={handleDragEnd}
       onDragStart={handleDragStart}
     >
-      <div
-        style={{
-          maxWidth: "600px",
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-        }}
-      >
+      <Stack direction={{ xs: "row" }} flexWrap={"wrap"}>
         <SortableContext items={items} strategy={rectSortingStrategy}>
           {items.map((id: string) => (
             <DndBox key={id} id={id} handle={true} value={id} />
@@ -106,13 +103,14 @@ const DndCompoent = () => {
                   width: "250px",
                   height: "100px",
                   backgroundColor: "red",
-                  borderRadius: "15px"
+                  opacity: "0.5",
+                  borderRadius: "15px",
                 }}
               ></div>
             ) : null}
           </DragOverlay>
         </SortableContext>
-      </div>
+      </Stack>
     </DndContext>
   );
 };
