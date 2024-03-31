@@ -1,6 +1,6 @@
 'use client'
 
-import ApiRegister from '@/config/ApiConfig'
+import { ApiRegister } from '@/config'
 import { AxiosResponse } from 'axios'
 import { useEffect, useState } from 'react'
 
@@ -19,7 +19,16 @@ type ApiConfig =
   | undefined
 
 const Main = async () => {
-  const [data, setData] = useState<any | null>({})
+    const [data, setData] = useState<any | null>({})
+    
+    const formData = [{
+        lable: "نام و نام خانوادگی",
+        valid: true,
+        type: "combobox",
+        customSx: null,
+        placeholder: "نام و نام خانوادگی",
+
+    }]
 
   //   useEffect(() => {
   //     const getDataa = async () => {

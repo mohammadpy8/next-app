@@ -1,6 +1,6 @@
 "use clinet";
 
-import useLocalStorage from "@/hooks/useLocalStorage";
+import { useLocalStorage } from "@/hooks";
 import axios from "axios";
 import { Dispatch } from "react";
 
@@ -160,4 +160,4 @@ const ApiRegister = async (
   }
 };
 
-export default ApiRegister;
+export  {ApiRegister};

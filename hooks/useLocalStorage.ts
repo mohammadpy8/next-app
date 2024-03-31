@@ -16,4 +16,4 @@ const useLocalStorage = (
   }
 };
 
-export default useLocalStorage;
+export { useLocalStorage };
