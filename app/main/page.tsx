@@ -1,5 +1,6 @@
 'use client'
 
+import { FormView } from '@/components/export/customExport'
 import { ApiRegister } from '@/config'
 import { AxiosResponse } from 'axios'
 import { useEffect, useState } from 'react'
@@ -18,17 +19,39 @@ type ApiConfig =
     }
   | undefined
 
-const Main = async () => {
-    const [data, setData] = useState<any | null>({})
-    
-    const formData = [{
-        lable: "نام و نام خانوادگی",
-        valid: true,
-        type: "combobox",
-        customSx: null,
-        placeholder: "نام و نام خانوادگی",
+interface FormDataItem {
+  label: string
+  valid: boolean
+  type: string
+  customSx: any | null
+  placeholder: string
+  dataForm: any | null
+}
 
-    }]
+const formData: FormDataItem[] = [
+  {
+    label: 'نام و نام خانوادگی',
+    valid: true,
+    type: 'COMBOBOX',
+    customSx: null,
+    placeholder: 'نام و نام خانوادگی',
+    dataForm: null,
+  },
+]
+
+const Main = async () => {
+  const [data, setData] = useState<any | null>({})
+
+  const formData = [
+    {
+      label: 'نام و نام خانوادگی',
+      valid: true,
+      type: 'INPUT',
+      customSx: null,
+      placeholder: 'نام و نام خانوادگی',
+      dataForm: null,
+    },
+  ]
 
   //   useEffect(() => {
   //     const getDataa = async () => {
@@ -43,12 +66,20 @@ const Main = async () => {
     {},
     false,
     null,
-    () => {}
+    () => {},
     // setData,
   )
   console.log('getttt', getData, data)
 
-  return <div>main</div>
+  return (
+    <div>
+      <FormView
+        formType="FORM"
+        validationData={getData}
+        formData={formData}
+      />
+    </div>
+  )
 }
 
 export default Main

@@ -6,8 +6,9 @@ import {
   TextErea,
 } from '@/components/export/customExport'
 
-const FormController = () => {
+const FormController = (props) => {
+    console.log("props===>", props)
   return <div></div>
 }
 
-export default FormController
+export { FormController }
