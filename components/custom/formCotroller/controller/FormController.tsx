@@ -17,7 +17,7 @@ type FormDataItem = {
 }
 
 interface FormControllerProps {
-  formData: FormDataItem[]
+  formData: FormDataItem[] | null
   validationData: any
 }
 
@@ -42,7 +42,7 @@ const FormController = (props: FormControllerProps) => {
   }
 
   const _FormViewHandler = () => {
-    return formData.map((item: FormDataItem, index) =>
+    return formData?.map((item: FormDataItem, index) =>
       _TypeFormHandler(item, index),
     )
   }

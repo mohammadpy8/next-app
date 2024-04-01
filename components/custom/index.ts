@@ -1,4 +1,5 @@
 export * from "@/components/custom/formCotroller/controller/FormController";
+export * from "@/components/custom/formCotroller/controller/FormStepperController";
 export * from "@/components/custom/formCotroller/view/FormView";
 
 export * from "@/components/custom/formCotroller/view/Input/Input";

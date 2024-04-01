@@ -2,15 +2,7 @@
 
 import { FormView } from '@/components/custom'
 import { ApiRegister } from '@/config'
-
-interface FormDataItem {
-  label: string
-  valid: boolean
-  type: string
-  customSx: any | null
-  placeholder: string
-  dataForm: any | null
-}
+import { dataFormStepper, formData } from './data'
 
 interface requestPutData {
   PostData: any
@@ -22,33 +14,6 @@ interface requestPutData {
 }
 
 const Main = () => {
-  const formData: FormDataItem[] = [
-    {
-      label: 'نام و نام خانوادگی',
-      valid: true,
-      type: 'INPUT',
-      customSx: null,
-      placeholder: 'نام و نام خانوادگی',
-      dataForm: null,
-    },
-    {
-      label: 'نام و نام خانوادگی',
-      valid: true,
-      type: 'COMBOBOX',
-      customSx: null,
-      placeholder: 'نام و نام خانوادگی',
-      dataForm: null,
-    },
-    {
-      label: 'نام و نام خانوادگی',
-      valid: true,
-      type: 'SWITCH',
-      customSx: null,
-      placeholder: 'نام و نام خانوادگی',
-      dataForm: null,
-    },
-  ]
-
   const dataPost = {
     title: 'mohamm',
     body: 'ddfs',
@@ -70,8 +35,19 @@ const Main = () => {
 
   return (
     <div>
-      <FormView formType="FORM" validationData={getData} formData={formData} />
+      <FormView
+        formType="FORM"
+        validationData={getData}
+        formData={formData}
+        formStepperData={null}
+      />
       <button onClick={postData.PostData}>send</button>
+      <FormView
+        formType="FORM-STEPPER"
+        validationData={2}
+        formData={null}
+        formStepperData={dataFormStepper}
+      />
     </div>
   )
 }
