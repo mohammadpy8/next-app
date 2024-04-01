@@ -2,6 +2,7 @@
 
 import { FormView } from '@/components/export/customExport'
 import { ApiRegister } from '@/config'
+import { useState } from 'react'
 
 interface FormDataItem {
   label: string
@@ -12,8 +13,10 @@ interface FormDataItem {
   dataForm: any | null
 }
 
+const Main = () => {
+  const [data, setData] = useState<any | null>({})
 
-const Main = async () => {
+  console.log('dataaa =====>', data)
 
   const formData: FormDataItem[] = [
     {
@@ -42,7 +45,16 @@ const Main = async () => {
     },
   ]
 
-  const getData = await ApiRegister('todos', 'GET', {}, false, null, () => {})
+  const getData = ApiRegister(
+    'todosss',
+    'GET',
+    {},
+    false,
+    null,
+    'all-todos',
+  )
+
+  console.log('dddddd======>', getData)
 
   return (
     <div>

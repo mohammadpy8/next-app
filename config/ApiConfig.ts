@@ -1,8 +1,6 @@
-"use clinet";
-
 import { useLocalStorage } from "@/hooks";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { Dispatch } from "react";
 
 const Axios = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com",
@@ -47,61 +45,51 @@ const httpsRequest = {
   PUT: Axios.put,
 };
 
-const ApiRegister = async (
+const ApiRegister = (
   endPoint: string,
   typeRequset: string,
   dataRequest: any,
   infoResponse: boolean,
   IDRequest: number | null,
-  saveDataToState: Dispatch<any>
+  queryKeyName: string
 ) => {
   const IDRequestHandler = IDRequest === null ? "" : `/${IDRequest}`;
-  console.log("save======>", saveDataToState);
 
   switch (typeRequset) {
     case "GET":
-      const getData = await httpsRequest
-        .GET(endPoint + IDRequestHandler)
-        .then((response) => {
-          saveDataToState(response.data);
-          return {
-            data: response.data,
-            status: response.status,
-            message: response.statusText,
-            detailsResponse: infoResponse === true ? response : null,
-          };
-        })
-        .catch((error) => {
-          return {
-            errorMessage: error.message,
-            statusError: error.status,
-            detailError: infoResponse === true ? error : null,
-          };
-        });
+      const {
+        data,
+        isPending,
+        error,
+        status,
+        isError,
+        isFetching,
+        isLoading,
+        isSuccess,
+      } = useQuery({
+        queryKey: [queryKeyName],
+        queryFn: () => {
+          return httpsRequest
+            .GET(endPoint + IDRequestHandler)
+            .then((response) => response.data);
+        },
+      });
+      return {
+        all_data: data,
+        isPending: isPending,
+        error: error,
+        statusRequset: status,
+        isError: isError,
+        isFetching: isFetching,
+        isLoading: isLoading,
+        isSuccess: isSuccess,
+      };
 
-      return getData;
     case "POST":
-      const postData = await httpsRequest
-        .POST(endPoint + IDRequestHandler, dataRequest)
-        .then((response) => {
-          return {
-            data: response.data,
-            status: response.status,
-            message: response.statusText,
-            detailsResponse: infoResponse === true ? response : null,
-          };
-        })
-        .catch((error) => {
-          return {
-            errorMessage: error.message,
-            statusError: error.status,
-            detailError: infoResponse === true ? error : null,
-          };
-        });
+      httpsRequest.POST(endPoint + IDRequestHandler, dataRequest);
 
-      return postData;
     case "DELETE":
-      const deleteData = await httpsRequest
+      const deleteData = httpsRequest
         .DELETE(endPoint + IDRequestHandler)
         .then((response) => {
           return {
@@ -120,7 +108,7 @@ const ApiRegister = async (
         });
       return deleteData;
     case "PATCH":
-      const patchData = await httpsRequest
+      const patchData = httpsRequest
         .PATCH(endPoint + IDRequestHandler, dataRequest)
         .then((response) => {
           return {
@@ -139,7 +127,7 @@ const ApiRegister = async (
         });
       return patchData;
     case "PUT":
-      const putData = await httpsRequest
+      const putData = httpsRequest
         .PUT(endPoint + IDRequestHandler, dataRequest)
         .then((response) => {
           return {
@@ -160,4 +148,4 @@ const ApiRegister = async (
   }
 };
 
-export  {ApiRegister};
+export { ApiRegister };
