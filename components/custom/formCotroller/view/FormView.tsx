@@ -1,15 +1,16 @@
 import { FormController } from '@/components/custom'
 
-type FormDataItem = {
+interface FormDataItem  {
   label?: string
   valid?: boolean
-  type: 'INPUT' | 'SWITCH' | 'RADIOBUTTON' | 'TEXTEREA' | 'COMBOBOX'
+  type: 'INPUT' | 'SWITCH' | 'RADIOBUTTON' | 'TEXTEREA' | 'COMBOBOX' 
   placeholder?: string
   dataForm?: any | null
+  customSx: null 
 }
 
 type FormViewType = {
-  formData: FormDataItem[]
+  formData: Array<FormDataItem>
   formType: 'FORM'
   validationData: any
 }

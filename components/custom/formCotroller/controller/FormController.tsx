@@ -13,6 +13,7 @@ type FormDataItem = {
   type: 'INPUT' | 'SWITCH' | 'RADIOBUTTON' | 'TEXTEREA' | 'COMBOBOX'
   placeholder?: string
   dataForm?: any | null
+  customSx: null
 }
 
 interface FormControllerProps {
