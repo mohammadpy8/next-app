@@ -13,6 +13,15 @@ interface FormDataItem {
   dataForm: any | null
 }
 
+interface requestPutData {
+  PutData: any
+  data: any | null,
+  error: any,
+  isPending: boolean,
+  isSuccess: boolean,
+  status: string,
+}
+
 const Main = () => {
   const [data, setData] = useState<any | null>({})
 
@@ -47,7 +56,6 @@ const Main = () => {
 
   const dataPost = {
     title: 'mohamm',
-    body: 'jjjj',
     userId: 100,
   }
 
@@ -55,19 +63,19 @@ const Main = () => {
 
   const postData = ApiRegister(
     'todos',
-    'POST',
+    'PUT',
     dataPost,
     true,
     null,
     'post-todos',
-  ) as any
+  ) as requestPutData
 
   console.log('post=====>', postData)
 
   return (
     <div>
       <FormView formType="FORM" validationData={getData} formData={formData} />
-      <button onClick={postData.PostData}>send</button>
+      <button onClick={postData.PutData}>send</button>
     </div>
   )
 }
