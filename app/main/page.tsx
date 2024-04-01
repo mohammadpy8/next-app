@@ -1,8 +1,7 @@
 'use client'
 
-import { FormView } from '@/components/export/customExport'
+import { FormView } from '@/components/custom'
 import { ApiRegister } from '@/config'
-import { useState } from 'react'
 
 interface FormDataItem {
   label: string
@@ -14,19 +13,15 @@ interface FormDataItem {
 }
 
 interface requestPutData {
-  PutData: any
-  data: any | null,
-  error: any,
-  isPending: boolean,
-  isSuccess: boolean,
-  status: string,
+  PostData: any
+  data: any | null
+  error: any
+  isPending: boolean
+  isSuccess: boolean
+  status: string
 }
 
 const Main = () => {
-  const [data, setData] = useState<any | null>({})
-
-  console.log('dataaa =====>', data)
-
   const formData: FormDataItem[] = [
     {
       label: 'نام و نام خانوادگی',
@@ -56,14 +51,15 @@ const Main = () => {
 
   const dataPost = {
     title: 'mohamm',
+    body: 'ddfs',
     userId: 100,
   }
 
-  const getData = ApiRegister('todosss', 'GET', {}, false, null, 'all-todos')
+  const getData = ApiRegister('todos', 'GET', {}, false, null, 'all-todos')
 
   const postData = ApiRegister(
     'todos',
-    'PUT',
+    'POST',
     dataPost,
     true,
     null,
@@ -75,7 +71,7 @@ const Main = () => {
   return (
     <div>
       <FormView formType="FORM" validationData={getData} formData={formData} />
-      <button onClick={postData.PutData}>send</button>
+      <button onClick={postData.PostData}>send</button>
     </div>
   )
 }

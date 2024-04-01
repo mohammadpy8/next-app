@@ -4,7 +4,7 @@ import {
   RadioButton,
   Switch,
   TextErea,
-} from '@/components/export/customExport'
+} from '@/components/custom'
 import { Box } from '@mui/material'
 
 type FormDataItem = {

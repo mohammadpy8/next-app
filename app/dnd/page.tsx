@@ -1,4 +1,4 @@
-import DndCompoent from "@/components/module/dndComponent/DndCompoent";
+import { DndCompoent } from "@/components/module";
 import React from "react";
 
 const Dnd = () => {

@@ -51,7 +51,7 @@ const ApiRegister = (
   dataRequest: any,
   infoResponse: boolean,
   IDRequest: number | null,
-  keyName: string
+  keyName: string,
 ) => {
   const IDRequestHandler = IDRequest === null ? "" : `/${IDRequest}`;
 

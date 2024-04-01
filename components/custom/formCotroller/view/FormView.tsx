@@ -1,4 +1,4 @@
-import { FormController } from '@/components/export/customExport'
+import { FormController } from '@/components/custom'
 
 type FormDataItem = {
   label?: string
