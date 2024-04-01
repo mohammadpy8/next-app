@@ -6,7 +6,6 @@ type InputProps = {
   dataForm?: any | null
 }
 const Input = (props: InputProps) => {
-  console.log('input props ==>', props)
   return <div>input</div>
 }
 

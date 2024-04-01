@@ -45,20 +45,29 @@ const Main = () => {
     },
   ]
 
-  const getData = ApiRegister(
-    'todosss',
-    'GET',
-    {},
-    false,
-    null,
-    'all-todos',
-  )
+  const dataPost = {
+    title: 'mohamm',
+    body: 'jjjj',
+    userId: 100,
+  }
 
-  console.log('dddddd======>', getData)
+  const getData = ApiRegister('todosss', 'GET', {}, false, null, 'all-todos')
+
+  const postData = ApiRegister(
+    'todos',
+    'POST',
+    dataPost,
+    true,
+    null,
+    'post-todos',
+  ) as any
+
+  console.log('post=====>', postData)
 
   return (
     <div>
       <FormView formType="FORM" validationData={getData} formData={formData} />
+      <button onClick={postData.PostData}>send</button>
     </div>
   )
 }

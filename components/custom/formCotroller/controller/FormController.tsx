@@ -23,28 +23,29 @@ interface FormControllerProps {
 const FormController = (props: FormControllerProps) => {
   const { formData, validationData } = props
 
-  const _TypeFormHandler = (dataForm: FormDataItem) => {
+  const _TypeFormHandler = (dataForm: FormDataItem, key: number) => {
     switch (dataForm.type) {
       case 'INPUT':
-        return <Input {...dataForm} />
+        return <Input {...dataForm} key={key} />
       case 'COMBOBOX':
-        return <ComboBox {...dataForm} />
+        return <ComboBox {...dataForm} key={key} />
       case 'RADIOBUTTON':
-        return <RadioButton {...dataForm} />
+        return <RadioButton {...dataForm} key={key} />
       case 'SWITCH':
-        return <Switch {...dataForm} />
+        return <Switch {...dataForm} key={key} />
       case 'TEXTEREA':
-        return <TextErea {...dataForm} />
+        return <TextErea {...dataForm} key={key} />
       default:
         throw new Error('Invalid Action')
     }
   }
 
   const _FormViewHandler = () => {
-    return formData.map((item: FormDataItem) => _TypeFormHandler(item))
+    return formData.map((item: FormDataItem, index) =>
+      _TypeFormHandler(item, index),
+    )
   }
 
-  console.log('props===>', props)
   return <Box>{_FormViewHandler()}</Box>
 }
 
