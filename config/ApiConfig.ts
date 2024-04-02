@@ -5,30 +5,30 @@ import axios from "axios";
 const Axios = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com",
   timeout: 1500,
-  method: "GET" && "POST" && "DELETE" && "PATCH" && "PUT",
+  // method: "GET" && "POST" && "DELETE" && "PATCH" && "PUT",
   headers: {
     "Content-Type": "Application/json",
   },
 });
 
 Axios.interceptors.request.use(
-  function (request) {
+  function (request: any) {
     const getAccessToken = useLocalStorage("GET_ITEMS", {}, "access_token");
     if (getAccessToken) {
       request.headers["Authorization"] = `Bearer ${getAccessToken}`;
     }
     return request;
   },
-  function (error) {
+  function (error: any) {
     return Promise.reject(error);
   }
 );
 
 Axios.interceptors.response.use(
-  function (response) {
+  function (response: any) {
     return response;
   },
-  async function (error) {
+  async function (error: any) {
     const originalRequest = error.config;
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
@@ -51,7 +51,7 @@ const ApiRegister = (
   dataRequest: any,
   infoResponse: boolean,
   IDRequest: number | null,
-  keyName: string,
+  keyName: string
 ) => {
   const IDRequestHandler = IDRequest === null ? "" : `/${IDRequest}`;
 
@@ -66,12 +66,13 @@ const ApiRegister = (
         isFetching,
         isLoading,
         isSuccess,
+        // eslint-disable-next-line react-hooks/rules-of-hooks
       } = useQuery({
         queryKey: [keyName],
         queryFn: () => {
           return httpsRequest
             .GET(endPoint + IDRequestHandler)
-            .then((response) => response.data);
+            .then((response: any) => response.data);
         },
       });
       return {
@@ -93,12 +94,13 @@ const ApiRegister = (
         status: statusPost,
         data: dataPost,
         isSuccess: isSuccessPost,
+        // eslint-disable-next-line react-hooks/rules-of-hooks
       } = useMutation({
         mutationKey: [keyName],
         mutationFn: () => {
           return httpsRequest
             .POST(endPoint + IDRequestHandler, dataRequest)
-            .then((response) => response.data);
+            .then((response: any) => response.data);
         },
       });
       return {
@@ -118,12 +120,13 @@ const ApiRegister = (
         status: statusDelete,
         data: dataDelete,
         isSuccess: isSuccessDelete,
+        // eslint-disable-next-line react-hooks/rules-of-hooks
       } = useMutation({
         mutationKey: [keyName],
         mutationFn: () => {
           return httpsRequest
             .DELETE(endPoint + IDRequestHandler)
-            .then((response) => response.data);
+            .then((response: any) => response.data);
         },
       });
       return {
@@ -143,12 +146,13 @@ const ApiRegister = (
         error: errorPatch,
         data: dataPatch,
         isSuccess: isSuccessPatch,
+        // eslint-disable-next-line react-hooks/rules-of-hooks
       } = useMutation({
         mutationKey: [keyName],
         mutationFn: () => {
           return httpsRequest
             .PATCH(endPoint + IDRequestHandler, dataRequest)
-            .then((response) => response.data);
+            .then((response: any) => response.data);
         },
       });
       return {
@@ -168,12 +172,13 @@ const ApiRegister = (
         isPending: isPendingPut,
         isSuccess: isSuccessPut,
         status: statusPut,
+        // eslint-disable-next-line react-hooks/rules-of-hooks
       } = useMutation({
         mutationKey: [keyName],
         mutationFn: () => {
           return httpsRequest
             .PUT(endPoint + IDRequestHandler, dataRequest)
-            .then((response) => response.data);
+            .then((response: any) => response.data);
         },
       });
       return {
