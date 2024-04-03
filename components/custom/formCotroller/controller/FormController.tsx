@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ComboBox,
   FormView,
@@ -6,7 +8,9 @@ import {
   Switch,
   TextErea,
 } from "@/components/custom";
+import { ApiRegister } from "@/config";
 import { Box, FormControl, IconButton, Typography } from "@mui/material";
+import { FormEvent, MouseEvent } from "react";
 
 type FormDataItem = {
   label?: string;
@@ -61,12 +65,28 @@ const FormController = (props: FormControllerProps) => {
     );
   };
 
+  // const PostData = (
+  //   event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  // ) => {
+  //   event.preventDefault();
+  //   const postData = ApiRegister(
+  //     "todos",
+  //     "POST",
+  //     validationData,
+  //     true,
+  //     null,
+  //     "form-req"
+  //   );
+  //   console.log("gggg", postData);
+  //   return postData;
+  // };
+
   return (
-    <FormControl onSubmit={() => {}}>
+    <form>
       <Box>
         <Box>{_FormViewHandler()}</Box>
         <Box>
-          <IconButton>
+          <IconButton type="submit">
             <Typography variant="subtitle2">{buttonTextForm}</Typography>
           </IconButton>
         </Box>
@@ -91,7 +111,7 @@ const FormController = (props: FormControllerProps) => {
           </Box>
         )}
       </Box>
-    </FormControl>
+    </form>
   );
 };
 

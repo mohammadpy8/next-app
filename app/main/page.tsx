@@ -1,9 +1,7 @@
-"use client";
-
 import { FormView } from "@/components/custom";
 import { ApiRegister } from "@/config";
 import { dataFormStepper, formData } from "./data";
-
+import { cookies } from 'next/headers'
 interface requestPutData {
   PostData: any;
   data: any | null;
@@ -13,29 +11,32 @@ interface requestPutData {
   status: string;
 }
 
-const Main = () => {
+type requestGetData = {
+  data: any;
+  all_data: any;
+  status: number;
+} & {
+  error: any;
+};
+
+const Main = async () => {
   const dataPost = {
     title: "mohamm",
     body: "ddfs",
     userId: 100,
   };
 
-  const getData = ApiRegister("todos", "GET", {}, false, null, "all-todos");
+  const { GetRequest, PostRequest } = ApiRegister();
 
-  const postData = ApiRegister(
-    "todos",
-    "POST",
-    dataPost,
-    true,
-    null,
-    "post-todos"
-  ) as requestPutData;
 
-  console.log("post=====>", postData);
+  const d = await GetRequest("todoss", null, true);
+
+  console.log("dddd =====>", d);
 
   return (
     <div>
-      <FormView
+      <button>hhh</button>
+      {/* <FormView
         formType="FORM"
         validationData={getData}
         formData={formData}
@@ -57,7 +58,7 @@ const Main = () => {
         childForm={false}
         dataChildForm={null}
         buttonTextForm="تایید"
-      />
+      /> */}
     </div>
   );
 };
