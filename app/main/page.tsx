@@ -1,7 +1,7 @@
 import { FormView } from "@/components/custom";
 import { ApiRegister } from "@/config";
 import { dataFormStepper, formData } from "./data";
-import { cookies } from 'next/headers'
+import { cookies } from "next/headers";
 interface requestPutData {
   PostData: any;
   data: any | null;
@@ -26,8 +26,11 @@ const Main = async () => {
     userId: 100,
   };
 
-  const { GetRequest, PostRequest } = ApiRegister();
-
+  const {
+    GetRequest,
+    PostRequest,
+    AxiosMethod: { GET, POST, DELETE, PATCH, PUT },
+  } = ApiRegister();
 
   const d = await GetRequest("todoss", null, true);
 

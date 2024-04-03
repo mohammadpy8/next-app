@@ -212,6 +212,13 @@ const ApiRegister = () => {
     DeleteRequest,
     PatchRequest,
     PutRequest,
+    AxiosMethod: {
+      GET: Axios.get,
+      POST: Axios.post,
+      DELETE: Axios.delete,
+      PATCH: Axios.patch,
+      PUT: Axios.put,
+    },
   };
 };
 
