@@ -65,28 +65,16 @@ const FormController = (props: FormControllerProps) => {
     );
   };
 
-  // const PostData = (
-  //   event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  // ) => {
-  //   event.preventDefault();
-  //   const postData = ApiRegister(
-  //     "todos",
-  //     "POST",
-  //     validationData,
-  //     true,
-  //     null,
-  //     "form-req"
-  //   );
-  //   console.log("gggg", postData);
-  //   return postData;
-  // };
+  const { PostRequest } = ApiRegister();
+
+  const PostData = PostRequest("todo", null, 5, "todo-post", true);
 
   return (
     <form>
       <Box>
         <Box>{_FormViewHandler()}</Box>
         <Box>
-          <IconButton type="submit">
+          <IconButton type="submit" onClick={() => PostData}>
             <Typography variant="subtitle2">{buttonTextForm}</Typography>
           </IconButton>
         </Box>
