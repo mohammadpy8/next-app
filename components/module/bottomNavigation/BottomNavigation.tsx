@@ -4,7 +4,8 @@ const BottomNavigation = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#00ff00",
+        backgroundColor: "#fff",
+        boxShadow: "0px 0px 8px 0px #00ff00",
         borderRadius: "15px",
         width: { xs: "80%", sm: "25%", md: "25%", lg: "25%", xl: "25%" },
       }}
