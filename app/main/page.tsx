@@ -1,6 +1,6 @@
 "use client";
 
-import { FormView, ImageComponent } from "@/components/custom";
+import { FormView, ImageComponent, LoaderComponent } from "@/components/custom";
 import { ApiRegister } from "@/config";
 import { dataFormStepper, formData } from "./data";
 import { cookies } from "next/headers";
@@ -86,6 +86,17 @@ const Main = () => {
         dataChildForm={null}
         buttonTextForm="تایید"
       /> */}
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <Box bgcolor="#000" width="90%" borderRadius="15px">
+          <LoaderComponent
+            colorLoader="#fff"
+            heigthLoader="60"
+            widthLoader="60"
+            radiusLoader="9"
+            wrapperStyleLoader={{}}
+          />
+        </Box>
+      </Box>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta deserunt
         debitis, dolor quisquam nemo nulla praesentium voluptatum unde officiis
