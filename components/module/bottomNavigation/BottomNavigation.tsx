@@ -1,0 +1,30 @@
+import { Box, Button, Typography } from "@mui/material";
+
+const BottomNavigation = () => {
+  return (
+    <Box
+      sx={{
+        backgroundColor: "#00ff00",
+        borderRadius: "15px",
+        width: { xs: "80%", sm: "25%", md: "25%", lg: "25%", xl: "25%" },
+      }}
+      position={"fixed"}
+      bottom={20}
+      mx={4}
+    >
+      <Box display={"flex"} justifyContent={"space-between"} px={4} py={1}>
+        <Button>
+          <Typography>home</Typography>
+        </Button>
+        <Button>
+          <Typography>profile</Typography>
+        </Button>
+        <Button>
+          <Typography>logout</Typography>
+        </Button>
+      </Box>
+    </Box>
+  );
+};
+
+export { BottomNavigation };

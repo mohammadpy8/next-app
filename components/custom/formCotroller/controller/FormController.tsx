@@ -1,5 +1,3 @@
-"use client";
-
 import {
   ComboBox,
   FormView,
@@ -67,14 +65,28 @@ const FormController = (props: FormControllerProps) => {
 
   const { PostRequest } = ApiRegister();
 
-  const PostData = PostRequest("todo", null, 5, "todo-post", true);
+  const { PostData, data, error, isPending, isSuccess, status } = PostRequest(
+    "todoss",
+    null,
+    { name: 5 },
+    "todo-post",
+    true
+  );
+
+  console.log("resoponse===>", { data, error, isPending, isSuccess, status });
 
   return (
     <form>
       <Box>
         <Box>{_FormViewHandler()}</Box>
         <Box>
-          <IconButton type="submit" onClick={() => PostData}>
+          <IconButton
+            type="submit"
+            onClick={(event) => {
+              PostData();
+              event.preventDefault();
+            }}
+          >
             <Typography variant="subtitle2">{buttonTextForm}</Typography>
           </IconButton>
         </Box>

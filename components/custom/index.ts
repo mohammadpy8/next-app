@@ -7,3 +7,4 @@ export * from "@/components/custom/formCotroller/view/ComboBox/ComboBox";
 export * from "@/components/custom/formCotroller/view/RadioButton/RadioButton";
 export * from "@/components/custom/formCotroller/view/Switch/Switch";
 export * from "@/components/custom/formCotroller/view/TextErea/TextErea";
+export * from "@/components/custom/ImageComponent/ImageComponent";

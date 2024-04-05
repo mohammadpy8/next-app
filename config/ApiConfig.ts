@@ -1,6 +1,6 @@
 import { useLocalStorage } from "@/hooks";
 import { useMutation } from "@tanstack/react-query";
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios, { type AxiosError, AxiosResponse } from "axios";
 
 const Axios = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com/",
@@ -29,7 +29,7 @@ Axios.interceptors.response.use(
   function (response) {
     return response;
   },
-  async function (error: any) {
+  async function (error) {
     const originalRequest = error.config;
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
@@ -56,7 +56,7 @@ const ApiRegister = () => {
     const IDRequestHandler = IDRequest === null ? "" : `/${IDRequest}`;
     const getData = await httpsRequest
       .GET(endPoint + IDRequestHandler)
-      .then((response) => {
+      .then((response: AxiosResponse) => {
         return {
           data: response.data,
           all_data: infoResponse === true ? response : null,
@@ -94,7 +94,7 @@ const ApiRegister = () => {
       mutationFn: () => {
         return httpsRequest
           .POST(endPoint + IDRequestHandler, dataRequest)
-          .then((response: any) => response.data);
+          .then((response: AxiosResponse) => response.data);
       },
     });
     return {
@@ -127,7 +127,7 @@ const ApiRegister = () => {
       mutationFn: () => {
         return httpsRequest
           .DELETE(endPoint + IDRequestHandler)
-          .then((response: any) => response.data);
+          .then((response: AxiosResponse) => response.data);
       },
     });
     return {
@@ -160,7 +160,7 @@ const ApiRegister = () => {
       mutationFn: () => {
         return httpsRequest
           .PATCH(endPoint + IDRequestHandler, dataRequest)
-          .then((response: any) => response.data);
+          .then((response: AxiosResponse) => response.data);
       },
     });
     return {
@@ -193,7 +193,7 @@ const ApiRegister = () => {
       mutationFn: () => {
         return httpsRequest
           .PUT(endPoint + IDRequestHandler, dataRequest)
-          .then((response: any) => response.data);
+          .then((response: AxiosResponse) => response.data);
       },
     });
     return {
