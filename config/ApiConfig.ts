@@ -53,15 +53,10 @@ const httpsRequest = {
 };
 
 function giveData(listData: any, listName: PromiseAllRequest[]) {
-  let listAllData = [];
-  for (let i = 1; i <= listName?.length; i++) {
-    for (let j = 1; j <= listData?.length; j++) {
-      listAllData.push({
-        name: listName[i],
-        data: listData[j],
-      });
-    }
-  }
+  const listAllData = listData?.map((data: any, index: number) => ({
+    ...data,
+    name: listName[index]?.name,
+  }));
   return listAllData;
 }
 
