@@ -5,6 +5,7 @@ import { ApiRegister } from "@/config";
 import { dataFormStepper, formData } from "./data";
 import { cookies } from "next/headers";
 import { Box } from "@mui/material";
+import { useEffect } from "react";
 interface requestPutData {
   PostData: any;
   data: any | null;
@@ -13,6 +14,10 @@ interface requestPutData {
   isSuccess: boolean;
   status: string;
 }
+type PromiseAllRequest = {
+  name: string;
+  endPoint: string;
+};
 
 type requestGetData = {
   data: any;
@@ -29,21 +34,46 @@ const Main = () => {
     userId: 100,
   };
 
+  const listEndPoint = [
+    { name: "todos", endPoint: "todos" },
+    { name: "posts", endPoint: "posts" },
+    { name: "users", endPoint: "users" },
+  ];
+
   const {
     GetRequest,
     PostRequest,
+    AllGetRequest,
     AxiosMethod: { GET, POST, DELETE, PATCH, PUT },
   } = ApiRegister();
 
-  const { PostData, data, error, isPending, isSuccess, status } = PostRequest(
-    "todos",
-    null,
-    { name: "" },
-    "todo-post",
-    true
-  );
+  // function setNameSpreadAxios(listEndPoint) {
+  //   const findName = listEndPoint.map((nameList, index) => {
+  //     return {
+  //       data: nameList.name,
+  //     };
+  //   });
+  //   return findName;
+  // }
 
-  console.log({ data, error, isPending, isSuccess, status });
+
+  // const { PostData, data, error, isPending, isSuccess, status } = PostRequest(
+  //   "todos",
+  //   null,
+  //   { name: "" },
+  //   "todo-post",
+  //   true
+  // );
+
+  useEffect(() => {
+    const ff = async () => {
+      const dataaaa = await AllGetRequest(listEndPoint);
+      console.log("ddddddd=====>", dataaaa);
+    };
+    ff();
+  }, []);
+
+  // console.log({ data, error, isPending, isSuccess, status });
 
   // const d = await GetRequest("todoss", null, true);
 
@@ -51,7 +81,7 @@ const Main = () => {
 
   return (
     <div>
-      <button onClick={() => PostData()}>hhh</button>
+      {/* <button onClick={() => PostData()}>hhh</button> */}
       <FormView
         formType="FORM"
         validationData={2}

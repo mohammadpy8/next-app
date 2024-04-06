@@ -2,6 +2,11 @@ import { useLocalStorage } from "@/hooks";
 import { useMutation } from "@tanstack/react-query";
 import axios, { type AxiosError, AxiosResponse } from "axios";
 
+type PromiseAllRequest = {
+  name: string;
+  endPoint: string;
+};
+
 const Axios = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com/",
   timeout: 1500,
@@ -46,6 +51,19 @@ const httpsRequest = {
   PATCH: Axios.patch,
   PUT: Axios.put,
 };
+
+function giveData(listData: any, listName: PromiseAllRequest[]) {
+  let listAllData = [];
+  for (let i = 1; i <= listName?.length; i++) {
+    for (let j = 1; j <= listData?.length; j++) {
+      listAllData.push({
+        name: listName[i],
+        data: listData[j],
+      });
+    }
+  }
+  return listAllData;
+}
 
 const ApiRegister = () => {
   const GetRequest = async (
@@ -206,12 +224,24 @@ const ApiRegister = () => {
     };
   };
 
+  const AllGetRequest = async (endPointList: PromiseAllRequest[]) => {
+    const getAllData = await axios
+      .all(endPointList?.map((endPoint) => httpsRequest.GET(endPoint.endPoint)))
+      .then((response) => {
+        return {
+          all_data: giveData(response, endPointList),
+        };
+      });
+    return getAllData;
+  };
+
   return {
     GetRequest,
     PostRequest,
     DeleteRequest,
     PatchRequest,
     PutRequest,
+    AllGetRequest,
     AxiosMethod: {
       GET: Axios.get,
       POST: Axios.post,
