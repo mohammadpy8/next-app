@@ -35,7 +35,7 @@ const Main = () => {
   };
 
   const listEndPoint = [
-    { name: "todos", endPoint: "todos" },
+    { name: "todos", endPoint: "todoss" },
     { name: "posts", endPoint: "posts" },
     { name: "users", endPoint: "users" },
   ];
@@ -56,7 +56,6 @@ const Main = () => {
   //   return findName;
   // }
 
-
   // const { PostData, data, error, isPending, isSuccess, status } = PostRequest(
   //   "todos",
   //   null,
@@ -67,8 +66,8 @@ const Main = () => {
 
   useEffect(() => {
     const ff = async () => {
-      const dataaaa = await AllGetRequest(listEndPoint);
-      console.log("ddddddd=====>", dataaaa);
+      const ddd = await AllGetRequest(listEndPoint);
+      console.log("ddddddd=====>", ddd);
     };
     ff();
   }, []);

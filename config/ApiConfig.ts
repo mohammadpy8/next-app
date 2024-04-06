@@ -226,6 +226,11 @@ const ApiRegister = () => {
         return {
           all_data: giveData(response, endPointList),
         };
+      })
+      .catch((error: AxiosError) => {
+        return {
+          error,
+        };
       });
     return getAllData;
   };
