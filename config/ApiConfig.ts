@@ -1,6 +1,7 @@
 import { useLocalStorage } from "@/hooks";
 import { useMutation } from "@tanstack/react-query";
-import axios, { type AxiosError, AxiosResponse } from "axios";
+import axios from "axios";
+import { ApiError } from "next/dist/server/api-utils";
 
 type PromiseAllRequest = {
   name: string;
@@ -16,16 +17,43 @@ const Axios = axios.create({
   },
 });
 
+const createErrorMessage = (error: unknown) => {
+  if (axios.isAxiosError(error)) {
+    const apiError = error.response?.data;
+    if (typeof apiError === "string" && (apiError as string).length > 0) {
+      return apiError;
+    }
+    return apiError?.message || apiError?.error || error.message;
+  }
+  if (error instanceof Error) {
+    return error.message;
+  }
+  if (
+    error &&
+    typeof error === "object" &&
+    "message" in error &&
+    typeof error.message === "string"
+  ) {
+    return error.message;
+  }
+
+  return "Generic error message";
+};
 Axios.interceptors.request.use(
   function (request) {
-    // console.log("===>");
-    // const getAccessToken = useLocalStorage("GET_ITEMS", {}, "access_token");
-    // if (getAccessToken) {
-    //   request.headers["Authorization"] = `Bearer ${getAccessToken}`;
-    // }
+    request.headers["Content-Type"] = "application/json";
     return request;
   },
   function (error) {
+    const status = error?.response?.status || 0;
+    const resBaseURL = error?.response?.config?.baseURL;
+    if (resBaseURL === "baseURL" && status === 401) {
+      if (localStorage.getItem("token")) {
+        return Promise.reject(error);
+      } else {
+        return Promise.reject(error);
+      }
+    }
     return Promise.reject(error);
   }
 );
@@ -40,7 +68,50 @@ Axios.interceptors.response.use(
       originalRequest._retry = true;
       return Axios(originalRequest);
     }
-    return Promise.reject(error);
+    if (error.response && error.response.status >= 500) {
+      const { response } = error;
+      const message = createErrorMessage(error);
+      if (message) {
+        return {
+          error: {
+            contentType:
+              response.headers["Content-Type"] ||
+              response.headers["content-type"],
+            message: createErrorMessage(error),
+          },
+        };
+      }
+    }
+    const status = error.response?.status || 500;
+    switch (status) {
+      case 401: {
+        return Promise.reject(new ApiError(error.message, "409"));
+      }
+
+      case 403: {
+        return Promise.reject(new ApiError(error.message, "409"));
+      }
+
+      case 400: {
+        return Promise.reject(new ApiError(error.message, "400"));
+      }
+
+      case 404: {
+        return Promise.reject(new ApiError(error.message, "404"));
+      }
+
+      case 409: {
+        return Promise.reject(new ApiError(error.message, "409"));
+      }
+
+      case 422: {
+        return Promise.reject(new ApiError(error.message, "422"));
+      }
+
+      default: {
+        return Promise.reject(new ApiError(error.message, "500"));
+      }
+    }
   }
 );
 
@@ -69,14 +140,14 @@ const ApiRegister = () => {
     const IDRequestHandler = IDRequest === null ? "" : `/${IDRequest}`;
     const getData = await httpsRequest
       .GET(endPoint + IDRequestHandler)
-      .then((response: AxiosResponse) => {
+      .then((response) => {
         return {
           data: response.data,
           all_data: infoResponse === true ? response : null,
           status: response.status,
         };
       })
-      .catch((error: AxiosError) => {
+      .catch((error) => {
         return {
           error,
           statusError: error.response?.status,
@@ -107,7 +178,7 @@ const ApiRegister = () => {
       mutationFn: () => {
         return httpsRequest
           .POST(endPoint + IDRequestHandler, dataRequest)
-          .then((response: AxiosResponse) => response.data);
+          .then((response) => response.data);
       },
     });
     return {
@@ -140,7 +211,7 @@ const ApiRegister = () => {
       mutationFn: () => {
         return httpsRequest
           .DELETE(endPoint + IDRequestHandler)
-          .then((response: AxiosResponse) => response.data);
+          .then((response) => response.data);
       },
     });
     return {
@@ -173,7 +244,7 @@ const ApiRegister = () => {
       mutationFn: () => {
         return httpsRequest
           .PATCH(endPoint + IDRequestHandler, dataRequest)
-          .then((response: AxiosResponse) => response.data);
+          .then((response) => response.data);
       },
     });
     return {
@@ -206,7 +277,7 @@ const ApiRegister = () => {
       mutationFn: () => {
         return httpsRequest
           .PUT(endPoint + IDRequestHandler, dataRequest)
-          .then((response: AxiosResponse) => response.data);
+          .then((response) => response.data);
       },
     });
     return {
@@ -227,7 +298,7 @@ const ApiRegister = () => {
           all_data: giveData(response, endPointList),
         };
       })
-      .catch((error: AxiosError) => {
+      .catch((error) => {
         return {
           error,
         };
