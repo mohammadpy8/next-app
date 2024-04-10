@@ -35,7 +35,7 @@ export default function RootLayout({
           <Box
             sx={{
               height: "100vh",
-              width: { xs: "100%", sm: "30%", md: "30%", lg: "30%", xl: "30%" },
+              width: { xs: "100%", sm: "512px" },
               backgroundColor: "#fff",
               overflow: "hidden",
               overflowY: "scroll",

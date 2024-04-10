@@ -6,6 +6,8 @@ import { dataFormStepper, formData } from "./data";
 import { cookies } from "next/headers";
 import { Box } from "@mui/material";
 import { useEffect } from "react";
+import dataForm from "./data-form.json"
+
 interface requestPutData {
   PostData: any;
   data: any | null;
@@ -63,6 +65,8 @@ const Main = () => {
   //   "todo-post",
   //   true
   // );
+
+  console.log("fdfg==>", dataForm)
 
   useEffect(() => {
     const ff = async () => {

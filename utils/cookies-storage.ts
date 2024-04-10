@@ -1,0 +1,3 @@
+const cookeisStorage = () => {};
+
+export { cookeisStorage };
