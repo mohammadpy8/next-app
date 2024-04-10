@@ -1,4 +1,3 @@
-import { useLocalStorage } from "@/hooks";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { ApiError } from "next/dist/server/api-utils";
@@ -13,7 +12,7 @@ const Axios = axios.create({
   timeout: 1500,
   method: "GET" && "POST" && "DELETE" && "PATCH" && "PUT",
   headers: {
-    "Content-Type": "Application/json",
+    Accept: "Application/json",
   },
 });
 

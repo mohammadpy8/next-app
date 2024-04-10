@@ -1,19 +1,21 @@
 const useLocalStorage = (
-  typeLocalStorage: "SET_ITEMS" | "GET_ITEMS" | "REMOVE_ITEMS",
   dataLocalStorage: any,
   nameLocalStorage: string
 ) => {
-  switch (typeLocalStorage) {
-    case "SET_ITEMS":
+  return {
+    SetItems: () => {
       return localStorage.setItem(
         nameLocalStorage,
-        JSON.stringify(dataLocalStorage)
+        JSON.stringify(dataLocalStorage) as string
       );
-    case "GET_ITEMS":
+    },
+    GetItems: () => {
       return JSON.parse(localStorage.getItem(nameLocalStorage) as string);
-    case "REMOVE_ITEMS":
+    },
+    RemoveItems: () => {
       return localStorage.removeItem(nameLocalStorage);
-  }
+    },
+  };
 };
 
 export { useLocalStorage };
