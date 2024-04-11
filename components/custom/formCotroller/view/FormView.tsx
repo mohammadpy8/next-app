@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { FormController, FormStepperController } from "@/components/custom";
 
 export interface singlePageDataProps {
@@ -14,11 +14,15 @@ export interface singlePageDataProps {
 type PropsFormView = {
   singlePageData?: singlePageDataProps;
   validationForm: any;
+  headerTitle: string;
+  buttonData:any
 };
 
 const FormView = ({
   singlePageData,
   validationForm,
+  headerTitle,
+  buttonData,
   ...restProps
 }: PropsFormView) => {
   const sizeDataFrom = Object.keys(singlePageData ?? {}).length;
@@ -29,6 +33,7 @@ const FormView = ({
           {...restProps}
           validationForm={validationForm}
           dataForm={singlePageData}
+          buttonData={buttonData}
         />
       );
     } else if (sizeDataFrom && sizeDataFrom > 1) {
@@ -40,8 +45,13 @@ const FormView = ({
     }
   };
   return (
-    <Box width={"100%"} height={"100%"} bgcolor={"#333"} p={4}>
-      {_formControllers()}
+    <Box width={"100%"} height={"100%"} bgcolor={"#00ffff"}>
+      {headerTitle && headerTitle.length > 0 && (
+        <Box display={"flex"} justifyContent={"center"}>
+          <Typography variant="h4">{headerTitle}</Typography>
+        </Box>
+      )}
+      <Box> {_formControllers()}</Box>
     </Box>
   );
 };

@@ -5,12 +5,14 @@ import {
   Switch,
   TextErea,
   type singlePageDataProps,
+  ButtonComponent,
 } from "@/components/custom";
 import { Box } from "@mui/material";
 
 type PropsFormView = {
   dataForm?: singlePageDataProps;
   validationForm: any;
+  buttonData:any
 };
 
 type allData = {
@@ -26,13 +28,14 @@ type typeFrom = "INPUT" | "TEXTAREA" | "SWITCH" | "RADIOBUTTON" | "COMBOBOX";
 const FormController = ({
   validationForm,
   dataForm,
+  buttonData,
   ...restProps
 }: PropsFormView) => {
   const _showFormView = (typeForm: typeFrom, all_data: allData, id: number) => {
     const validationFilter = (name_validation: string) => {
-      const typeValidation = validationForm?.filter(
-        (item: any) => item?.name === name_validation
-      ) ?? [];
+      const typeValidation =
+        validationForm?.filter((item: any) => item?.name === name_validation) ??
+        [];
       return typeValidation;
     };
 
@@ -89,9 +92,18 @@ const FormController = ({
     );
   };
   return (
-    <Box width={"100%"} height={"100%"} p={2}>
+    <Box
+      width={"100%"}
+      height={"100%"}
+      sx={{
+        margin: "10px 25px",
+      }}
+    >
       <Box width={"100%"} height={"100%"}>
         {_viewForm()}
+      </Box>
+      <Box>
+        <ButtonComponent buttonData={buttonData} />
       </Box>
     </Box>
   );

@@ -9,3 +9,4 @@ export * from "@/components/custom/formCotroller/view/Switch/Switch";
 export * from "@/components/custom/formCotroller/view/TextErea/TextErea";
 export * from "@/components/custom/ImageComponent/ImageComponent";
 export * from "@/components/custom/loaderComponent/LoaderComponent";
+export * from "@/components/custom/buttonComponent/ButtonComponent";

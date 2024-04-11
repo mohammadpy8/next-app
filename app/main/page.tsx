@@ -1,14 +1,17 @@
 "use client";
 
-import { FormView, ImageComponent, LoaderComponent, type singlePageDataProps } from "@/components/custom";
+import {
+  FormView,
+  ImageComponent,
+  LoaderComponent,
+  type singlePageDataProps,
+} from "@/components/custom";
 import { ApiRegister } from "@/config";
 import { Box } from "@mui/material";
 import { useEffect } from "react";
-import data_form from "./data-form.json"
-
+import data_form from "./data-form.json";
 
 const Main = () => {
-
   const listEndPoint = [
     { name: "todos", endPoint: "todoss" },
     { name: "posts", endPoint: "posts" },
@@ -22,7 +25,6 @@ const Main = () => {
     AxiosMethod: { GET, POST, DELETE, PATCH, PUT },
   } = ApiRegister();
 
-
   // console.log("fdfg==>", data_form)
 
   useEffect(() => {
@@ -35,8 +37,18 @@ const Main = () => {
 
   return (
     <div>
-      <Box>
-        <FormView singlePageData={data_form as singlePageDataProps} validationForm={null} />
+      <Box width={"100%"}>
+        <FormView
+          singlePageData={data_form as singlePageDataProps}
+          validationForm={null}
+          headerTitle="ثبت نام"
+          buttonData={{
+            title: "بررسی",
+            color: "primary",
+            sx: {},
+            type: "filled",
+          }}
+        />
         <ImageComponent
           altImage="flower"
           heigthImage={50}
