@@ -1,12 +1,5 @@
-type TextEreaProps = {
-  label?: string
-  valid?: boolean
-  type: 'INPUT' | 'SWITCH' | 'RADIOBUTTON' | 'TEXTEREA' | 'COMBOBOX'
-  placeholder?: string
-  dataForm?: any | null
-  customSx: null
-}
-const TextErea = (props: TextEreaProps) => {
+
+const TextErea = (props) => {
   return <div>texteear</div>
 }
 

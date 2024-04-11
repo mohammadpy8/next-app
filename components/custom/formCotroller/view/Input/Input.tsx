@@ -1,13 +1,6 @@
-type InputProps = {
-  label?: string
-  valid?: boolean
-  type: 'INPUT' | 'SWITCH' | 'RADIOBUTTON' | 'TEXTEREA' | 'COMBOBOX'
-  placeholder?: string
-  dataForm?: any | null
-  customSx: null
-}
-const Input = (props: InputProps) => {
-  return <div>input</div>
-}
+const Input = (props: any) => {
+  console.log("Input", props);
+  return <div>input</div>;
+};
 
-export { Input }
+export { Input };

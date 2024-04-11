@@ -1,5 +1,3 @@
-import { FormDataItem } from "@/components/custom";
-
 const dataFormStepper = [
   [
     {
@@ -43,7 +41,7 @@ const dataFormStepper = [
   ],
 ];
 
-const formData : FormDataItem[] = [
+const formData = [
   {
     label: "نام و نام خانوادگی",
     valid: true,

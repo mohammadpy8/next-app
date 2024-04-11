@@ -1,7 +1,18 @@
 {
-    "page-1":[
-        {},
-        {}
-    ],
-    "page-2":[]
+    "page_1": [
+        {
+            "id": 1,
+            "type": "INPUT",
+            "placeholder": "input",
+            "label": "input",
+            "valid": true
+        },
+        {
+            "id": 1,
+            "type": "SWITCH",
+            "placeholder": "switch",
+            "label": "switch",
+            "valid": true
+        }
+    ]
 }

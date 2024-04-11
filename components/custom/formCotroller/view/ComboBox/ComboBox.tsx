@@ -1,12 +1,5 @@
-type ComboBoxProps = {
-  label?: string
-  valid?: boolean
-  type: 'INPUT' | 'SWITCH' | 'RADIOBUTTON' | 'TEXTEREA' | 'COMBOBOX'
-  placeholder?: string
-  dataForm?: any | null
-  customSx: null
-}
-const ComboBox = (props: ComboBoxProps) => {
+
+const ComboBox = (props) => {
   return <div>combo</div>
 }
 

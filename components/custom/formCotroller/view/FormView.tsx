@@ -1,76 +1,49 @@
+import { Box } from "@mui/material";
 import { FormController, FormStepperController } from "@/components/custom";
 
-export interface FormDataItem {
-  label?: string;
-  valid?: boolean;
-  type: "INPUT" | "SWITCH" | "RADIOBUTTON" | "TEXTEREA" | "COMBOBOX";
-  placeholder?: string;
-  dataForm?: any | null;
-  customSx: null;
+export interface singlePageDataProps {
+  page_1: {
+    id: number;
+    type: "INPUT" | "TEXTAREA" | "SWITCH" | "RADIOBUTTON" | "COMBOBOX";
+    placeholder: string;
+    label: string;
+    valid: boolean;
+  }[];
 }
 
-interface FormStteprDataItem {
-  page: number;
-  label?: string;
-  valid?: boolean;
-  type: "INPUT" | "SWITCH" | "RADIOBUTTON" | "TEXTEREA" | "COMBOBOX";
-  placeholder?: string;
-  dataForm?: any | null;
-  customSx: null;
-}
-
-type FormViewType = {
-  formData: Array<FormDataItem> | null;
-  formStepperData: Array<Array<FormStteprDataItem>> | null;
-  formType: "FORM" | "FORM-STEPPER";
-  validationData: any;
-  textBottomForm: boolean;
-  textOnPage: number | null;
-  childForm: boolean;
-  buttonTextForm: string;
-  dataChildForm:any
+type PropsFormView = {
+  singlePageData?: singlePageDataProps;
+  validationForm: any;
 };
 
-const FormView = (props: FormViewType) => {
-  const {
-    formType,
-    validationData,
-    formData,
-    formStepperData,
-    textBottomForm,
-    textOnPage,
-    childForm,
-    buttonTextForm,
-    dataChildForm
-  } = props;
-  switch (formType) {
-    case "FORM":
+const FormView = ({
+  singlePageData,
+  validationForm,
+  ...restProps
+}: PropsFormView) => {
+  const sizeDataFrom = Object.keys(singlePageData ?? {}).length;
+  const _formControllers = () => {
+    if (sizeDataFrom && sizeDataFrom === 1) {
       return (
         <FormController
-          formData={formData}
-          validationData={validationData}
-          textBottomForm={textBottomForm}
-          textOnPage={textOnPage}
-          childForm={childForm}
-          buttonTextForm={buttonTextForm}
-          dataChildForm={dataChildForm}
+          {...restProps}
+          validationForm={validationForm}
+          dataForm={singlePageData}
         />
       );
-    case "FORM-STEPPER":
+    } else if (sizeDataFrom && sizeDataFrom > 1) {
       return (
-        <FormStepperController
-          formStepperData={formStepperData}
-          validationData={validationData}
-          textBottomForm={textBottomForm}
-          textOnPage={textOnPage}
-          childForm={childForm}
-          buttonTextForm={buttonTextForm}
-          dataChildForm={dataChildForm}
-        />
+        <FormStepperController {...restProps} validationForm={validationForm} />
       );
-    default:
-      throw new Error("Invalid Action");
-  }
+    } else {
+      throw new Error("Invalid FormController");
+    }
+  };
+  return (
+    <Box width={"100%"} height={"100%"} bgcolor={"#333"} p={4}>
+      {_formControllers()}
+    </Box>
+  );
 };
 
 export { FormView };

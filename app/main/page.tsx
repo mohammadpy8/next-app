@@ -1,40 +1,13 @@
 "use client";
 
-import { FormView, ImageComponent, LoaderComponent } from "@/components/custom";
+import { FormView, ImageComponent, LoaderComponent, type singlePageDataProps } from "@/components/custom";
 import { ApiRegister } from "@/config";
-import { dataFormStepper, formData } from "./data";
-import { cookies } from "next/headers";
 import { Box } from "@mui/material";
 import { useEffect } from "react";
-import dataForm from "./data-form.json"
+import data_form from "./data-form.json"
 
-interface requestPutData {
-  PostData: any;
-  data: any | null;
-  error: any;
-  isPending: boolean;
-  isSuccess: boolean;
-  status: string;
-}
-type PromiseAllRequest = {
-  name: string;
-  endPoint: string;
-};
-
-type requestGetData = {
-  data: any;
-  all_data: any;
-  status: number;
-} & {
-  error: any;
-};
 
 const Main = () => {
-  const dataPost = {
-    title: "mohamm",
-    body: "ddfs",
-    userId: 100,
-  };
 
   const listEndPoint = [
     { name: "todos", endPoint: "todoss" },
@@ -49,54 +22,21 @@ const Main = () => {
     AxiosMethod: { GET, POST, DELETE, PATCH, PUT },
   } = ApiRegister();
 
-  // function setNameSpreadAxios(listEndPoint) {
-  //   const findName = listEndPoint.map((nameList, index) => {
-  //     return {
-  //       data: nameList.name,
-  //     };
-  //   });
-  //   return findName;
-  // }
 
-  // const { PostData, data, error, isPending, isSuccess, status } = PostRequest(
-  //   "todos",
-  //   null,
-  //   { name: "" },
-  //   "todo-post",
-  //   true
-  // );
-
-  console.log("fdfg==>", dataForm)
+  // console.log("fdfg==>", data_form)
 
   useEffect(() => {
     const ff = async () => {
       const ddd = await AllGetRequest(listEndPoint);
-      console.log("ddddddd=====>", ddd);
+      // console.log("ddddddd=====>", ddd);
     };
     ff();
   }, []);
 
-  // console.log({ data, error, isPending, isSuccess, status });
-
-  // const d = await GetRequest("todoss", null, true);
-
-  // console.log("dddd =====>", d);
-
   return (
     <div>
-      {/* <button onClick={() => PostData()}>hhh</button> */}
-      <FormView
-        formType="FORM"
-        validationData={2}
-        formData={formData}
-        formStepperData={null}
-        textBottomForm={false}
-        textOnPage={null}
-        childForm={false}
-        dataChildForm={null}
-        buttonTextForm="ارسال اطلاعات"
-      />
       <Box>
+        <FormView singlePageData={data_form as singlePageDataProps} validationForm={null} />
         <ImageComponent
           altImage="flower"
           heigthImage={50}
@@ -107,18 +47,6 @@ const Main = () => {
           }}
         />
       </Box>
-      {/* <button onClick={postData.PostData}>send</button> */}
-      {/* <FormView
-        formType="FORM-STEPPER"
-        validationData={2}
-        formData={null}
-        formStepperData={dataFormStepper}
-        textBottomForm={false}
-        textOnPage={null}
-        childForm={false}
-        dataChildForm={null}
-        buttonTextForm="تایید"
-      /> */}
       <Box display="flex" justifyContent="center" alignItems="center">
         <Box bgcolor="#000" width="90%" borderRadius="15px">
           <LoaderComponent

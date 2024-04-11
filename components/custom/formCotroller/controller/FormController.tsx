@@ -1,118 +1,100 @@
 import {
-  ComboBox,
-  FormView,
   Input,
+  ComboBox,
   RadioButton,
   Switch,
   TextErea,
-} from '@/components/custom'
-import { ApiRegister } from '@/config'
-import { Box, FormControl, IconButton, Typography } from '@mui/material'
-import { FormEvent, MouseEvent } from 'react'
+  type singlePageDataProps,
+} from "@/components/custom";
+import { Box } from "@mui/material";
 
-type FormDataItem = {
-  label?: string
-  valid?: boolean
-  type: 'INPUT' | 'SWITCH' | 'RADIOBUTTON' | 'TEXTEREA' | 'COMBOBOX'
-  placeholder?: string
-  dataForm?: any | null
-  customSx: null
-}
+type PropsFormView = {
+  dataForm?: singlePageDataProps;
+  validationForm: any;
+};
 
-interface FormControllerProps {
-  formData: FormDataItem[] | null
-  validationData: any
-  textBottomForm: boolean
-  textOnPage: number | null
-  childForm: boolean
-  buttonTextForm: string
-  dataChildForm: any
-}
+type allData = {
+  id: number;
+  type: "INPUT" | "TEXTAREA" | "SWITCH" | "RADIOBUTTON" | "COMBOBOX";
+  placeholder: string;
+  label: string;
+  valid: boolean;
+};
 
-const FormController = (props: FormControllerProps) => {
-  const {
-    formData,
-    validationData,
-    textBottomForm,
-    textOnPage,
-    childForm,
-    buttonTextForm,
-    dataChildForm,
-  } = props
+type typeFrom = "INPUT" | "TEXTAREA" | "SWITCH" | "RADIOBUTTON" | "COMBOBOX";
 
-  const _TypeFormHandler = (dataForm: FormDataItem, key: number) => {
-    switch (dataForm.type) {
-      case 'INPUT':
-        return <Input {...dataForm} key={key} />
-      case 'COMBOBOX':
-        return <ComboBox {...dataForm} key={key} />
-      case 'RADIOBUTTON':
-        return <RadioButton {...dataForm} key={key} />
-      case 'SWITCH':
-        return <Switch {...dataForm} key={key} />
-      case 'TEXTEREA':
-        return <TextErea {...dataForm} key={key} />
+const FormController = ({
+  validationForm,
+  dataForm,
+  ...restProps
+}: PropsFormView) => {
+  const _showFormView = (typeForm: typeFrom, all_data: allData, id: number) => {
+    const validationFilter = (name_validation: string) => {
+      const typeValidation = validationForm?.filter(
+        (item: any) => item?.name === name_validation
+      ) ?? [];
+      return typeValidation;
+    };
+
+    switch (typeForm) {
+      case "INPUT":
+        return (
+          <Input
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("input")}
+          />
+        );
+      case "TEXTAREA":
+        return (
+          <TextErea
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("texteara")}
+          />
+        );
+      case "SWITCH":
+        return (
+          <Switch
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("switch")}
+          />
+        );
+      case "RADIOBUTTON":
+        return (
+          <RadioButton
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("radiobutton")}
+          />
+        );
+      case "COMBOBOX":
+        return (
+          <ComboBox
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("combobox")}
+          />
+        );
       default:
-        throw new Error('Invalid Action')
+        throw new Error("Invalid type from");
     }
-  }
+  };
 
-  const _FormViewHandler = () => {
-    return formData?.map((item: FormDataItem, index: number) =>
-      _TypeFormHandler(item, index),
-    )
-  }
-
-  const { PostRequest } = ApiRegister()
-
-  const { PostData, data, error, isPending, isSuccess, status } = PostRequest(
-    'todoss',
-    null,
-    { name: 5 },
-    'todo-post',
-    true,
-  )
-
-  console.log('resoponse===>', { data, error, isPending, isSuccess, status })
-
+  console.log("controller:==>", dataForm);
+  const _viewForm = () => {
+    return dataForm?.page_1?.map((data, index) =>
+      _showFormView(data?.type, data, index)
+    );
+  };
   return (
-    <form>
-      <Box>
-        <Box>{_FormViewHandler()}</Box>
-        <Box>
-          <IconButton
-            type="submit"
-            onClick={(event) => {
-              PostData()
-              event.preventDefault()
-            }}
-          >
-            <Typography variant="subtitle2">{buttonTextForm}</Typography>
-          </IconButton>
-        </Box>
-        {textBottomForm && (
-          <Box>
-            <Typography>نام و نام خانوادگی</Typography>
-          </Box>
-        )}
-        {childForm && (
-          <Box>
-            <FormView
-              buttonTextForm="send"
-              childForm={false}
-              dataChildForm={null}
-              formData={dataChildForm}
-              formStepperData={null}
-              formType="FORM"
-              textBottomForm={false}
-              textOnPage={null}
-              validationData={2}
-            />
-          </Box>
-        )}
+    <Box width={"100%"} height={"100%"} p={2}>
+      <Box width={"100%"} height={"100%"}>
+        {_viewForm()}
       </Box>
-    </form>
-  )
-}
+    </Box>
+  );
+};
 
-export { FormController }
+export { FormController };
