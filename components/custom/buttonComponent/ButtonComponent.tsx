@@ -10,8 +10,12 @@ const ButtonComponent = ({
 }: buttonComponentProps) => {
   console.log("button", buttonData);
   return (
-    <Box>
-      <Button sx={buttonData.sx} color={buttonData.color}>
+    <Box sx={buttonData.sxParent}>
+      <Button
+        sx={buttonData.sx}
+        color={buttonData.color}
+        variant={buttonData.type}
+      >
         <Typography>{buttonData.title}</Typography>
       </Button>
     </Box>

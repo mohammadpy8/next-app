@@ -46,7 +46,11 @@ const Main = () => {
             title: "بررسی",
             color: "primary",
             sx: {},
-            type: "filled",
+            sxParent: {
+              display: "flex",
+              justifyContent: "center",
+            },
+            type: "contained",
           }}
         />
         <ImageComponent
