@@ -1,15 +1,23 @@
 "use client";
 
+import { DevTool } from "@hookform/devtools";
 import { Box } from "@mui/material";
 import { useForm } from "react-hook-form";
 
 const Manage = () => {
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors, isValid },
+  } = useForm({
     defaultValues: {
       name: "",
       email: "",
     },
   });
+
+  console.log("errors", errors, isValid);
 
   const formSubmitting = (data: any) => {
     console.log("data=>", data);
@@ -17,9 +25,42 @@ const Manage = () => {
 
   return (
     <Box display="flex" flexDirection="column" gap={10} padding={10}>
+      <DevTool control={control} placement="top-left" />
       <form onSubmit={handleSubmit(formSubmitting)}>
-        <input type="text" placeholder="name.." {...register("name")} />
-        <input type="email" placeholder="email.." {...register("email")} />
+        <input
+          type="text"
+          placeholder="name.."
+          {...register("name", {
+            required: "وارد کردن اسم الزامی است",
+            minLength: {
+              value: 3,
+              message: "باید 3 کاراکتر حداقل باشد",
+            },
+            maxLength: {
+              value: 10,
+              message: "باید 10 کاراکتر حداکثر باشد",
+            },
+          })}
+        />
+        <input
+          type="email"
+          placeholder="email.."
+          {...register("email", {
+            required: "وارد کردن ایمیل الزامی است",
+            minLength: {
+              value: 10,
+              message: "باید 10 کاراکتر حداقل باشد",
+            },
+            maxLength: {
+              value: 30,
+              message: "باید 30 کاراکتر حداکثر باشد",
+            },
+            pattern: {
+              value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g,
+              message: "فرمت ایمیل نامعتبر است",
+            },
+          })}
+        />
         <button type="submit">register</button>
       </form>
     </Box>
