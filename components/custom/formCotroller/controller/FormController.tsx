@@ -12,7 +12,7 @@ import { Box } from "@mui/material";
 type PropsFormView = {
   dataForm?: singlePageDataProps;
   validationForm: any;
-  buttonData:any
+  buttonData: any;
 };
 
 type allData = {
@@ -25,61 +25,27 @@ type allData = {
 
 type typeFrom = "INPUT" | "TEXTAREA" | "SWITCH" | "RADIOBUTTON" | "COMBOBOX";
 
-const FormController = ({
-  validationForm,
-  dataForm,
-  buttonData,
-  ...restProps
-}: PropsFormView) => {
+const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: PropsFormView) => {
   const _showFormView = (typeForm: typeFrom, all_data: allData, id: number) => {
     const validationFilter = (name_validation: string) => {
       const typeValidation =
-        validationForm?.filter((item: any) => item?.name === name_validation) ??
-        [];
+        validationForm?.filter((item: any) => item?.name === name_validation) ?? [];
       return typeValidation;
     };
 
     switch (typeForm) {
       case "INPUT":
-        return (
-          <Input
-            key={id}
-            all_data={all_data}
-            validation={validationFilter("input")}
-          />
-        );
+        return <Input key={id} all_data={all_data} validation={validationFilter("input")} />;
       case "TEXTAREA":
-        return (
-          <TextErea
-            key={id}
-            all_data={all_data}
-            validation={validationFilter("texteara")}
-          />
-        );
+        return <TextErea key={id} all_data={all_data} validation={validationFilter("texteara")} />;
       case "SWITCH":
-        return (
-          <Switch
-            key={id}
-            all_data={all_data}
-            validation={validationFilter("switch")}
-          />
-        );
+        return <Switch key={id} all_data={all_data} validation={validationFilter("switch")} />;
       case "RADIOBUTTON":
         return (
-          <RadioButton
-            key={id}
-            all_data={all_data}
-            validation={validationFilter("radiobutton")}
-          />
+          <RadioButton key={id} all_data={all_data} validation={validationFilter("radiobutton")} />
         );
       case "COMBOBOX":
-        return (
-          <ComboBox
-            key={id}
-            all_data={all_data}
-            validation={validationFilter("combobox")}
-          />
-        );
+        return <ComboBox key={id} all_data={all_data} validation={validationFilter("combobox")} />;
       default:
         throw new Error("Invalid type from");
     }
@@ -87,9 +53,7 @@ const FormController = ({
 
   console.log("controller:==>", dataForm);
   const _viewForm = () => {
-    return dataForm?.page_1?.map((data, index) =>
-      _showFormView(data?.type, data, index)
-    );
+    return dataForm?.page_1?.map((data, index) => _showFormView(data?.type, data, index));
   };
   return (
     <Box

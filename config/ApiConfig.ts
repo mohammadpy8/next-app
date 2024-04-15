@@ -73,9 +73,7 @@ Axios.interceptors.response.use(
       if (message) {
         return {
           error: {
-            contentType:
-              response.headers["Content-Type"] ||
-              response.headers["content-type"],
+            contentType: response.headers["Content-Type"] || response.headers["content-type"],
             message: createErrorMessage(error),
           },
         };
@@ -131,11 +129,7 @@ function giveData(listData: any, listName: PromiseAllRequest[]) {
 }
 
 const ApiRegister = () => {
-  const GetRequest = async (
-    endPoint: string,
-    IDRequest: number | null,
-    infoResponse: boolean
-  ) => {
+  const GetRequest = async (endPoint: string, IDRequest: number | null, infoResponse: boolean) => {
     const IDRequestHandler = IDRequest === null ? "" : `/${IDRequest}`;
     const getData = await httpsRequest
       .GET(endPoint + IDRequestHandler)
@@ -208,9 +202,7 @@ const ApiRegister = () => {
     } = useMutation({
       mutationKey: [keyName],
       mutationFn: () => {
-        return httpsRequest
-          .DELETE(endPoint + IDRequestHandler)
-          .then((response) => response.data);
+        return httpsRequest.DELETE(endPoint + IDRequestHandler).then((response) => response.data);
       },
     });
     return {

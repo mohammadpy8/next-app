@@ -59,6 +59,10 @@ const Manage = () => {
               value: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g,
               message: "فرمت ایمیل نامعتبر است",
             },
+            // validate: (value) => {
+            //   console.log("valuee", value);
+            //   return "";
+            // },
           })}
         />
         <button type="submit">register</button>

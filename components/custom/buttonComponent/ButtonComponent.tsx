@@ -4,10 +4,7 @@ interface buttonComponentProps {
   buttonData: any;
 }
 
-const ButtonComponent = ({
-  buttonData,
-  ...restProps
-}: buttonComponentProps) => {
+const ButtonComponent = ({ buttonData, ...restProps }: buttonComponentProps) => {
   console.log("button", buttonData);
   return (
     <Box sx={buttonData.sxParent}>
@@ -15,6 +12,8 @@ const ButtonComponent = ({
         sx={buttonData.sx}
         color={buttonData.color}
         variant={buttonData.type}
+        fullWidth
+        style={{}}
       >
         <Typography>{buttonData.title}</Typography>
       </Button>

@@ -115,4 +115,4 @@ const DndCompoent = () => {
   );
 };
 
-export  {DndCompoent};
+export { DndCompoent };

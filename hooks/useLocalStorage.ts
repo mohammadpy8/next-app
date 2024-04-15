@@ -1,13 +1,7 @@
-const useLocalStorage = (
-  dataLocalStorage: any,
-  nameLocalStorage: string
-) => {
+const useLocalStorage = (dataLocalStorage: any, nameLocalStorage: string) => {
   return {
     SetItems: () => {
-      return localStorage.setItem(
-        nameLocalStorage,
-        JSON.stringify(dataLocalStorage) as string
-      );
+      return localStorage.setItem(nameLocalStorage, JSON.stringify(dataLocalStorage) as string);
     },
     GetItems: () => {
       return JSON.parse(localStorage.getItem(nameLocalStorage) as string);
