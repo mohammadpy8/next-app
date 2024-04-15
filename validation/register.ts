@@ -5,7 +5,7 @@ const registerSchema = Yup.object().shape({
     .min(4, "اسم باید حداقل 4 کلمه باشد")
     .max(10)
     .required("اسم را پر کنید"),
-  email: Yup.string().email().min(10).max(30).required(),
+  email: Yup.string().email().matches(/anim/, "").min(10).max(30).required(),
 });
 
 export { registerSchema };

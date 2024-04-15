@@ -3,24 +3,33 @@
 import { DevTool } from "@hookform/devtools";
 import { Box } from "@mui/material";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerSchema } from "@/validation";
+import chalk from 'chalk';
+
 
 const Manage = () => {
   const {
     register,
     handleSubmit,
     control,
+    reset,
+    getValues,
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
       name: "",
       email: "",
     },
+    // resolver: yupResolver(registerSchema)
   });
 
-  console.log("errors", errors, isValid);
+  console.log("errors", errors, isValid, getValues);
+  console.log(chalk.blue('Hello world!'));
 
   const formSubmitting = (data: any) => {
     console.log("data=>", data);
+    reset();
   };
 
   return (
