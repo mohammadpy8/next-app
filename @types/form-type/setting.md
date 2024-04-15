@@ -5,6 +5,44 @@
   "editor.fontFamily": "'Fira Code' , 'Lalezar Regular'",
   "editor.fontLigatures": true,
   "editor.fontWeight": "bold",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          //following will be in italic
+          "comment",
+          // "all",
+          "export",
+          "function",
+          "component",
+          "react",
+          "entity.name.type.class", //class names
+          "constant", //String, Number, Boolean…, this, super
+          "storage.modifier", //static keyword
+          "storage.type.class.js", //class keyword
+          // "keyword", //import, export, return…
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          //following will be excluded from italics (VSCode has some defaults for italics)
+
+          "invalid",
+          // "keyword.operator",
+          "constant.numeric.css",
+          "keyword.other.unit.px.css",
+          "constant.numeric.decimal.js",
+          "constant.numeric.json"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
   "editor.tabSize": 2,
   "bracketPairColorizer.depreciation-notice": false,
   "editor.formatOnSave": true,
@@ -83,6 +121,7 @@
     }
   ],
   "editor.matchBrackets": "never",
+  "editor.fontStyle": "italic",
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
   "editor.accessibilitySupport": "off",

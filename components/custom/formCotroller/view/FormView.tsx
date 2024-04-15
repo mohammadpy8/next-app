@@ -15,7 +15,7 @@ type PropsFormView = {
   singlePageData?: singlePageDataProps;
   validationForm: any;
   headerTitle: string;
-  buttonData:any
+  buttonData: any;
 };
 
 const FormView = ({
@@ -37,9 +37,7 @@ const FormView = ({
         />
       );
     } else if (sizeDataFrom && sizeDataFrom > 1) {
-      return (
-        <FormStepperController {...restProps} validationForm={validationForm} />
-      );
+      return <FormStepperController {...restProps} validationForm={validationForm} />;
     } else {
       throw new Error("Invalid FormController");
     }
