@@ -1,11 +1,14 @@
 // "use client";
+
 import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
 
-import { ReactQueryClientProvider } from "@/provider";
+import { ReactQueryClientProvider, NextUIProviders } from "@/provider";
 import { BottomNavigation } from "@/components/module";
-import { Box } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+
+import "../globals.css"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,42 +23,45 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ReactQueryClientProvider>
-      <html lang="fa" dir="rtl">
-        <body
-          className={inter.className}
-          style={{
-            backgroundColor: "red",
-            padding: 0,
-            margin: 0,
-            display: "flex",
-            justifyContent: "center",
+    <html lang="fa" dir="rtl">
+      <body
+        className={inter.className}
+        style={{
+          backgroundColor: "red",
+          padding: 0,
+          margin: 0,
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          // component={Button}
+          sx={{
+            height: "100vh",
+            width: { xs: "100%", sm: "512px" },
+            backgroundColor: "#fff",
+            overflow: "hidden",
+            overflowY: "scroll",
           }}
+          p={0} 
+          m={0}
         >
-          <Box
-            sx={{
-              height: "100vh",
-              width: { xs: "100%", sm: "512px" },
-              backgroundColor: "#fff",
-              overflow: "hidden",
-              overflowY: "scroll",
-            }}
-            p={0}
-            m={0}
-          >
-            <Box pb={10}>{children}</Box>
-            <Box
-              position={"relative"}
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              bottom={10}
-            >
-              <BottomNavigation />
-            </Box>
+          <Box pb={10}>
+            <NextUIProviders>
+              <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
+            </NextUIProviders>
           </Box>
-        </body>
-      </html>
-    </ReactQueryClientProvider>
+          <Box
+            position={"relative"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            bottom={10}
+          >
+            <BottomNavigation />
+          </Box>
+        </Box>
+      </body>
+    </html>
   );
 }
