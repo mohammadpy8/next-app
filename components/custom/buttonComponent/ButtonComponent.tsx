@@ -14,6 +14,7 @@ const ButtonComponent = ({ buttonData, ...restProps }: buttonComponentProps) => 
         variant={buttonData.type}
         fullWidth
         style={{}}
+        {...restProps}
       >
         <Typography>{buttonData.title}</Typography>
       </Button>

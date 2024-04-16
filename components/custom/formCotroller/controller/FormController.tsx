@@ -26,6 +26,16 @@ type allData = {
 type typeFrom = "INPUT" | "TEXTAREA" | "SWITCH" | "RADIOBUTTON" | "COMBOBOX";
 
 const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: PropsFormView) => {
+  const convertRestProps = () => {
+    if (Object.keys(restProps).length === 0) return undefined;
+    return {
+      input: Object.values(restProps)[0] ?? {},
+      switch: Object.values(restProps)[1] ?? {},
+      combobox: Object.values(restProps)[2] ?? {},
+      textarea: Object.values(restProps)[3] ?? {},
+      radiobutton: Object.values(restProps)[4] ?? {},
+    };
+  };
   const _showFormView = (typeForm: typeFrom, all_data: allData, id: number) => {
     const validationFilter = (name_validation: string) => {
       const typeValidation =
@@ -35,17 +45,50 @@ const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: 
 
     switch (typeForm) {
       case "INPUT":
-        return <Input key={id} all_data={all_data} validation={validationFilter("input")} />;
+        return (
+          <Input
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("input")}
+            {...convertRestProps()?.input}
+          />
+        );
       case "TEXTAREA":
-        return <TextErea key={id} all_data={all_data} validation={validationFilter("texteara")} />;
+        return (
+          <TextErea
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("texteara")}
+            {...convertRestProps()?.textarea}
+          />
+        );
       case "SWITCH":
-        return <Switch key={id} all_data={all_data} validation={validationFilter("switch")} />;
+        return (
+          <Switch
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("switch")}
+            {...convertRestProps()?.switch}
+          />
+        );
       case "RADIOBUTTON":
         return (
-          <RadioButton key={id} all_data={all_data} validation={validationFilter("radiobutton")} />
+          <RadioButton
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("radiobutton")}
+            {...convertRestProps()?.radiobutton}
+          />
         );
       case "COMBOBOX":
-        return <ComboBox key={id} all_data={all_data} validation={validationFilter("combobox")} />;
+        return (
+          <ComboBox
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("combobox")}
+            {...convertRestProps()?.combobox}
+          />
+        );
       default:
         throw new Error("Invalid type from");
     }
