@@ -35,7 +35,7 @@ const Main = () => {
     ff();
   }, []);
 
-  const rest = { "input": { inpurt: "input" }, "switch": { switch: "switch" } };
+  const rest = { input: { inpurt: "input" }, "switch": { switch: "switch" } };
 
   const convertRest = (typeData: string) => {
     return rest.input
@@ -60,6 +60,7 @@ const Main = () => {
             },
             type: "contained",
           }}
+          {...rest}
         />
         <ImageComponent
           altImage="flower"
