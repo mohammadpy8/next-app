@@ -1,16 +1,16 @@
-// "use client";
-
 import type { Metadata } from "next";
 
-import { Inter } from "next/font/google";
+import { Vazirmatn } from "next/font/google";
 
-import { ReactQueryClientProvider, NextUIProviders } from "@/provider";
+import { ReactQueryClientProvider, NextUIProviders, ToastProvider } from "@/provider";
 import { BottomNavigation } from "@/components/module";
-import { Box, Button, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 import "../globals.css";
+import "react-toastify/dist/ReactToastify.css";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const inter = Vazirmatn({ subsets: ["arabic"] });
 
 export const metadata: Metadata = {
   title: "next-app",
@@ -31,13 +31,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         }}
       >
         <Box
-          // component={Button}
           sx={{
             height: "100vh",
             width: { xs: "100%", sm: "512px" },
-            backgroundColor: "#fff",
+            backgroundColor: "#F2F4F8",
             overflow: "hidden",
             overflowY: "scroll",
+            "&::-webkit-scrollbar": {
+              width: "4px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "#0000001f !important",
+            },
           }}
           p={0}
           m={0}
@@ -56,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             <BottomNavigation />
           </Box>
+          <ToastProvider />
         </Box>
       </body>
     </html>
