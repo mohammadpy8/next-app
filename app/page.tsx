@@ -10,6 +10,7 @@ import { IoMenu, IoSearchOutline } from "react-icons/io5";
 import { GoHomeFill } from "react-icons/go";
 import { BiCategory } from "react-icons/bi";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
+import { CiLocationOn } from "react-icons/ci";
 
 const Home: FC = () => {
   return (
@@ -299,22 +300,22 @@ const Home: FC = () => {
         </Box>
       </Box>
       <Box
-        borderBottom={"80px solid #BD0B1E"}
+        // borderBottom={"80px solid #BD0B1E"}
         height={"300px"}
         borderRadius={"0px 0px 15px 0px"}
         marginRight={"1rem"}
         display={"flex"}
-        // sx={{
-        //   overflow: "hidden",
-        //   overflowX: "scroll",
-        //   "&::-webkit-scrollbar": {
-        //     width: "0px",
-        //   },
-        //   "&::-webkit-scrollbar-thumb": {
-        //     // backgroundColor: "#0000001f !important",
-        //     width:"0px"
-        //   },
-        // }}
+        sx={{
+          overflow: "hidden",
+          overflowX: "scroll",
+          "&::-webkit-scrollbar": {
+            width: "0px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            // backgroundColor: "#0000001f !important",
+            width: "0px",
+          },
+        }}
         // zIndex={0}
       >
         <Box>
@@ -358,6 +359,33 @@ const Home: FC = () => {
           <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
           <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
           <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+        </Box>
+      </Box>
+      <Box
+        width={"100%"}
+        height={"80px"}
+        bgcolor={"#BD0B1E"}
+        marginRight={"1rem"}
+        borderRadius={"0px 0px 15px 0px"}
+        marginTop={"-80px"}
+      ></Box>
+      <Box
+        marginRight={"1rem"}
+        marginTop={"2rem"}
+        display={"flex"}
+        flexDirection={"column"}
+        rowGap={"1rem"}
+      >
+        <Box component={Typography} fontSize={"13px"} fontWeight={"700"}>
+          20 فروشگاه نزدیک شما
+        </Box>
+        <Box display={"flex"}>
+          <Box>
+            <CiLocationOn color="#07BEB8" size={15} />
+          </Box>
+          <Box component={Typography} fontWeight={"500"} fontSize={"11px"} color={"#8B9095"}>
+            کرمان ، بلوار جمهوری ، نرسیده به پل معلم ، روبروی منابع طبیعی
+          </Box>
         </Box>
       </Box>
     </Box>
