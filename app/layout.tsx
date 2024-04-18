@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Vazirmatn } from "next/font/google";
+import localFont from "next/font/local";
 
 import { ReactQueryClientProvider, NextUIProviders, ToastProvider } from "@/provider";
 import { BottomNavigation } from "@/components/module";
@@ -9,8 +10,16 @@ import { Box } from "@mui/material";
 import "../globals.css";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const inter = Vazirmatn({ subsets: ["arabic"] });
+const allFont = localFont({
+  src: [
+    {
+      path: "../public/font/Qs_Iranyekan medium.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+});
 
 export const metadata: Metadata = {
   title: "next-app",
@@ -21,9 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fa" dir="rtl">
       <body
-        className={inter.className}
+        className={`${inter.className} ${allFont.className}`}
         style={{
-          backgroundColor: "red",
+          backgroundColor: "#cccccc",
           padding: 0,
           margin: 0,
           display: "flex",
@@ -33,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Box
           sx={{
             height: "100vh",
-            width: { xs: "100%", sm: "512px" },
+            width: { xs: "100%", sm: "450px" },
             backgroundColor: "#F2F4F8",
             overflow: "hidden",
             overflowY: "scroll",

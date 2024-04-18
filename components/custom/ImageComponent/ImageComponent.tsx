@@ -6,7 +6,7 @@ type ImageComponentProps = {
   altImage: string;
   widthImage: number;
   heigthImage: number;
-  styleImage: any;
+  styleImage?: any;
 };
 
 const ImageComponent = (props: ImageComponentProps) => {

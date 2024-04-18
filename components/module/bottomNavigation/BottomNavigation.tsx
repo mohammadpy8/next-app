@@ -7,7 +7,7 @@ const BottomNavigation = () => {
         backgroundColor: "#fff",
         boxShadow: "0px 0px 8px 0px #00ff00",
         borderRadius: "15px",
-        width: { xs: "350px", sm: "420px" },
+        width: { xs: "350px", sm: "375px" },
       }}
       position={"fixed"}
       bottom={20}
