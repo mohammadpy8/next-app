@@ -346,7 +346,35 @@ const Home: FC = () => {
           width={"10000px"}
           // zIndex={10}
         >
-          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}>
+            <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+              <ImageComponent altImage="4" urlImage="4.jpg" widthImage={121} heigthImage={113} />
+            </Box>
+            <Box
+              component={Typography}
+              fontWeight={"400"}
+              fontSize={"11px"}
+              color={"#2F3134"}
+              marginX={"0.5rem"}
+              marginTop={"0.8rem"}
+            >
+              برنج ایرانی طارم هاشمی درجه یک
+            </Box>
+            <Box
+              component={Typography}
+              fontSize={"11px"}
+              fontWeight={"500"}
+              color={"#9FA9B2"}
+              display={"flex"}
+              alignItems={"end"}
+              justifyContent={"end"}
+              marginLeft={"0.5rem"}
+              marginTop={"0.5rem"}
+            >
+              480,000 تومان
+            </Box>
+            <Box></Box>
+          </Box>
           <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
           <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
           <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
