@@ -49,7 +49,7 @@ const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: 
           <Input
             key={id}
             all_data={all_data}
-            validation={validationFilter("input")}
+            validation={validationFilter("input")[0]}
             {...convertRestProps()?.input}
           />
         );
@@ -58,7 +58,7 @@ const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: 
           <TextErea
             key={id}
             all_data={all_data}
-            validation={validationFilter("texteara")}
+            validation={validationFilter("texteara")[0]}
             {...convertRestProps()?.textarea}
           />
         );
@@ -67,7 +67,7 @@ const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: 
           <Switch
             key={id}
             all_data={all_data}
-            validation={validationFilter("switch")}
+            validation={validationFilter("switch")[0]}
             {...convertRestProps()?.switch}
           />
         );
@@ -76,7 +76,7 @@ const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: 
           <RadioButton
             key={id}
             all_data={all_data}
-            validation={validationFilter("radiobutton")}
+            validation={validationFilter("radiobutton")[0]}
             {...convertRestProps()?.radiobutton}
           />
         );
@@ -85,7 +85,7 @@ const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: 
           <ComboBox
             key={id}
             all_data={all_data}
-            validation={validationFilter("combobox")}
+            validation={validationFilter("combobox")[0]}
             {...convertRestProps()?.combobox}
           />
         );

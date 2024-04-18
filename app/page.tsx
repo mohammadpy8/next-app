@@ -291,7 +291,73 @@ const Home: FC = () => {
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
-          ><Typography fontWeight={"700"} fontSize={"10px"} color={"#fff"}>موارد بیشتر</Typography></Box>
+          >
+            <Typography fontWeight={"700"} fontSize={"10px"} color={"#fff"}>
+              موارد بیشتر
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        borderBottom={"80px solid #BD0B1E"}
+        height={"300px"}
+        borderRadius={"0px 0px 15px 0px"}
+        marginRight={"1rem"}
+        display={"flex"}
+        sx={{
+          overflow: "hidden",
+          overflowX: "scroll",
+          "&::-webkit-scrollbar": {
+            width: "0px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            // backgroundColor: "#0000001f !important",
+            width:"0px"
+          },
+        }}
+        zIndex={0}
+      >
+        <Box zIndex={10}>
+          <Box position={"relative"} paddingTop={"10.4rem"} marginRight={"1.5rem"} width={"100px"}>
+            <Box
+              component={Typography}
+              color={"#BD0B1E"}
+              fontSize={"28px"}
+              fontWeight={"900"}
+              position={"absolute"}
+              bottom={"15px"}
+              right={"20px"}
+            >
+              %
+            </Box>
+            <ImageComponent altImage="3" urlImage="3.png" widthImage={60} heigthImage={82} />
+          </Box>
+          <Box marginRight={"15px"}>
+            <Typography fontWeight={"bold"} color={"#fff"}>
+              تخفیف ویژه
+            </Typography>
+          </Box>
+        </Box>
+        <Box
+          paddingTop={"3.75rem"}
+          display={"flex"}
+          columnGap={"1rem"}
+          width={"10000px"}
+          zIndex={10}
+        >
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
+          <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
         </Box>
       </Box>
     </Box>

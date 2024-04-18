@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           p={0}
           m={0}
         >
-          <Box pb={10}>
+          <Box pb={15}>
             <NextUIProviders>
               <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
             </NextUIProviders>
