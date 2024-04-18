@@ -315,9 +315,9 @@ const Home: FC = () => {
         //     width:"0px"
         //   },
         // }}
-        zIndex={0}
+        // zIndex={0}
       >
-        <Box zIndex={10}>
+        <Box>
           <Box position={"relative"} paddingTop={"10.4rem"} marginRight={"1.5rem"} width={"100px"}>
             <Box
               component={Typography}
@@ -343,7 +343,7 @@ const Home: FC = () => {
           display={"flex"}
           columnGap={"1rem"}
           width={"10000px"}
-          zIndex={10}
+          // zIndex={10}
         >
           <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
           <Box bgcolor={"#fff"} width={"153px"} height={"225px"} borderRadius={"15px"}></Box>
