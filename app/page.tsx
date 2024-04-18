@@ -304,17 +304,17 @@ const Home: FC = () => {
         borderRadius={"0px 0px 15px 0px"}
         marginRight={"1rem"}
         display={"flex"}
-        sx={{
-          overflow: "hidden",
-          overflowX: "scroll",
-          "&::-webkit-scrollbar": {
-            width: "0px",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            // backgroundColor: "#0000001f !important",
-            width:"0px"
-          },
-        }}
+        // sx={{
+        //   overflow: "hidden",
+        //   overflowX: "scroll",
+        //   "&::-webkit-scrollbar": {
+        //     width: "0px",
+        //   },
+        //   "&::-webkit-scrollbar-thumb": {
+        //     // backgroundColor: "#0000001f !important",
+        //     width:"0px"
+        //   },
+        // }}
         zIndex={0}
       >
         <Box zIndex={10}>
