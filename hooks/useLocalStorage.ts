@@ -1,12 +1,12 @@
 const useLocalStorage = (dataLocalStorage: any, nameLocalStorage: string) => {
   return {
-    SetItems: () => {
+    setItems: () => {
       return localStorage.setItem(nameLocalStorage, JSON.stringify(dataLocalStorage) as string);
     },
-    GetItems: () => {
+    getItems: () => {
       return JSON.parse(localStorage.getItem(nameLocalStorage) as string);
     },
-    RemoveItems: () => {
+    removeItems: () => {
       return localStorage.removeItem(nameLocalStorage);
     },
   };
