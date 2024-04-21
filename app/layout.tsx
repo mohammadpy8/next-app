@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import localFont from "next/font/local";
 
-import { ReactQueryClientProvider, NextUIProviders, ToastProvider } from "@/provider";
+import { ReactQueryClientProvider, NextUIProviders, ToastProvider, MuiProvider } from "@/provider";
 import { BottomNavigation } from "@/components/module";
 import { Box } from "@mui/material";
 
@@ -64,7 +64,9 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
         >
           <Box pb={15}>
             <NextUIProviders>
-              <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
+              <ReactQueryClientProvider>
+                <MuiProvider>{children}</MuiProvider>
+              </ReactQueryClientProvider>
             </NextUIProviders>
           </Box>
           <Box
@@ -74,13 +76,13 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
             alignItems={"center"}
             bottom={10}
           >
-            <BottomNavigation />
+            {/* <BottomNavigation /> */}
           </Box>
           <ToastProvider />
         </Box>
-        <Box width="100%" sx={{}}>
+        {/* <Box width="100%" sx={{}}>
           {items}
-        </Box>
+        </Box> */}
       </body>
     </html>
   );
