@@ -142,6 +142,27 @@ const Login: FC = () => {
               />
             </Box>
           </Stack>
+          <Stack
+            marginTop="25px"
+            display="flex"
+            justifyContent="space-between"
+            flexDirection="row"
+            marginX="60px"
+          >
+            <Box>gg</Box>
+            <Box onClick={() => setStep(0)}>
+              <Typography
+                color="#417F56"
+                fontWeight="700"
+                fontSize="12px"
+                sx={{
+                  cursor: "pointer",
+                }}
+              >
+                ویرایش شماره
+              </Typography>
+            </Box>
+          </Stack>
         </Stack>
       );
     } else {
