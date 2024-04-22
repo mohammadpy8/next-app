@@ -6,6 +6,7 @@ import Trakhine from "./tarkhine";
 import { ApiRegister } from "@/config";
 import { useRouter } from "next/navigation";
 import { ToastComponent } from "@/components/custom";
+import OtpInput from "react-otp-input";
 
 type TextFieldType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
@@ -14,12 +15,12 @@ const Login: FC = () => {
 
   const [numberPhone, setNumberPhone] = useState<string>("");
   const [step, setStep] = useState<number>(0);
+  const [otpValue, setOtpValue] = useState<string>("");
 
   const { PostRequest } = ApiRegister();
   const _changePhoneNumberHandler = (event: TextFieldType) => {
     setNumberPhone(event.target.value);
   };
-
 
   const { PostData, data, error, isPending, isSuccess, status } = PostRequest(
     "users",
@@ -30,9 +31,6 @@ const Login: FC = () => {
   );
 
   const _viewLoginPage = () => {
-    if (status === "success") {
-      setStep(1);
-    }
     if (step === 0) {
       return (
         <Stack width="100%" height="100%">
@@ -84,7 +82,14 @@ const Login: FC = () => {
                   backgroundColor: numberPhone.length === 11 ? "#00ffffff" : "",
                 },
               }}
-              onClick={() => PostData()}
+              onClick={() =>
+                PostData(() => console.log(""), {
+                  onSuccess: () => {
+                    setStep(1);
+                    ToastComponent("SUCCESS", "کد ارسال شد", 2500);
+                  },
+                })
+              }
             >
               ارسال کد
             </Button>
@@ -93,9 +98,52 @@ const Login: FC = () => {
         </Stack>
       );
     }
-
     if (step === 1) {
-      return <Stack>otp page</Stack>;
+      return (
+        <Stack width="100%" height="100%">
+          <Box marginTop="120px" display="flex" justifyContent="center">
+            <Paper
+              sx={{
+                backgroundColor: "transparent",
+                boxShadow: "none",
+              }}
+            >
+              <Trakhine />
+            </Paper>
+          </Box>
+          <Box marginTop="50px" display="flex" justifyContent="center">
+            <Typography fontSize="17px" fontWeight="600">
+              کد تایید
+            </Typography>
+          </Box>
+          <Box marginTop="25px" display="flex" justifyContent="center">
+            <Typography fontSize="15px" fontWeight="400" color="#717171">
+              کد تایید 5 رقمی به شماره {numberPhone} ارسال شد
+            </Typography>
+          </Box>
+          <Stack marginTop="25px">
+            <Box display="flex" justifyContent="center">
+              <OtpInput
+                value={otpValue}
+                onChange={setOtpValue}
+                numInputs={5}
+                renderInput={(props) => <input {...props} />}
+                containerStyle={{
+                  display: "flex",
+                  flexDirection: "row-reverse",
+                }}
+                inputStyle={{
+                  width: "50px",
+                  height: "40px",
+                  margin: "10px",
+                  borderRadius: "10px",
+                  border: "1px solid #717171",
+                }}
+              />
+            </Box>
+          </Stack>
+        </Stack>
+      );
     } else {
       return ToastComponent("ERROR", "خطا در دریافت اطلاعات", 2500);
     }
