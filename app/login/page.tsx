@@ -83,7 +83,7 @@ const Login: FC = () => {
                 },
               }}
               onClick={() =>
-                PostData(() => console.log(""), {
+                PostData({} as unknown as void, {
                   onSuccess: () => {
                     setStep(1);
                     ToastComponent("SUCCESS", "کد ارسال شد", 2500);
