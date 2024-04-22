@@ -80,9 +80,6 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
           </Box>
           <ToastProvider />
         </Box>
-        {/* <Box width="100%" sx={{}}>
-          {items}
-        </Box> */}
       </body>
     </html>
   );
