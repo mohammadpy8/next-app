@@ -57,6 +57,7 @@ const Login: FC = () => {
           <Box display="flex" justifyContent="center" marginTop="30px">
             <TextField
               type="number"
+              value={numberPhone}
               placeholder="شماره همراه"
               sx={{
                 width: "320px",
