@@ -1,12 +1,14 @@
 "use client";
 
-import { Box, Stack, TextField } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { type ChangeEvent, useState } from "react";
+import { LuSendHorizonal } from "react-icons/lu";
 
 type inputType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 const InputCard = () => {
   const [inputs, setInputs] = useState<string[]>(Array(4).fill(""));
+  console.log("inputs ====>", inputs);
 
   const _changeHandler = (index: number, event: inputType) => {
     const value = event.target.value;
@@ -19,6 +21,12 @@ const InputCard = () => {
         document.getElementById(`input-${nextIndex}`)?.focus();
       }
     }
+  };
+
+  const checkDisable = (inputsGroup: string[]): boolean => {
+    const loopInputs = inputsGroup.map((item) => item.length === 4);
+    const checkValid = loopInputs.every((item) => item === true);
+    return checkValid;
   };
 
   return (
@@ -47,6 +55,28 @@ const InputCard = () => {
             }}
           />
         ))}
+      </Box>
+      <Box display="flex" justifyContent="center" marginTop="25px">
+        <Button
+          disabled={checkDisable(inputs) === true ? false : true}
+          sx={{
+            backgroundColor: "#44ff",
+            color: "#fff",
+          }}
+        >
+          <Box
+            display="flex"
+            columnGap="10px"
+            flexDirection="row-reverse"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Typography fontSize="15px" fontWeight="500">
+              بررسی شماره
+            </Typography>
+            <LuSendHorizonal />
+          </Box>
+        </Button>
       </Box>
     </Stack>
   );
