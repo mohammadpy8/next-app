@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useLocalStorage } from "@/hooks";
 
 type methodReqestType = "GET" | "POST" | "DELETE" | "PUT" | "PATCH";
@@ -37,14 +36,14 @@ const RequestHandler = (endPoint: string) => {
   ) => {
     switch (method) {
       case "GET":
-        return fetch(`${base_url}${IDRequest}`, {
+        return fetch(`${base_url}${endPoint}${IDRequest}`, {
           method: "GET",
           headers: handleHeaders(),
           cache: typeCache ?? "force-cache",
           next: { revalidate: revalidateTime ?? 3600 },
         });
       case "POST":
-        return fetch(`${base_url}${IDRequest}`, {
+        return fetch(`${base_url}${endPoint}${IDRequest}`, {
           method: "POST",
           headers: handleHeaders(),
           body: convertToStringify(dataReq),
@@ -52,7 +51,7 @@ const RequestHandler = (endPoint: string) => {
           next: { revalidate: revalidateTime ?? 3600 },
         });
       case "PATCH":
-        return fetch(`${base_url}${IDRequest}`, {
+        return fetch(`${base_url}${endPoint}${IDRequest}`, {
           method: "PATCH",
           headers: handleHeaders(),
           body: convertToStringify(dataReq),
@@ -60,7 +59,7 @@ const RequestHandler = (endPoint: string) => {
           next: { revalidate: revalidateTime ?? 3600 },
         });
       case "PUT":
-        return fetch(`${base_url}${IDRequest}`, {
+        return fetch(`${base_url}${endPoint}${IDRequest}`, {
           method: "PUT",
           headers: handleHeaders(),
           body: convertToStringify(dataReq),
@@ -68,7 +67,7 @@ const RequestHandler = (endPoint: string) => {
           next: { revalidate: revalidateTime ?? 3600 },
         });
       case "DELETE":
-        return fetch(`${base_url}${IDRequest}`, {
+        return fetch(`${base_url}${endPoint}${IDRequest}`, {
           method: "DELETE",
           headers: handleHeaders(),
           cache: typeCache ?? "force-cache",
@@ -83,7 +82,7 @@ const RequestHandler = (endPoint: string) => {
       dataReq?: any,
       IDReq?: number | null,
       typeCache?: "default" | "force-cache" | "no-store" | "no-cache",
-      revalidateTime?: number | undefined
+      revalidateTime?: number 
     ) => {
       const IDRequestHandler = IDReq === null ? "" : `/${IDReq}`;
       httpReq(method, dataReq, IDReq, IDRequestHandler, typeCache, revalidateTime).then((res) => {
