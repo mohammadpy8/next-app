@@ -40,9 +40,10 @@ const InputCard = () => {
               },
               "& .css-jgzlbx-MuiInputBase-root-MuiOutlinedInput-root": {
                 borderRadius: "10px !important",
-                width:"70px",
-                height:"40px"
+                width: "70px",
+                height: "40px",
               },
+              MozAppearance: "textfield",
             }}
           />
         ))}
