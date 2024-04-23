@@ -1,5 +1,6 @@
 "use client";
 
+import { ApiRegister } from "@/config";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { type ChangeEvent, useState } from "react";
 import { LuSendHorizonal } from "react-icons/lu";
@@ -8,7 +9,7 @@ type inputType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 const InputCard = () => {
   const [inputs, setInputs] = useState<string[]>(Array(4).fill(""));
-  console.log("inputs ====>", inputs);
+  const [dataReq, setDataReq] = useState<any>(null);
 
   const _changeHandler = (index: number, event: inputType) => {
     const value = event.target.value;
@@ -27,6 +28,27 @@ const InputCard = () => {
     const loopInputs = inputsGroup.map((item) => item.length === 4);
     const checkValid = loopInputs.every((item) => item === true);
     return checkValid;
+  };
+
+  const { PostRequest } = ApiRegister();
+
+  const joinValueInput = inputs.join("");
+  const { PostData, data, isSuccess } = PostRequest(
+    "users",
+    null,
+    { data: joinValueInput },
+    "check-numbers",
+    true
+  );
+
+  console.log("isSuccess", data);
+
+  const _checkNumbers = () => {
+    PostData({} as unknown as void, {
+      onSuccess: () => {
+        setDataReq(data);
+      },
+    });
   };
 
   return (
@@ -62,7 +84,11 @@ const InputCard = () => {
           sx={{
             backgroundColor: "#44ff",
             color: "#fff",
+            "&:hover": {
+              backgroundColor: "red",
+            },
           }}
+          onClick={_checkNumbers}
         >
           <Box
             display="flex"
@@ -71,13 +97,18 @@ const InputCard = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <Typography fontSize="15px" fontWeight="500">
+            <Typography fontSize="15px" fontWeight="500" color="#fff">
               بررسی شماره
             </Typography>
-            <LuSendHorizonal />
+            <LuSendHorizonal color="#fff" />
           </Box>
         </Button>
       </Box>
+      {data && isSuccess && (
+        <Box marginTop="35px" marginX="75px">
+          <Typography>{data.data}</Typography>
+        </Box>
+      )}
     </Stack>
   );
 };
