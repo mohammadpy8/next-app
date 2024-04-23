@@ -43,7 +43,7 @@ const InputCard = () => {
 
   console.log("isSuccess", data);
 
-  const _checkNumbers = () => {
+  const _checkNumbers = (): void => {
     PostData({} as unknown as void, {
       onSuccess: () => {
         setDataReq(data);
@@ -105,8 +105,10 @@ const InputCard = () => {
         </Button>
       </Box>
       {data && isSuccess && (
-        <Box marginTop="35px" marginX="75px">
-          <Typography>{data.data}</Typography>
+        <Box marginTop="35px" display="flex" justifyContent="center">
+          <Typography fontSize="15px" fontWeight="600">
+            {data.data}
+          </Typography>
         </Box>
       )}
     </Stack>
