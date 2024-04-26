@@ -1,9 +1,9 @@
 import type { FC } from "react";
 import { MuiProvider, NextUIProviders, ReactQueryClientProvider, ToastProvider } from "@/provider";
 
-type PropsProviderLayout = {
-  children: Readonly<React.ReactNode>;
-};
+type PropsProviderLayout =Readonly<{
+  children: React.ReactNode;
+}>;
 
 const ProviderLayout: FC<PropsProviderLayout> = ({ children }) => {
   return (
