@@ -1,7 +1,8 @@
 "use client";
 
 import { Box, Button, Paper, Stack, TextField, Typography } from "@mui/material";
-import { type ChangeEvent, useState, type FC, type MouseEvent } from "react";
+import { useState } from "react";
+import type { FC, ChangeEvent } from "react";
 import Trakhine from "./tarkhine";
 import { ApiRegister } from "@/config";
 import { useRouter } from "next/navigation";
