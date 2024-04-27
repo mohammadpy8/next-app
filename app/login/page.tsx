@@ -8,8 +8,17 @@ import { ApiRegister } from "@/config";
 import { useRouter } from "next/navigation";
 import { ToastComponent } from "@/components/custom";
 import OtpInput from "react-otp-input";
+import styled from "styled-components";
 
 type TextFieldType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+
+const OptCompoentsCustome = styled(OtpInput)(() => ({
+  "&input": {
+    "&:focus": {
+      border: "14px solid #00ff !important",
+    },
+  },
+}));
 
 const Login: FC = () => {
   const router = useRouter();
@@ -125,7 +134,7 @@ const Login: FC = () => {
           </Box>
           <Stack marginTop="25px">
             <Box display="flex" justifyContent="center">
-              <OtpInput
+              <OptCompoentsCustome
                 value={otpValue}
                 onChange={setOtpValue}
                 numInputs={5}
@@ -136,10 +145,10 @@ const Login: FC = () => {
                 }}
                 inputStyle={{
                   width: "50px",
-                  height: "40px",
+                  height: "50px",
                   margin: "10px",
                   borderRadius: "10px",
-                  border: "1px solid #717171",
+                  border:"2px solid #00e344"
                 }}
               />
             </Box>
@@ -151,7 +160,7 @@ const Login: FC = () => {
             flexDirection="row"
             marginX="60px"
           >
-            <Box>gg</Box>
+            <Box></Box>
             <Box onClick={() => setStep(0)}>
               <Typography
                 color="#417F56"
