@@ -1,22 +1,5 @@
-"use client"
+import { PaletteOptions } from "@mui/material/styles";
 
-import { createTheme } from "@mui/material/styles";
+const palette: PaletteOptions = {};
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#222",
-    },
-    secondary: {
-      main: "#555",
-    },
-  },
-  typography: {
-    h1: {
-      fontSize: "10px",
-      fontWeight: "bold",
-    },
-  },
-});
-
-export { theme };
+export { palette };
