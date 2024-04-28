@@ -1,6 +1,6 @@
 "use client";
 
-import { Stack } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import type { FC } from "react";
 
@@ -8,9 +8,10 @@ type propsTimerOtp = Readonly<{
   time: number;
 }>;
 
-const TimerOtp: FC<propsTimerOtp> = ({ time, ...restProps }) => {
+const TimerOtp: FC = () => {
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(0);
+  const [otpValue, setOtpValue] = useState<string>("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -42,7 +43,34 @@ const TimerOtp: FC<propsTimerOtp> = ({ time, ...restProps }) => {
     setSeconds(59);
   };
 
-  return <Stack></Stack>;
+  return (
+    <Stack>
+      <Box>
+        <TextField
+          placeholder="otp type"
+          value={otpValue}
+          onChange={({ target }) => setOtpValue(target.value)}
+        />
+        <Button onClick={sendOTP}>generate otp</Button>
+        <Box>
+          {seconds > 0 || minutes > 0 ? (
+            <Typography>time reamaning : {minutes < 10 ? `0${minutes}` : minutes}</Typography>
+          ) : (
+            <Typography>didnot</Typography>
+          )}
+          <Button
+            disabled={seconds > 0 || minutes > 0}
+            onClick={resendOTP}
+            sx={{
+              color: seconds > 0 || minutes > 0 ? "#DFE3E8" : "#FF5630",
+            }}
+          >
+            Resend Otp
+          </Button>
+        </Box>
+      </Box>
+    </Stack>
+  );
 };
 
 export { TimerOtp };

@@ -12,11 +12,9 @@ import styled from "styled-components";
 
 type TextFieldType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
-const OptCompoentsCustome = styled(OtpInput)(() => ({
-  "&input": {
-    "&:focus": {
-      border: "14px solid #00ff !important",
-    },
+const BoxOtp = styled(Box)(() => ({
+  "& input:focus": {
+    border: "0.2rem solid #00ff !important",
   },
 }));
 
@@ -28,8 +26,8 @@ const Login: FC = () => {
   const [otpValue, setOtpValue] = useState<string>("");
 
   const { PostRequest } = ApiRegister();
-  const _changePhoneNumberHandler = (event: TextFieldType) => {
-    setNumberPhone(event.target.value);
+  const _changePhoneNumberHandler = ({ target }: TextFieldType) => {
+    setNumberPhone(target.value as string);
   };
 
   const { PostData, data, error, isPending, isSuccess, status } = PostRequest(
@@ -133,9 +131,10 @@ const Login: FC = () => {
             </Typography>
           </Box>
           <Stack marginTop="25px">
-            <Box display="flex" justifyContent="center">
-              <OptCompoentsCustome
+            <BoxOtp display="flex" justifyContent="center">
+              <OtpInput
                 value={otpValue}
+                inputType="tel"
                 onChange={setOtpValue}
                 numInputs={5}
                 renderInput={(props) => <input {...props} />}
@@ -148,10 +147,11 @@ const Login: FC = () => {
                   height: "50px",
                   margin: "10px",
                   borderRadius: "10px",
-                  border:"2px solid #00e344"
+                  border: "0.75px solid #00e344",
+                  outline: "none",
                 }}
               />
-            </Box>
+            </BoxOtp>
           </Stack>
           <Stack
             marginTop="25px"
