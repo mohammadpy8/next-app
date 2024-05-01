@@ -64,6 +64,7 @@ const Main = () => {
   useEffect(() => {
     const ff = async () => {
       const ddd = await AllGetRequest(listEndPoint);
+      return ddd;
     };
     ff();
   }, []);
@@ -86,7 +87,14 @@ const Main = () => {
           buttonData={{
             title: "بررسی",
             color: "primary",
-            sx: {},
+            sx: {
+              color: "#fff",
+              backgroundColor: "#eeff",
+              width: "25%",
+              height: "10%",
+              margin: "10px 10px 0 0",
+              padding: "2rem",
+            },
             sxParent: {
               display: "flex",
               justifyContent: "center",
@@ -101,7 +109,10 @@ const Main = () => {
                   fontSize: "13px",
                   fontWeigth: "400",
                 },
-                "& :focus": {},
+                "& :focus": {
+                  border: "2px solid blue",
+                  borderRaduis: "25px",
+                },
               },
             },
             type: "contained",
