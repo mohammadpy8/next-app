@@ -2,9 +2,9 @@
 
 import { NextUIProvider } from "@nextui-org/react";
 
-type childrenProps = {
+type childrenProps = Readonly<{
   children: React.ReactNode;
-};
+}>;
 
 const NextUIProviders = ({ children }: childrenProps) => {
   return <NextUIProvider>{children}</NextUIProvider>;

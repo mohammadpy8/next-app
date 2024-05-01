@@ -112,13 +112,13 @@ Axios.interceptors.response.use(
   }
 );
 
-const httpsRequest = {
+const httpsRequest = Object.freeze({
   GET: Axios.get,
   POST: Axios.post,
   DELETE: Axios.delete,
   PATCH: Axios.patch,
   PUT: Axios.put,
-};
+});
 
 function giveData(listData: any, listName: PromiseAllRequest[]) {
   const listAllData = listData?.map((data: any, index: number) => ({
