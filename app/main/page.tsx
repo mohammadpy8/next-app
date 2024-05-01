@@ -14,11 +14,37 @@ import dynamic from "next/dynamic";
 import { ButtonComponent } from "@/components/custom";
 
 const NewPage = dynamic(() => import("./new"), {
-  loading: () => (
-    <Typography fontSize="12px" fontWeight="500">
-      loading
-    </Typography>
-  ),
+  loading: ({ ...rest }) => {
+    console.log("rest", rest);
+
+    return (
+      <Box
+        width="150px"
+        height="50px"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          backgroundColor: "#ff0 !important",
+        }}
+      >
+        <Typography
+          fontSize="12px"
+          fontWeight="500"
+          sx={{
+            backgroundColor: "red",
+            color: "#fff",
+            "& :hover": {
+              backgroundColor: "#0ff",
+              color: "red",
+            },
+          }}
+        >
+          loading
+        </Typography>
+      </Box>
+    );
+  },
 });
 
 const Main = () => {
@@ -64,6 +90,19 @@ const Main = () => {
             sxParent: {
               display: "flex",
               justifyContent: "center",
+              "& span": {
+                fontSize: "15px",
+                fontWeigth: "500",
+                color: "#00ff",
+                transition: "all 0.3 ease-in-out",
+                "& :hover": {
+                  backgroundColor: "#ff0",
+                  color: "#fff",
+                  fontSize: "13px",
+                  fontWeigth: "400",
+                },
+                "& :focus": {},
+              },
             },
             type: "contained",
           }}
@@ -89,7 +128,10 @@ const Main = () => {
             wrapperStyleLoader={{}}
           />
         </Box>
-        <ButtonComponent buttonData={{}} onClickHandler={() => {}}/>
+        <ButtonComponent buttonData={{}} onClickHandler={() => {}} />
+        <Box>
+          <NewPage {...rest} />
+        </Box>
       </Box>
     </div>
   );

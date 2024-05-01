@@ -1,6 +1,7 @@
 import { ApiRegister } from "@/config";
 
-const NewPage = async () => {
+const NewPage = async ({ ...rest }) => {
+  console.log("rest===>", rest);
   const { GetRequest } = ApiRegister();
 
   const data = await GetRequest("posts", null, true);
