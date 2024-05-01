@@ -34,7 +34,7 @@ type propsLayout = Readonly<{
 
 export default function RootLayout({ children, items, teams }: propsLayout) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="rtl" suppressHydrationWarning>
       <body
         className={`${inter.className} ${allFont.className}`}
         style={{
@@ -46,8 +46,6 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
         }}
       >
         <ProviderLayout>
-          {/* <ReactQueryClientProvider> */}
-          {/* <MuiProvider> */}
           <Box
             sx={{
               height: "100vh",
@@ -76,8 +74,6 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
               {/* <BottomNavigation /> */}
             </Box>
           </Box>
-          {/* </MuiProvider> */}
-          {/* </ReactQueryClientProvider> */}
         </ProviderLayout>
       </body>
     </html>
