@@ -10,6 +10,7 @@ type inputType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 const InputCard = () => {
   const [inputs, setInputs] = useState<string[]>(Array(4).fill(""));
   const [dataReq, setDataReq] = useState<any>(null);
+  const [errorReq, setErrorReq] = useState<any>(null);
 
   const _changeHandler = (index: number, event: inputType) => {
     const value = event.target.value;
@@ -47,6 +48,9 @@ const InputCard = () => {
     PostData({} as unknown as void, {
       onSuccess: () => {
         setDataReq(data);
+      },
+      onError: (error) => {
+        setErrorReq(error);
       },
     });
   };
