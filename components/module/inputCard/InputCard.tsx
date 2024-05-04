@@ -12,7 +12,7 @@ const InputCard = () => {
   const [dataReq, setDataReq] = useState<any>(null);
   const [errorReq, setErrorReq] = useState<any>(null);
 
-  const _changeHandler = (index: number, event: inputType) => {
+  const _changeHandler = (index: number, event: inputType): void => {
     const value = event.target.value;
     if (value.length <= 4) {
       const newInput = [...inputs];
