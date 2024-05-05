@@ -28,7 +28,7 @@ const CustomSlider = () => {
 
   console.log("active====>", activeDot);
 
-  const sliderChangeValue = (type: "prev" | "next") => {
+  const sliderChangeValue = (type: "prev" | "next"): void => {
     switch (type) {
       case "next":
         return activeDot === dataSlider.length
@@ -44,7 +44,7 @@ const CustomSlider = () => {
     return dots;
   };
 
-  const _showSliderView = () => {
+  const _showSliderView = (): JSX.Element => {
     const searchSliderToShow = dataSlider.find((slider: dataList) => slider.id === activeDot);
     return (
       <Box>
