@@ -18,7 +18,7 @@ import { ButtonComponent } from "@/components/custom";
 const NewPage = dynamic(() => import("./new"), {
   loading: ({ ...rest }) => {
     console.log("rest", rest);
-
+   
     return (
       <Box
         width="150px"

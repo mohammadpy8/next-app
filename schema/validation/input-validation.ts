@@ -21,7 +21,8 @@ const inputSchema: z.infer<ZodType> = z
       .string({ message: "password is required" })
       .min(6, { message: "password 6 min of value" })
       .max(15, { message: "password 15 max of value" })
-      .regex(new RegExp(/^[a-zA-Z]+[-'s]?[a-zA-Z ]+$/), { message: "regex is required" }),
+      .regex(new RegExp(/^[a-zA-Z]+[-'s]?[a-zA-Z ]+$/), { message: "regex is required" })
+      .refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z ]+$/.test(value ?? ""), 'Name should contain only alphabets'),
     confirmPassword: z.string({ message: "confirm password is required" }),
   })
   .refine((data) => data.password === data.confirmPassword, {

@@ -43,13 +43,13 @@ const FormView = ({
     }
   };
   return (
-    <Box width={"100%"} height={"100%"} bgcolor={"#00ffff"}>
+    <Box width="100%" height="100%" bgcolor="#00ffff">
       {headerTitle && headerTitle.length > 0 && (
-        <Box display={"flex"} justifyContent={"center"}>
+        <Box display="flex" justifyContent="center">
           <Typography variant="h4">{headerTitle}</Typography>
         </Box>
       )}
-      <Box> {_formControllers()}</Box>
+      <Box sx={restProps}> {_formControllers()}</Box>
     </Box>
   );
 };
