@@ -19,7 +19,6 @@ const SliderComponent = () => {
   const nextClickHandle = () => {
     if (valueSlider === data.length) {
       setValueSlider(1);
-    } else {
       setValueSlider((value) => value + 1);
     }
   };

@@ -13,6 +13,8 @@ import data_form from "./data-form.json";
 import dynamic from "next/dynamic";
 import { ButtonComponent } from "@/components/custom";
 
+//@ added dynamic components and set custom loading.....
+
 const NewPage = dynamic(() => import("./new"), {
   loading: ({ ...rest }) => {
     console.log("rest", rest);

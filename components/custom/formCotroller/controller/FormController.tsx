@@ -36,6 +36,9 @@ const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: 
       radiobutton: Object.values(restProps)[4] ?? {},
     };
   };
+
+  //@@ handle form by type-form and set validation
+  
   const _showFormView = (typeForm: typeFrom, all_data: allData, id: number) => {
     const validationFilter = (name_validation: string) => {
       const typeValidation =
@@ -95,6 +98,9 @@ const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: 
   };
 
   console.log("controller:==>", dataForm);
+
+  //todo show view form into any pages
+
   const _viewForm = () => {
     return dataForm?.page_1?.map((data, index) => _showFormView(data?.type, data, index));
   };
