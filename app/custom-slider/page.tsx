@@ -26,18 +26,18 @@ const CustomSlider = () => {
   const sliderChangeValue = (type: "prev" | "next") => {
     switch (type) {
       case "next":
-        if (activeDot === dataSlider.length) {
-          setActiveDot(1);
-        } else {
-          setActiveDot((value) => value + 1);
-        }
+        return activeDot === dataSlider.length
+          ? setActiveDot(1)
+          : setActiveDot((value) => value + 1);
+
       case "prev":
-        if (activeDot === 1) {
-          setActiveDot(data.length);
-        } else {
-          setActiveDot((value) => value - 1);
-        }
+        return activeDot === 1 ? setActiveDot(data.length) : setActiveDot((value) => value - 1);
     }
+  };
+
+  const convertDotSlider = (): Array<string> => {
+    const dots = Array(dotValue).fill("*");
+    return dots;
   };
 
   return (
@@ -68,6 +68,19 @@ const CustomSlider = () => {
             >
               perv
             </Button>
+            <Box>
+              {convertDotSlider().map((_, index) => (
+                <Box
+                  key={index}
+                  width="25px"
+                  height="25px"
+                  borderRadius="50%"
+                  sx={{
+                    backgroundColor: index === activeDot ? "#fff" : "red",
+                  }}
+                ></Box>
+              ))}
+            </Box>
           </Box>
         </Box>
       </Box>
