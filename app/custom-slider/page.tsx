@@ -68,17 +68,18 @@ const CustomSlider = () => {
             >
               perv
             </Button>
-            <Box>
+            <Box display="flex" justifyContent="center" columnGap="15px">
               {convertDotSlider()?.map((_, index) => (
                 <Box
                   key={index + 1}
-                  width="25px"
+                  width={index + 1 === activeDot ? "55px" : "25px"}
                   height="25px"
-                  borderRadius="50%"
+                  borderRadius={index + 1 === activeDot ? "25px" : "50%"}
                   onClick={() => setActiveDot(index + 1)}
                   sx={{
                     backgroundColor: index + 1 === activeDot ? "#fff" : "red",
                     cursor: "pointer",
+                    transition: "all 0.5s ease-in-out",
                   }}
                 ></Box>
               ))}
