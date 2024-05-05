@@ -1,12 +1,17 @@
 "use client";
 
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 
 type dataType = Array<{
   id: number;
   name: string;
 }>;
+
+type dataList = {
+  id: number;
+  name: string;
+};
 
 const data: dataType = [
   { id: 1, name: "11" },
@@ -37,6 +42,15 @@ const CustomSlider = () => {
   const convertDotSlider = (): Array<string> => {
     const dots = Array(dotValue).fill("*");
     return dots;
+  };
+
+  const _showSliderView = () => {
+    const searchSliderToShow = dataSlider.find((slider: dataList) => slider.id === activeDot);
+    return (
+      <Box>
+        <Typography>{searchSliderToShow?.name}</Typography>
+      </Box>
+    );
   };
 
   return (
@@ -83,6 +97,7 @@ const CustomSlider = () => {
                 ></Box>
               ))}
             </Box>
+            <Box>{_showSliderView()}</Box>
           </Box>
         </Box>
       </Box>
