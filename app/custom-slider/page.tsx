@@ -29,7 +29,6 @@ const CustomSlider = () => {
         return activeDot === dataSlider.length
           ? setActiveDot(1)
           : setActiveDot((value) => value + 1);
-
       case "prev":
         return activeDot === 1 ? setActiveDot(data.length) : setActiveDot((value) => value - 1);
     }
@@ -79,7 +78,7 @@ const CustomSlider = () => {
                   sx={{
                     backgroundColor: index + 1 === activeDot ? "#fff" : "red",
                     cursor: "pointer",
-                    transition: "all 0.5s ease-in-out",
+                    transition: "all 0.35s ease-in-out",
                   }}
                 ></Box>
               ))}
