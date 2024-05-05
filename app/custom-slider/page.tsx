@@ -31,9 +31,7 @@ const CustomSlider = () => {
   const sliderChangeValue = (type: "prev" | "next"): void => {
     switch (type) {
       case "next":
-        return activeDot === dataSlider.length
-          ? setActiveDot(1)
-          : setActiveDot((value) => value + 1);
+        return activeDot === dataSlider.length ? setActiveDot(1) : setActiveDot((value) => value + 1);
       case "prev":
         return activeDot === 1 ? setActiveDot(data.length) : setActiveDot((value) => value - 1);
     }
