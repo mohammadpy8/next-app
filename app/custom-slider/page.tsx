@@ -45,7 +45,7 @@ const CustomSlider = () => {
   const _showSliderView = (): JSX.Element => {
     const searchSliderToShow = dataSlider.find((slider: dataList) => slider.id === activeDot);
     return (
-      <Box>
+      <Box display="flex" justifyContent="center" alignItems="center" width="100%" height="100%">
         <Typography>{searchSliderToShow?.name}</Typography>
       </Box>
     );
@@ -79,6 +79,9 @@ const CustomSlider = () => {
             >
               perv
             </Button>
+            <Box width="100%" height="100%">
+              {_showSliderView()}
+            </Box>
             <Box display="flex" justifyContent="center" columnGap="15px">
               {convertDotSlider()?.map((_, index) => (
                 <Box
@@ -95,7 +98,6 @@ const CustomSlider = () => {
                 ></Box>
               ))}
             </Box>
-            <Box>{_showSliderView()}</Box>
           </Box>
         </Box>
       </Box>
