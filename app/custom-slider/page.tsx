@@ -79,10 +79,10 @@ const CustomSlider = () => {
             >
               perv
             </Button>
-            <Box width="100%" height="100%">
+            <Box width="100%" height="100%" bgcolor="red" borderRadius="15px">
               {_showSliderView()}
             </Box>
-            <Box display="flex" justifyContent="center" columnGap="15px">
+            <Box display="flex" justifyContent="center" columnGap="15px" paddingY="15px">
               {convertDotSlider()?.map((_, index) => (
                 <Box
                   key={index + 1}
