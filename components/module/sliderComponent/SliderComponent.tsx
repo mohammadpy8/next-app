@@ -70,12 +70,7 @@ const SliderComponent = () => {
       justifyContent={"center"}
       onClick={viewSlider}
     >
-      <Box
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        p={1}
-      >
+      <Box display={"flex"} justifyContent={"center"} alignItems={"center"} p={1}>
         <IconButton
           color="primary"
           sx={{ width: "50px", height: "50px", border: "3px solid" }}
@@ -85,12 +80,7 @@ const SliderComponent = () => {
         </IconButton>
       </Box>
       {viewSlider()}
-      <Box
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        p={1}
-      >
+      <Box display={"flex"} justifyContent={"center"} alignItems={"center"} p={1}>
         <IconButton
           color="primary"
           sx={{ width: "50px", height: "50px", border: "3px solid" }}
