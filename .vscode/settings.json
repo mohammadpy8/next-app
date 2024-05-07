@@ -3,9 +3,9 @@
   "workbench.iconTheme": "material-icon-theme",
   "files.autoSave": "afterDelay",
   "editor.fontFamily": "'Fira Code' , 'Vazirmatn'",
-  "editor.fontSize": 16,
+  "editor.fontSize": 16.5,
   "editor.fontLigatures": true,
-  "editor.fontWeight": "500",
+  "editor.fontWeight": "425",
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -45,6 +45,22 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+  "indentRainbow.indicatorStyle": "classic",
+  "indentRainbow.lightIndicatorStyleLineWidth": 4,
+  "indentRainbow.errorColor": "rgba(253, 52, 35 ,0.35)",
+  "indentRainbow.tabmixColor": "rgba(128,32,96,0.8)",
+  "indentRainbow.colorOnWhiteSpaceOnly": true,
+  "indentRainbow.colors": [
+    "rgba(99, 50, 252, 0.067)",
+    "rgba(50, 105, 252, 0.067 )",
+    "rgba(50, 191, 252, 0.067 )",
+    "rgba(50, 252, 240, 0.067 )",
+    "rgba(50, 252, 166, 0.067 )",
+    "rgba(151, 252, 50, 0.067 )",
+    "rgba(233, 252, 50, 0.067 )",
+    "rgba(252, 215, 50, 0.067 )",
+    "rgba(252, 154, 50, 0.067 )"
+  ],
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.fontFamily": "'Fira Code'",
   "terminal.integrated.fontSize": 16.25,
@@ -52,10 +68,12 @@
   "editor.inlineSuggest.enabled": true,
   "workbench.colorCustomizations": {
     "editorCursor.foreground": "#ffff00",
-    "terminalCursor.foreground": "#ffff00"
+    "terminalCursor.foreground": "#ffff00",
+    "editorBracketMatch.border": "#ff9100"
+    // "editor.background": "#ff0000"
   },
   "diffEditor.ignoreTrimWhitespace": false,
-  "prettier.printWidth": 100,
+  "prettier.printWidth": 105,
   "comment-divider.languagesMap": {
     "javascript": ["//"]
   },
@@ -131,12 +149,21 @@
       "backgroundColor": "#FFB600",
       "bold": false,
       "italic": false
+    },
+    {
+      "tag": "(*)",
+      "color": "#FFFFFFEE",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "#FF12F4",
+      "bold": false,
+      "italic": false
     }
   ],
   "editor.matchBrackets": "never",
   "editor.fontStyle": "italic",
   "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active",
+  "editor.guides.bracketPairs": true,
   "editor.accessibilitySupport": "off",
   "CodeGPT.model": "gpt-4",
   "vscode-pets.throwBallWithMouse": true,
@@ -175,14 +202,17 @@
     }
   },
   "importCost.fontStyle": "italic",
-  "importCost.smallPackageDarkColor": "#00ff00 ",
-  "importCost.smallPackageLightColor": "#00ff00 ",
-  "importCost.mediumPackageDarkColor": "#ffff00 ",
-  "importCost.mediumPackageLightColor": "#ffff00 ",
+  "importCost.bundleSizeColoring": "minified",
+  "importCost.smallPackageDarkColor": "#CDFF00 ",
+  "importCost.smallPackageLightColor": "#CDFF00 ",
+  "importCost.mediumPackageDarkColor": "#FFC500 ",
+  "importCost.mediumPackageLightColor": "#FFC500 ",
+  "importCost.largePackageDarkColor": "#FF1212",
+  "importCost.largePackageLightColor": "#FF1212",
   "todo-tree.general.tagGroups": {},
   "gitlens.proxy": {},
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.cursorBlinking": "expand",
   "workbench.settings.applyToAllProfiles": [],
-  "terminal.integrated.fontWeight": "550"
+  "terminal.integrated.fontWeight": "400"
 }
