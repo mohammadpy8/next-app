@@ -2,6 +2,9 @@
 
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { useState } from "react";
+import { Stepper, type StepperChangeEvent } from "@progress/kendo-react-layout";
+import { checkCircleIcon, xOutlineIcon } from "@progress/kendo-svg-icons";
+import chalk from "chalk";
 
 type dataType = Array<{
   id: number;
@@ -12,6 +15,11 @@ type dataList = {
   id: number;
   name: string;
 };
+
+interface stepsType {
+  label: string;
+  isValid: any;
+}
 
 const data: dataType = [
   { id: 1, name: "11" },
@@ -25,8 +33,27 @@ const CustomSlider = () => {
   const [dataSlider] = useState<dataType>(data);
   const [dotValue, setDotValue] = useState<number>(dataSlider?.length);
   const [activeDot, setActiveDot] = useState<number>(1);
+  const [step, setStep] = useState<number>(0);
+  const [steps, setSteps] = useState<Array<stepsType>>([
+    {
+      label: "Account Details",
+      isValid: undefined,
+    },
+    {
+      label: "Personal Details",
+      isValid: undefined,
+    },
+    {
+      label: "Delivery Details",
+      isValid: undefined,
+    },
+    {
+      label: "Payment Details",
+      isValid: undefined,
+    },
+  ]);
 
-  console.log("active====>", activeDot);
+  console.log(chalk.blue("active====>", activeDot));
 
   const sliderChangeValue = (type: "prev" | "next"): void => {
     switch (type) {
@@ -51,8 +78,18 @@ const CustomSlider = () => {
     );
   };
 
+  const _changeStepperHandler = (event: StepperChangeEvent): void => {
+    const isValid = step % 2 === 0;
+    const currentSteps = steps?.map((currentStep, index) => ({
+      ...currentStep,
+      isValid: index === step ? isValid : currentStep.isValid,
+    }));
+    setSteps(currentSteps);
+    setStep(event?.value);
+  };
+
   return (
-    <Stack width="500px" height="400px">
+    <Stack width="500px" height="100vh">
       <Box display="flex" justifyContent="center" alignItems="center" width="100%" height="100%">
         <Box
           bgcolor="#eeee"
@@ -100,6 +137,23 @@ const CustomSlider = () => {
             </Box>
           </Box>
         </Box>
+      </Box>
+      <Box
+        marginTop="100px"
+        width="500px"
+        height="450px"
+        bgcolor="#c9ccf7"
+        display="flex"
+        columnGap="25px"
+      >
+        <Stepper
+          value={step}
+          onChange={_changeStepperHandler}
+          items={steps}
+          mode="labels"
+          successSVGIcon={checkCircleIcon}
+          errorSVGIcon={xOutlineIcon}
+        />
       </Box>
     </Stack>
   );
