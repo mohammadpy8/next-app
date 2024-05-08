@@ -46,7 +46,7 @@ const InputCard = () => {
 
   const _checkNumbers = (): void => {
     PostData({} as unknown as void, {
-      onSuccess: () => {
+      onSuccess: (data) => {
         setDataReq(data);
       },
       onError: (error) => {

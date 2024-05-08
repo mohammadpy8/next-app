@@ -1,5 +1,10 @@
 import type { Palette, PaletteOptions } from "@mui/material";
 
+/**
+ * Form for user login
+ * @param {bool} submitting Shows if form submitting is in progress
+ * @param {function} handleSubmit Form submit callback function
+ */
 declare module "@mui/material/styles" {
   interface Palette {
     customPalette?: {
