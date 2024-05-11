@@ -38,11 +38,10 @@ const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: 
   };
 
   //@@ handle form by type-form and set validation
-  
+
   const _showFormView = (typeForm: typeFrom, all_data: allData, id: number) => {
     const validationFilter = (name_validation: string) => {
-      const typeValidation =
-        validationForm?.filter((item: any) => item?.name === name_validation) ?? [];
+      const typeValidation = validationForm?.filter((item: any) => item?.name === name_validation) ?? [];
       return typeValidation;
     };
 

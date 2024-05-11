@@ -91,14 +91,7 @@ const CustomSlider = () => {
   return (
     <Stack width="500px" height="100vh">
       <Box display="flex" justifyContent="center" alignItems="center" width="100%" height="100%">
-        <Box
-          bgcolor="#eeee"
-          width="100%"
-          height="100%"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box bgcolor="#eeee" width="100%" height="100%" display="flex" justifyContent="center" alignItems="center">
           <Box bgcolor="green" width="350px" height="250px" borderRadius="15px">
             <Button
               sx={{
@@ -138,14 +131,7 @@ const CustomSlider = () => {
           </Box>
         </Box>
       </Box>
-      <Box
-        marginTop="100px"
-        width="500px"
-        height="450px"
-        bgcolor="#c9ccf7"
-        display="flex"
-        columnGap="25px"
-      >
+      <Box marginTop="100px" width="500px" height="450px" bgcolor="#c9ccf7" display="flex" columnGap="25px">
         <Stepper
           value={step}
           onChange={_changeStepperHandler}

@@ -46,11 +46,7 @@ const TimerOtp: FC = () => {
   return (
     <Stack>
       <Box>
-        <TextField
-          placeholder="otp type"
-          value={otpValue}
-          onChange={({ target }) => setOtpValue(target.value)}
-        />
+        <TextField placeholder="otp type" value={otpValue} onChange={({ target }) => setOtpValue(target.value)} />
         <Button onClick={sendOTP}>generate otp</Button>
         <Box>
           {seconds > 0 || minutes > 0 ? (

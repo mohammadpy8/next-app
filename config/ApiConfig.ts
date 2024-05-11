@@ -27,12 +27,7 @@ const createErrorMessage = (error: unknown) => {
   if (error instanceof Error) {
     return error.message;
   }
-  if (
-    error &&
-    typeof error === "object" &&
-    "message" in error &&
-    typeof error.message === "string"
-  ) {
+  if (error && typeof error === "object" && "message" in error && typeof error.message === "string") {
     return error.message;
   }
 
@@ -169,9 +164,7 @@ const ApiRegister = () => {
     } = useMutation({
       mutationKey: [keyName],
       mutationFn: () => {
-        return httpsRequest
-          .POST(endPoint + IDRequestHandler, dataRequest)
-          .then((response) => response.data);
+        return httpsRequest.POST(endPoint + IDRequestHandler, dataRequest).then((response) => response.data);
       },
     });
     return {
@@ -184,12 +177,7 @@ const ApiRegister = () => {
     };
   };
 
-  const DeleteRequest = (
-    endPoint: string,
-    IDRequest: number | null,
-    keyName: string,
-    infoResponse: boolean
-  ) => {
+  const DeleteRequest = (endPoint: string, IDRequest: number | null, keyName: string, infoResponse: boolean) => {
     const IDRequestHandler = IDRequest === null ? "" : `/${IDRequest}`;
 
     const {
@@ -233,9 +221,7 @@ const ApiRegister = () => {
     } = useMutation({
       mutationKey: [keyName],
       mutationFn: () => {
-        return httpsRequest
-          .PATCH(endPoint + IDRequestHandler, dataRequest)
-          .then((response) => response.data);
+        return httpsRequest.PATCH(endPoint + IDRequestHandler, dataRequest).then((response) => response.data);
       },
     });
     return {
@@ -266,9 +252,7 @@ const ApiRegister = () => {
     } = useMutation({
       mutationKey: [keyName],
       mutationFn: () => {
-        return httpsRequest
-          .PUT(endPoint + IDRequestHandler, dataRequest)
-          .then((response) => response.data);
+        return httpsRequest.PUT(endPoint + IDRequestHandler, dataRequest).then((response) => response.data);
       },
     });
     return {

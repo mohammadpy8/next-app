@@ -18,13 +18,7 @@ type PropsFormView = {
   buttonData: any;
 };
 
-const FormView = ({
-  singlePageData,
-  validationForm,
-  headerTitle,
-  buttonData,
-  ...restProps
-}: PropsFormView) => {
+const FormView = ({ singlePageData, validationForm, headerTitle, buttonData, ...restProps }: PropsFormView) => {
   const sizeDataFrom = Object.keys(singlePageData ?? {}).length;
   const _formControllers = () => {
     if (sizeDataFrom && sizeDataFrom === 1) {

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  FormView,
-  ImageComponent,
-  LoaderComponent,
-  type singlePageDataProps,
-} from "@/components/custom";
+import { FormView, ImageComponent, LoaderComponent, type singlePageDataProps } from "@/components/custom";
 import { ApiRegister } from "@/config";
 import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
