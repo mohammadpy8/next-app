@@ -12,10 +12,8 @@ const SearchBox = () => {
   const _changeBoxHandle = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const getValueOfInput = (event.target as HTMLInputElement | HTMLTextAreaElement).value;
     setValueInput(getValueOfInput);
-    const filterData = dataArray.filter((item: string) =>
-      item.toLowerCase().includes(getValueOfInput.toLowerCase())
-    );
-    console.log("ll", valueInput.length)
+    const filterData = dataArray.filter((item: string) => item.toLowerCase().includes(getValueOfInput.toLowerCase()));
+    console.log("ll", valueInput.length);
     if (getValueOfInput.length) {
       setResultSearchBox(filterData);
     } else {
@@ -46,19 +44,20 @@ const SearchBox = () => {
           Result :
         </Box>
         <Box display={"flex"} flexDirection={"column"}>
-          {resultSearchBox.length > 0 && resultSearchBox?.map((text: string, index) => (
-            <Box
-              key={index}
-              component={Typography}
-              sx={{
-                color: "#00ff",
-                fontSize: "25px",
-                fontWeight: "bold",
-              }}
-            >
-              {text}
-            </Box>
-          ))}
+          {resultSearchBox.length > 0 &&
+            resultSearchBox?.map((text: string, index) => (
+              <Box
+                key={index}
+                component={Typography}
+                sx={{
+                  color: "#00ff",
+                  fontSize: "25px",
+                  fontWeight: "bold",
+                }}
+              >
+                {text}
+              </Box>
+            ))}
         </Box>
       </Box>
     </Box>
