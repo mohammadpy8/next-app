@@ -12,12 +12,7 @@ import {
   UniqueIdentifier,
   DragStartEvent,
 } from "@dnd-kit/core";
-import {
-  arrayMove,
-  SortableContext,
-  sortableKeyboardCoordinates,
-  rectSortingStrategy,
-} from "@dnd-kit/sortable";
+import { arrayMove, SortableContext, sortableKeyboardCoordinates, rectSortingStrategy } from "@dnd-kit/sortable";
 
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";

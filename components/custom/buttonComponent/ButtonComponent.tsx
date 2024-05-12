@@ -5,11 +5,7 @@ interface buttonComponentProps {
   onClickHandler?: () => void;
 }
 
-const ButtonComponent = ({
-  buttonData,
-  onClickHandler = () => {},
-  ...restProps
-}: buttonComponentProps) => {
+const ButtonComponent = ({ buttonData, onClickHandler = () => {}, ...restProps }: buttonComponentProps) => {
   console.log("button", buttonData);
   return (
     <Box sx={buttonData.sxParent}>
