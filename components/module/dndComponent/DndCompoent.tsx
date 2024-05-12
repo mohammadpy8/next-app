@@ -80,12 +80,7 @@ const DndCompoent = () => {
   };
 
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCenter}
-      onDragEnd={handleDragEnd}
-      onDragStart={handleDragStart}
-    >
+    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
       <Stack direction={{ xs: "row" }} flexWrap={"wrap"}>
         <SortableContext items={items} strategy={rectSortingStrategy}>
           {items.map((id: string) => (

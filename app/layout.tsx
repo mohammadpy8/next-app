@@ -66,13 +66,7 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
             <Box display="flex" justifyContent="center" pb={15}>
               {children}
             </Box>
-            <Box
-              position={"relative"}
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              bottom={10}
-            >
+            <Box position={"relative"} display={"flex"} justifyContent={"center"} alignItems={"center"} bottom={10}>
               {/* <BottomNavigation /> */}
             </Box>
           </Box>

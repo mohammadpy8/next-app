@@ -82,7 +82,7 @@ const RequestHandler = (endPoint: string) => {
       dataReq?: any,
       IDReq?: number | null,
       typeCache?: "default" | "force-cache" | "no-store" | "no-cache",
-      revalidateTime?: number 
+      revalidateTime?: number
     ) => {
       const IDRequestHandler = IDReq === null ? "" : `/${IDReq}`;
       httpReq(method, dataReq, IDReq, IDRequestHandler, typeCache, revalidateTime).then((res) => {

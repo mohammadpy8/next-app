@@ -23,12 +23,7 @@ const FormView = ({ singlePageData, validationForm, headerTitle, buttonData, ...
   const _formControllers = () => {
     if (sizeDataFrom && sizeDataFrom === 1) {
       return (
-        <FormController
-          {...restProps}
-          validationForm={validationForm}
-          dataForm={singlePageData}
-          buttonData={buttonData}
-        />
+        <FormController {...restProps} validationForm={validationForm} dataForm={singlePageData} buttonData={buttonData} />
       );
     } else if (sizeDataFrom && sizeDataFrom > 1) {
       return <FormStepperController {...restProps} validationForm={validationForm} />;

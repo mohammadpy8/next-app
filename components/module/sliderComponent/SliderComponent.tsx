@@ -71,21 +71,13 @@ const SliderComponent = () => {
       onClick={viewSlider}
     >
       <Box display={"flex"} justifyContent={"center"} alignItems={"center"} p={1}>
-        <IconButton
-          color="primary"
-          sx={{ width: "50px", height: "50px", border: "3px solid" }}
-          onClick={nextClickHandle}
-        >
+        <IconButton color="primary" sx={{ width: "50px", height: "50px", border: "3px solid" }} onClick={nextClickHandle}>
           <IoIosArrowBack size={30} />
         </IconButton>
       </Box>
       {viewSlider()}
       <Box display={"flex"} justifyContent={"center"} alignItems={"center"} p={1}>
-        <IconButton
-          color="primary"
-          sx={{ width: "50px", height: "50px", border: "3px solid" }}
-          onClick={prevClickHandle}
-        >
+        <IconButton color="primary" sx={{ width: "50px", height: "50px", border: "3px solid" }} onClick={prevClickHandle}>
           <IoIosArrowForward size={30} />
         </IconButton>
       </Box>
