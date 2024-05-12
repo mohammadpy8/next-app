@@ -153,13 +153,7 @@ const Login: FC = () => {
               />
             </BoxOtp>
           </Stack>
-          <Stack
-            marginTop="25px"
-            display="flex"
-            justifyContent="space-between"
-            flexDirection="row"
-            marginX="60px"
-          >
+          <Stack marginTop="25px" display="flex" justifyContent="space-between" flexDirection="row" marginX="60px">
             <Box></Box>
             <Box onClick={() => setStep(0)}>
               <Typography
