@@ -5,7 +5,8 @@ const StyledFormat = (custom_style: Object = {}, tag: any = "div") => {
 
   console.log("pallate ===>", palette);
 
-  const _styles = styled(tag ?? "div")(({}) => {
+  const _styles = styled(tag ?? "div")(({ ...rest_theme }) => {
+    console.log("rest ====>", rest_theme);
     return { custom_style };
   });
 

@@ -13,7 +13,7 @@ type InputProps = {
 
 const InputComponent = styled(TextField)(() => ({
   "& .MuiFormControl-root": {
-    // transform:"translateY(180deg)"
+    color: (props: any) => console.log("any===>", props),
     position: "relative",
     backgroundColor: "#fff",
   },
@@ -59,10 +59,24 @@ const Input: FC<InputProps> = ({
   sxInputCustom,
   sxParentInput,
 }) => {
+  const { _styles, _theme } = StyledFormat();
 
   return (
     <Grid container>
-      <Grid item xs={12} sm={8} md={6} lg={4} xl={2}>
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={6}
+        lg={4}
+        xl={2}
+        sx={{
+          width: (theme: any) => {
+            console.log("any-them ====>", theme);
+            return "100vw";
+          },
+        }}
+      >
         <Box width="100%" margin="25px" sx={sxParentInput}>
           <InputComponent label={placeholderInput ?? "نام و نام خانوادگی"} onChange={onChangeInput} sx={sxInputCustom} />
         </Box>
