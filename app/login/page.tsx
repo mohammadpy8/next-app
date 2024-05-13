@@ -31,7 +31,6 @@ const Login: FC = () => {
   };
 
   const { PostData, data, error, isPending, isSuccess, status } = PostRequest(
-    
     "users",
     null,
     { numberPhone },

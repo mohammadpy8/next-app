@@ -49,7 +49,7 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
           <Box
             sx={{
               height: "100vh",
-              width: { xs: "100%", sm: "800px" },
+              width: { xs: "100%", sm: "100vw" },
               backgroundColor: "#F2F4F8",
               overflow: "hidden",
               overflowY: "scroll",
@@ -63,9 +63,7 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
             p={0}
             m={0}
           >
-            <Box display="flex" justifyContent="center" pb={15}>
-              {children}
-            </Box>
+            <Box pb={15}>{children}</Box>
             <Box position={"relative"} display={"flex"} justifyContent={"center"} alignItems={"center"} bottom={10}>
               {/* <BottomNavigation /> */}
             </Box>

@@ -25,7 +25,7 @@ type allData = {
 
 type typeFrom = "INPUT" | "TEXTAREA" | "SWITCH" | "RADIOBUTTON" | "COMBOBOX";
 
-const FormController = ({ validationForm, dataForm, buttonData, ...restProps }: PropsFormView) => {
+const FormController = ({ validationForm = {}, dataForm, buttonData, ...restProps }: PropsFormView) => {
   const convertRestProps = () => {
     if (Object.keys(restProps).length === 0) return undefined;
     return {
