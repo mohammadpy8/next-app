@@ -1,4 +1,8 @@
+"use client";
+
+import { IconComponent } from "@/components/custom";
 import { Avatar, Box, Stack, Typography } from "@mui/material";
+import { LuUsers } from "react-icons/lu";
 
 const Home = () => {
   return (
@@ -12,6 +16,9 @@ const Home = () => {
             MORENT
           </Typography>
         </Box>
+      </Box>
+      <Box>
+        <IconComponent iconColor="#00ff" iconSize={25} iconName={LuUsers} />
       </Box>
     </Stack>
   );

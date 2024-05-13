@@ -29,10 +29,7 @@ const Todo = (props: TodoProps) => {
 
   const _TodoClick = (event: buttonEvent) => {
     event.preventDefault();
-    const saveToLocalStorage = localStorage.setItem(
-      "todo",
-      JSON.stringify(todoItems)
-    );
+    const saveToLocalStorage = localStorage.setItem("todo", JSON.stringify(todoItems));
     setTodoItems({
       id: "",
       name: "",
@@ -47,13 +44,7 @@ const Todo = (props: TodoProps) => {
       <form>
         <div>
           <label htmlFor="name">name:</label>
-          <input
-            type="text"
-            name="name"
-            value={todoItems.name}
-            onChange={_ChangeTodoHandle}
-            placeholder="enter your name"
-          />
+          <input type="text" name="name" value={todoItems.name} onChange={_ChangeTodoHandle} placeholder="enter your name" />
         </div>
         <div>
           <label htmlFor="title">title:</label>
