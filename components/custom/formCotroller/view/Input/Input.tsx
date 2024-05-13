@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Stack, TextField, Grid, styled } from "@mui/material";
+import { StyledFormat } from "@/utils";
 import type { FC } from "react";
 
 type InputProps = {
@@ -58,6 +59,7 @@ const Input: FC<InputProps> = ({
   sxInputCustom,
   sxParentInput,
 }) => {
+
   return (
     <Grid container>
       <Grid item xs={12} sm={8} md={6} lg={4} xl={2}>
