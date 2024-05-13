@@ -1,39 +1,35 @@
-import { Box, Stack } from "@mui/material";
-import type { FC } from "react";
+import { Box, Stack, Dialog } from "@mui/material";
+import type { Dispatch, FC, SetStateAction } from "react";
 import React from "react";
 
 type modalType = {
   showModal: boolean;
-  setShowModal?: (value: boolean) => boolean;
+  setShowModal: Dispatch<SetStateAction<boolean>>;
+  children: React.ReactNode;
 };
 
-const ModalComponent: FC<modalType> = ({ setShowModal, showModal }) => {
+const ModalComponent: FC<modalType> = ({ setShowModal, showModal, children }) => {
   console.log("showModal==>", showModal);
 
   return (
-    <Box
-      width="100vw"
-      height="100vh"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      sx={{
-        backgroundColor: "#dfdfdf",
-        opacity: showModal ? 1 : 0,
-        transition: "all 0.5s ease-in-out",
-      }}
-    >
-      <Box
-        width="450px"
-        height="350px"
-        bgcolor="red"
-        borderRadius="25px"
+    <React.Fragment>
+      <Dialog
+        open={showModal}
+        onClose={() => setShowModal(!showModal)}
         sx={{
-          transform: showModal ? "translateY(0px)" : "translateY(-1500px)",
-          transition: "all 0.4s ease-in-out",
+          "& .MuiDialog-paperScrollPaper": {
+            transform: showModal ? "translateY(0px)" : "translateY(-1500px)",
+            transition: "all 0.5s ease-in-out",
+          },
+          "& .MuiDialog-container": {
+            transform: showModal ? "translateY(0px)" : "translateY(-1500px)",
+            transition: "all 0.5s ease-in-out",
+          },
         }}
-      ></Box>
-    </Box>
+      >
+        {children}
+      </Dialog>
+    </React.Fragment>
   );
 };
 
