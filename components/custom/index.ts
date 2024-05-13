@@ -12,3 +12,4 @@ export * from "@/components/custom/loaderComponent/LoaderComponent";
 export * from "@/components/custom/buttonComponent/ButtonComponent";
 export * from "@/components/custom/ToastComponent/ToastComponent";
 export * from "@/components/custom/iconComponent/IconComponent";
+export * from "@/components/custom/modalComponent/ModalComponent";

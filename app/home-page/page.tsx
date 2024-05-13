@@ -1,8 +1,8 @@
 "use client";
 
-import { Box, Stack } from "@mui/material";
-import { Input } from "@/components/custom";
-import type { ChangeEvent } from "react";
+import { Box, Button, Stack } from "@mui/material";
+import { Input, ModalComponent } from "@/components/custom";
+import { useState, type ChangeEvent } from "react";
 
 type TextFieldType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
@@ -11,12 +11,20 @@ const HomePage = () => {
     return target.value;
   };
 
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  // console.log("showModal", showModal);
+
+  // console.log("ggggg")
+
   return (
-    <Stack>
-      <Box>
-        <Input placeholderInput="NAME" onChangeInput={() => changeHander} />
-      </Box>
-    </Stack>
+    // <Stack>
+    <Box>
+      {/* <Input placeholderInput="NAME" onChangeInput={() => changeHander} /> */}
+      <ModalComponent showModal={showModal} />
+      <Button onClick={() => setShowModal(!showModal)}>show modal</Button>
+    </Box>
+    // </Stack>
   );
 };
 
