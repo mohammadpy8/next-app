@@ -2,7 +2,7 @@
 
 import { Box, Stack, TextField, Grid, styled } from "@mui/material";
 import { StyledFormat } from "@/utils";
-import type { FC } from "react";
+import React, { useState, type FC } from "react";
 
 type InputProps = {
   placeholderInput: string;
@@ -61,27 +61,57 @@ const Input: FC<InputProps> = ({
 }) => {
   const { _styles, _theme } = StyledFormat();
 
+  const [showModal, setShowModal] = useState<boolean>(true);
+
   return (
-    <Grid container>
-      <Grid
-        item
-        xs={12}
-        sm={8}
-        md={6}
-        lg={4}
-        xl={2}
+    <React.Fragment>
+      <Grid container>
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          md={6}
+          lg={4}
+          xl={2}
+          sx={{
+            width: (theme: any) => {
+              console.log("any-them ====>", theme);
+              return "100vw";
+            },
+          }}
+        >
+          <Box width="100%" margin="25px" sx={sxParentInput}>
+            <InputComponent label={placeholderInput ?? "نام و نام خانوادگی"} onChange={onChangeInput} sx={sxInputCustom} />
+          </Box>
+        </Grid>
+      </Grid>
+      <Box>
+        <Box
+          width="350px"
+          height="250px"
+          bgcolor="#eee"
+          borderRadius="15px"
+          boxShadow={1}
+          sx={{
+            transform: showModal ? "translateY(0px)" : "translateY(-1500px)",
+            transition: "all 0.5s ease-in-out",
+          }}
+          onClick={() => setShowModal(!showModal)}
+        ></Box>
+      </Box>
+      <Box
+        width="100vw"
+        height="100vh"
+        bgcolor="#333"
         sx={{
-          width: (theme: any) => {
-            console.log("any-them ====>", theme);
-            return "100vw";
-          },
+          display: showModal ? "block" : "none",
+          opacity: showModal ? 1 : 0,
+          transition: "all 1s ease-in-out",
         }}
       >
-        <Box width="100%" margin="25px" sx={sxParentInput}>
-          <InputComponent label={placeholderInput ?? "نام و نام خانوادگی"} onChange={onChangeInput} sx={sxInputCustom} />
-        </Box>
-      </Grid>
-    </Grid>
+        hhh
+      </Box>
+    </React.Fragment>
   );
 };
 
