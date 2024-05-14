@@ -28,6 +28,11 @@ const ModalComponent: FC<modalType> = ({ setShowModal, showModal, children }) =>
         keepMounted
         TransitionComponent={Transition}
         aria-description="modal"
+        sx={{
+          "& .MuiDialog-container": {
+            transition: "transform 0.6s cubic-bezier(0, 0, 0.2, 1) 0.5ms !important",
+          },
+        }}
       >
         {children}
       </Dialog>

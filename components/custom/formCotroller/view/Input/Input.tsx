@@ -14,7 +14,6 @@ type InputProps = {
 const InputComponent = styled(TextField)(() => ({
   "& .MuiFormControl-root": {
     color: (props: any) => console.log("any===>", props),
-    position: "relative",
     backgroundColor: "#fff",
   },
   "& .MuiInputBase-root": { backgroundColor: "#fff", width: "250px" },
@@ -33,23 +32,6 @@ const InputComponent = styled(TextField)(() => ({
   },
   "& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused ": {
     color: "red",
-    display: "flex",
-    justifyContent: "start",
-    position: "absolute",
-    right: "-20px",
-  },
-  "& label": {
-    position: "absolute",
-    right: "30px",
-    backgroundColor: "#fff",
-    // display: "flex",
-    // justifyContent: "center",
-  },
-  "& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root": {
-    "& :focus": {
-      position: "absolute",
-      right: "20px",
-    },
   },
 }));
 
@@ -68,7 +50,7 @@ const Input: FC<InputProps> = ({
       <Grid container>
         <Grid
           item
-          xs={12}
+          xs={12} 
           sm={8}
           md={6}
           lg={4}

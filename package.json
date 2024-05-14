@@ -44,6 +44,8 @@
     "react-toastify": "^10.0.5",
     "react-transition-group": "^4.4.5",
     "styled-components": "^6.1.8",
+    "stylis": "^4.3.2",
+    "stylis-plugin-rtl": "^2.1.1",
     "yup": "^1.4.0",
     "zod": "^3.23.5"
   },

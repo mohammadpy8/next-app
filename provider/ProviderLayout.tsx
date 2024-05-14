@@ -1,6 +1,6 @@
 "use client";
 import type { FC } from "react";
-import { MuiProvider, NextUIProviders, ReactQueryClientProvider, ToastProvider } from "@/provider";
+import { MuiProvider, NextUIProviders, ReactQueryClientProvider, ToastProvider, RTLProvider } from "@/provider";
 
 type PropsProviderLayout = Readonly<{
   children: React.ReactNode;
@@ -9,12 +9,14 @@ type PropsProviderLayout = Readonly<{
 const ProviderLayout: FC<PropsProviderLayout> = ({ children }) => {
   return (
     <MuiProvider>
-      <ReactQueryClientProvider>
-        <NextUIProviders>
-          <ToastProvider />
-          {children}
-        </NextUIProviders>
-      </ReactQueryClientProvider>
+      <RTLProvider>
+        <ReactQueryClientProvider>
+          <NextUIProviders>
+            <ToastProvider />
+            {children}
+          </NextUIProviders>
+        </ReactQueryClientProvider>
+      </RTLProvider>
     </MuiProvider>
   );
 };

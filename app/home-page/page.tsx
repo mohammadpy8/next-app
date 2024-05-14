@@ -17,7 +17,7 @@ const HomePage = () => {
 
   return (
     <Box>
-      {/* <Input placeholderInput="NAME" onChangeInput={() => changeHander} /> */}
+      <Input placeholderInput="NAME" onChangeInput={() => changeHander} />
       <ModalComponent showModal={showModal} setShowModal={setShowModal}>
         <Box width="450px" height="300px" bgcolor="red">
           <Typography>nxdkjhfdivn </Typography>
