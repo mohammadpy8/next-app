@@ -32,6 +32,10 @@ const ModalComponent: FC<modalType> = ({ setShowModal, showModal, children }) =>
           "& .MuiDialog-container": {
             transition: "transform 0.6s cubic-bezier(0, 0, 0.2, 1) 0.5ms !important",
           },
+          "& .MuiPaper-root": {
+            borderRadius: "17px !important",
+            shadow: 1,
+          },
         }}
       >
         {children}

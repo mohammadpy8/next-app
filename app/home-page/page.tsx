@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { Input, ModalComponent } from "@/components/custom";
 import { useState, type ChangeEvent } from "react";
 
@@ -17,23 +17,75 @@ const HomePage = () => {
 
   return (
     <Box>
-      <Input placeholderInput="NAME" onChangeInput={() => changeHander} />
       <ModalComponent showModal={showModal} setShowModal={setShowModal}>
-        <Box width="450px" height="300px" bgcolor="red">
-          <Typography>nxdkjhfdivn </Typography>
-          <Button
-            onClick={() => setShowModal(!showModal)}
-            sx={{
-              backgroundColor: "#00ff",
-              color: "#fff",
-              textTransform: "initial",
-              "&:hover": {
-                backgroundColor: "#00ff",
-              },
-            }}
-          >
-            close modal
-          </Button>
+        <Box width="500px" height="400px" bgcolor="#ffffff">
+          <Box display="flex" justifyContent="center" mt="15px">
+            <Typography fontWeight="600" fontSize="18px">
+              ثبت نام
+            </Typography>
+          </Box>
+          <Box display="flex" alignItems="center" flexDirection="column" mt="20px" rowGap="15px" width="100%">
+            <TextField
+              label="نام"
+              onChange={changeHander}
+              sx={{
+                width: "350px",
+                "& .MuiInputBase-root": {
+                  borderRadius: "15px",
+                },
+                " & .rtl-mode-8rg6cs-MuiFormControl-root-MuiTextField-root , & .MuiInputBase-root": {
+                  "&:hover": {
+                    outline: "none !important",
+                    border: "none !important",
+                  },
+                },
+              }}
+            />
+            <TextField
+              label="نام خانوادگی"
+              onChange={changeHander}
+              sx={{
+                width: "350px",
+                "& .MuiInputBase-root": {
+                  borderRadius: "15px",
+                },
+              }}
+            />
+            <TextField
+              label="شماره تلفن"
+              onChange={changeHander}
+              sx={{
+                width: "350px",
+                "& .MuiInputBase-root": {
+                  borderRadius: "15px",
+                },
+              }}
+            />
+            <TextField
+              label="نام پدر"
+              onChange={changeHander}
+              sx={{
+                width: "350px",
+                "& .MuiInputBase-root": {
+                  borderRadius: "15px",
+                },
+              }}
+            />
+            <Button
+              sx={{
+                backgroundColor: "#4346ff",
+                color: "#fff",
+                width: "350px",
+                height: "40px",
+                borderRadius: "15px",
+                "&:hover": {
+                  backgroundColor: "#6366fe",
+                },
+              }}
+            >
+              ارسال اطلاعات
+            </Button>
+          </Box>
         </Box>
       </ModalComponent>
       <Button onClick={() => setShowModal(!showModal)}>show modal</Button>

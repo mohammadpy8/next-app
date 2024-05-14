@@ -60,7 +60,7 @@ const BottomNavigation = () => {
             justifyContent={"center"}
             alignItems={"center"}
           >
-            <Shop />
+            {/* <Shop /> */}
           </Box>
           <Box>
             <Typography fontWeight={"600"} fontSize={"10px"} color={"#3A3861"}>
