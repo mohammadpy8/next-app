@@ -18,21 +18,8 @@ const HomePage = () => {
 
   return (
     <Box>
-      <ModalComponent showModal={showModal} setShowModal={setShowModal}>
+      <ModalComponent showModal={showModal} setShowModal={setShowModal} iconCloseTop={true}>
         <Box width="500px" height="475px" bgcolor="#ffffff">
-          <Box display="flex" justifyContent="end">
-            <IconButton
-              onClick={() => setShowModal(!showModal)}
-              sx={{
-                marginTop: "10px",
-                "& button": {
-                  marginLeft: "25px !important",
-                },
-              }}
-            >
-              <FaTimes color="#000" size={25} />
-            </IconButton>
-          </Box>
           <Box display="flex" justifyContent="center" mt="15px">
             <Typography fontWeight="600" fontSize="22px">
               ثبت نام

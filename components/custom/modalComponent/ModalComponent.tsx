@@ -1,13 +1,15 @@
-import { Dialog } from "@mui/material";
+import { Box, Dialog, IconButton } from "@mui/material";
 import type { Dispatch, FC, SetStateAction } from "react";
 import React, { forwardRef } from "react";
 import { TransitionProps } from "@mui/material/transitions";
 import Slide from "@mui/material/Slide";
+import { FaTimes } from "react-icons/fa";
 
 type modalType = {
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
   children: React.ReactNode;
+  iconCloseTop?: boolean;
 };
 
 const Transition = forwardRef(function Transition(
@@ -19,7 +21,7 @@ const Transition = forwardRef(function Transition(
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-const ModalComponent: FC<modalType> = ({ setShowModal, showModal, children }) => {
+const ModalComponent: FC<modalType> = ({ setShowModal, showModal, children, iconCloseTop }) => {
   return (
     <React.Fragment>
       <Dialog
@@ -38,6 +40,13 @@ const ModalComponent: FC<modalType> = ({ setShowModal, showModal, children }) =>
           },
         }}
       >
+        {iconCloseTop && (
+          <Box margin="5px">
+            <IconButton onClick={() => setShowModal(!showModal)}>
+              <FaTimes color="#000" size={25} />
+            </IconButton>
+          </Box>
+        )}
         {children}
       </Dialog>
     </React.Fragment>
