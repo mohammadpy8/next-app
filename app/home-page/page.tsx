@@ -18,7 +18,7 @@ const HomePage = () => {
   return (
     <Box>
       <ModalComponent showModal={showModal} setShowModal={setShowModal}>
-        <Box width="500px" height="400px" bgcolor="#ffffff">
+        <Box width="500px" height="420px" bgcolor="#ffffff">
           <Box display="flex" justifyContent="center" mt="15px">
             <Typography fontWeight="600" fontSize="18px">
               ثبت نام
