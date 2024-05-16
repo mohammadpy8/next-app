@@ -1,8 +1,9 @@
 "use client";
 
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, IconButton, Stack, TextField, Typography } from "@mui/material";
 import { Input, ModalComponent } from "@/components/custom";
 import { useState, type ChangeEvent } from "react";
+import { FaTimes } from "react-icons/fa";
 
 type TextFieldType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
@@ -18,9 +19,9 @@ const HomePage = () => {
   return (
     <Box>
       <ModalComponent showModal={showModal} setShowModal={setShowModal}>
-        <Box width="500px" height="420px" bgcolor="#ffffff">
+        <Box width="500px" height="400px" bgcolor="#ffffff">
           <Box display="flex" justifyContent="center" mt="15px">
-            <Typography fontWeight="600" fontSize="18px">
+            <Typography fontWeight="600" fontSize="22px">
               ثبت نام
             </Typography>
           </Box>
@@ -39,6 +40,20 @@ const HomePage = () => {
                     border: "none !important",
                   },
                 },
+                "& .MuiFormLabel-root": {
+                  fontWeight: "600 !important",
+                  fontSize: "16px !important",
+                  color: "#c2c2c2ed",
+                },
+                "& fieldset": {
+                  border: "0.2rem solid #d9d9d9ee !important",
+                  "& :focus": {
+                    border: "2px solid red",
+                  },
+                },
+                "& .rtl-mode-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
+                  color: "#1e7bd7",
+                },
               }}
             />
             <TextField
@@ -48,6 +63,17 @@ const HomePage = () => {
                 width: "350px",
                 "& .MuiInputBase-root": {
                   borderRadius: "15px",
+                },
+                "& .MuiFormLabel-root": {
+                  fontWeight: "600 !important",
+                  fontSize: "16px !important",
+                  color: "#c2c2c2ed",
+                },
+                "& fieldset": {
+                  border: "0.2rem solid #d9d9d9ee !important",
+                },
+                "& .rtl-mode-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
+                  color: "#1e7bd7",
                 },
               }}
             />
@@ -59,6 +85,15 @@ const HomePage = () => {
                 "& .MuiInputBase-root": {
                   borderRadius: "15px",
                 },
+                "& .MuiFormLabel-root": {
+                  fontWeight: "600 !important",
+                  fontSize: "16px !important",
+                  color: "#c2c2c2ed",
+                },
+                "& fieldset": { border: "0.2rem solid #d9d9d9ee !important" },
+                "& .rtl-mode-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
+                  color: "#1e7bd7",
+                },
               }}
             />
             <TextField
@@ -69,6 +104,15 @@ const HomePage = () => {
                 "& .MuiInputBase-root": {
                   borderRadius: "15px",
                 },
+                "& .MuiFormLabel-root": {
+                  fontWeight: "600 !important",
+                  fontSize: "16px !important",
+                  color: "#c2c2c2ed",
+                },
+                "& fieldset": { border: "0.2rem solid #d9d9d9ee !important" },
+                "& .rtl-mode-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
+                  color: "#1e7bd7",
+                },
               }}
             />
             <Button
@@ -76,8 +120,10 @@ const HomePage = () => {
                 backgroundColor: "#4346ff",
                 color: "#fff",
                 width: "350px",
-                height: "40px",
+                height: "45px",
                 borderRadius: "15px",
+                fontWeight: "600",
+                fontSize: "18px",
                 "&:hover": {
                   backgroundColor: "#6366fe",
                 },

@@ -43,6 +43,7 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
           margin: 0,
           display: "flex",
           justifyContent: "center",
+          alignItems:"center"
         }}
       >
         <ProviderLayout>
@@ -60,10 +61,15 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
                 backgroundColor: "#0000001f !important",
               },
             }}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
             p={0}
             m={0}
           >
-            <Box pb={15}>{children}</Box>
+            <Box pb={15} display="flex" justifyContent="center" alignItems="center">
+              {children}
+            </Box>
             <Box position={"relative"} display={"flex"} justifyContent={"center"} alignItems={"center"} bottom={10}>
               {/* <BottomNavigation /> */}
             </Box>
