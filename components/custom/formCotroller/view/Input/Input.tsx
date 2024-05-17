@@ -50,7 +50,7 @@ const Input: FC<InputProps> = ({
       <Grid container>
         <Grid
           item
-          xs={12} 
+          xs={12}
           sm={8}
           md={6}
           lg={4}

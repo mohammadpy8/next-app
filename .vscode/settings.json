@@ -3,10 +3,10 @@
   "workbench.iconTheme": "material-icon-theme",
   "files.autoSave": "afterDelay",
   "editor.fontFamily": "'Fira Code' , 'Vazirmatn'",
-  "editor.fontSize": 13.5,
+  // "editor.fontSize": 13.5,
   // "editor.fontLigature": true,
   "editor.fontLigatures": true,
-  "editor.fontWeight": "400",
+  // "editor.fontWeight": "400",
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
