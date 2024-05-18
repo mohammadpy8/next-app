@@ -3,7 +3,7 @@ import type { FC } from "react";
 import type { FieldErrors, FieldValues, RegisterOptions, UseFormRegisterReturn } from "react-hook-form";
 
 type TextFiledProps = {
-  regiser: (name: string, options?: RegisterOptions) => UseFormRegisterReturn;
+  registerInput: (name: string, options?: RegisterOptions) => UseFormRegisterReturn;
   name: string;
   errorForm: FieldErrors<FieldValues>;
   placeholder: string;
@@ -12,14 +12,14 @@ type TextFiledProps = {
   type?: string;
 };
 
-const TextFiled: FC<TextFiledProps> = ({ regiser, errorForm, name: nameError, placeholder, id, label, type, ...rest }) => {
+const TextFiled: FC<TextFiledProps> = ({ registerInput, errorForm, name: nameError, placeholder, id, label, type, ...rest }) => {
   const errorMessage = errorForm?.[nameError]?.message as string;
   console.log("name=====>", nameError, errorForm, errorMessage);
 
   return (
     <Stack>
       <TextField
-        {...regiser(nameError)}
+        {...registerInput(nameError)}
         placeholder={placeholder}
         id={id ?? "1"}
         type={type ?? "text"}
