@@ -1,44 +1,46 @@
 {
-  "workbench.colorTheme": "One Dark Pro Mix",
+  "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
   "files.autoSave": "afterDelay",
   "editor.fontFamily": "'Fira Code' , 'Vazirmatn'",
-  // "editor.fontSize": 13.5,
+  // "editor.fontSize": 17,
+  // "editor.lineHeight": 1.6,
   // "editor.fontLigature": true,
   "editor.fontLigatures": true,
-  // "editor.fontWeight": "400",
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": [
-          "comment",
-          "export",
-          "function",
-          "component",
-          "react",
-          "entity.name.type.class", //class names
-          "constant", //String, Number, Boolean…, this, super
-          "storage.modifier", //static keyword
-          "storage.type.class.js" //class keyword
-        ],
-        "settings": {
-          "fontStyle": "italic"
-        }
-      },
-      {
-        "scope": [
-          "invalid",
-          "constant.numeric.css",
-          "keyword.other.unit.px.css",
-          "constant.numeric.decimal.js",
-          "constant.numeric.json"
-        ],
-        "settings": {
-          "fontStyle": "italic"
-        }
-      }
-    ]
-  },
+  "editor.fontWeight": "normal",
+  "window.zoomLevel": 0.85,
+  // "editor.tokenColorCustomizations": {
+  //   "textMateRules": [
+  //     {
+  //       "scope": [
+  //         "comment",
+  //         "export",
+  //         "function",
+  //         "component",
+  //         "react",
+  //         "entity.name.type.class", //class names
+  //         "constant", //String, Number, Boolean…, this, super
+  //         "storage.modifier", //static keyword
+  //         "storage.type.class.js" //class keyword
+  //       ],
+  //       "settings": {
+  //         "fontStyle": "italic"
+  //       }
+  //     },
+  //     {
+  //       "scope": [
+  //         "invalid",
+  //         "constant.numeric.css",
+  //         "keyword.other.unit.px.css",
+  //         "constant.numeric.decimal.js",
+  //         "constant.numeric.json"
+  //       ],
+  //       "settings": {
+  //         "fontStyle": "italic"
+  //       }
+  //     }
+  //   ]
+  // },
   "editor.tabSize": 2,
   "bracketPairColorizer.depreciation-notice": false,
   "editor.formatOnSave": true,
@@ -64,7 +66,7 @@
   ],
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.fontFamily": "'Fira Code'",
-  "terminal.integrated.fontSize": 16.25,
+  "terminal.integrated.fontSize": 15.5,
   "tabnine.experimentalAutoImports": true,
   "editor.inlineSuggest.enabled": true,
   "workbench.colorCustomizations": {
@@ -72,7 +74,7 @@
     "terminalCursor.foreground": "#ffff00"
   },
   "diffEditor.ignoreTrimWhitespace": false,
-  "prettier.printWidth": 105,
+  "prettier.printWidth": 125,
   "comment-divider.languagesMap": {
     "javascript": ["//"]
   },
