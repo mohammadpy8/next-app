@@ -4,10 +4,13 @@ import { ApiRegister } from "@/config";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { type ChangeEvent, useState } from "react";
 import { LuSendHorizonal } from "react-icons/lu";
+import { useUser } from "@/context";
 
 type inputType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 const InputCard = () => {
+  const { setUser, user } = useUser();
+
   const [inputs, setInputs] = useState<string[]>(Array(4).fill(""));
   const [dataReq, setDataReq] = useState<any>(null);
   const [errorReq, setErrorReq] = useState<any>(null);
