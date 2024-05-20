@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, type FC } from "react";
+import { Box, Stack, TextField } from "@mui/material";
+import React, { createContext, FormEvent, useContext, useState, type FC } from "react";
 
 type UserContextProviderProps = {
   children: React.ReactNode;
@@ -8,6 +9,17 @@ type UserType<T, U> = {
   email: U;
   username: T;
 };
+
+type ConvertDataType = {
+  is_staff: boolean;
+  response_data: {
+    name: string;
+    username: string | null;
+    email_user: string | null;
+  };
+};
+
+type EventRenderClientData = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 type UserContextType = {
   user: null | UserType<string, string>;
@@ -29,7 +41,38 @@ export const useUser = () => {
 };
 
 function RenderClientData<T, U>(props: T | U) {
-  return <React.Fragment></React.Fragment>;
+  const [valueTextField, setValueTextField] = useState<string>("");
+
+  const _changeHandlerRenderClientData = (event: EventRenderClientData, value_render: U): void => {
+    const convertData = (data: Omit<ConvertDataType, "response_data">[]) => {
+      let first_value: T[] = [] as T[] & { id: number }[];
+      const instanseValue = event.target.value;
+      const changedValue = data.map((item_data: Omit<ConvertDataType, "response_data">, index_data: number) => {
+        const new_value = first_value.push({
+          id: index_data,
+        } as T);
+        return {
+          ...item_data,
+          value: instanseValue,
+          new_value,
+        };
+      });
+      return [...changedValue];
+    };
+  };
+
+  return (
+    <React.Fragment>
+      <Stack>
+        <Box>
+          <TextField
+            onChange={({target: {value}}) => setValueTextField(value)}
+            value={valueTextField}
+          />
+        </Box>
+      </Stack>
+    </React.Fragment>
+  );
 }
 
 export { UserContextProvider, RenderClientData };
