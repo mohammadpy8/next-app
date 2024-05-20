@@ -1,4 +1,4 @@
-import type { Palette, PaletteOptions } from "@mui/material";
+import type { Palette, PaletteOptions, Typography, TypographyVariantsOptions } from "@mui/material";
 
 /**
  * Form for user login
@@ -16,6 +16,20 @@ declare module "@mui/material/styles" {
     customPalette?: {
       firstColor: string;
       green?: string;
+    };
+  }
+
+  interface Typography {
+    base_text: {
+      fontSize: string;
+      fontWeight: string;
+    };
+  }
+
+  interface TypographyVariantsOptions {
+    base_text: {
+      fontSize: string;
+      fontWeight: string;
     };
   }
 }

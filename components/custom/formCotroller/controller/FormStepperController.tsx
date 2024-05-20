@@ -1,16 +1,12 @@
-import type { singlePageDataProps } from '@/components/custom'
+import type { singlePageDataProps } from "@/components/custom";
 
 type PropsFormView = {
-  singlePageData?: singlePageDataProps
-  validationForm: any
-}
+  singlePageData?: singlePageDataProps;
+  validationForm: any;
+};
 
-const FormStepperController = ({
-  validationForm,
-  singlePageData,
-  ...restProps
-}: PropsFormView) => {
-  return <div></div>
-}
+const FormStepperController = ({ validationForm, singlePageData, ...restProps }: PropsFormView) => {
+  return <div></div>;
+};
 
-export { FormStepperController }
+export { FormStepperController };

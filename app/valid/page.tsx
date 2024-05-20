@@ -6,6 +6,7 @@ import { z, type ZodType } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import TextFiled from "@/components/custom/formCotroller/view/TextFiled/TextFiled";
 import { CSVReader, CSVSelector } from "@/components/module";
+import { useUser } from "@/context";
 
 const FormValidation: z.infer<ZodType> = z.object({
   email: z
@@ -24,6 +25,9 @@ const ValidPage = () => {
 
   console.log("error==>", errors);
 
+  const { _changeHandlerRenderClientData, setUser, user } = useUser();
+  console.log("render===>", _changeHandlerRenderClientData, setUser, user);
+
   return (
     <Box>
       <form onSubmit={handleSubmit((d) => console.log("d==>", d))}>
@@ -31,6 +35,11 @@ const ValidPage = () => {
         <Button type="submit">send</Button>
       </form>
       <CSVReader />
+      <TextField
+        onChange={(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, idx: number) =>
+          _changeHandlerRenderClientData(event ?? "", idx)
+        }
+      />
     </Box>
   );
 };
