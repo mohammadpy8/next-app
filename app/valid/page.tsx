@@ -5,6 +5,7 @@ import { FieldErrors, FieldValues, useForm } from "react-hook-form";
 import { z, type ZodType } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import TextFiled from "@/components/custom/formCotroller/view/TextFiled/TextFiled";
+import { CSVReader, CSVSelector } from "@/components/module";
 
 const FormValidation: z.infer<ZodType> = z.object({
   email: z
@@ -29,6 +30,7 @@ const ValidPage = () => {
         <TextFiled name="email" error={errors.email} registerInput={register} placeholder="email" id="1" label="email" />
         <Button type="submit">send</Button>
       </form>
+      <CSVReader />
     </Box>
   );
 };
