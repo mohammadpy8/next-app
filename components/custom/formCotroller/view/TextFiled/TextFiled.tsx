@@ -1,20 +1,29 @@
 import { Stack, TextField, Typography } from "@mui/material";
 import type { FC } from "react";
-import type { FieldErrors, FieldValues, RegisterOptions, UseFormRegisterReturn } from "react-hook-form";
+import type {
+  FieldError,
+  FieldErrors,
+  FieldErrorsImpl,
+  FieldValues,
+  Merge,
+  RegisterOptions,
+  UseFormRegisterReturn,
+} from "react-hook-form";
 
 type TextFiledProps = {
   registerInput: (name: string, options?: RegisterOptions) => UseFormRegisterReturn;
   name: string;
-  errorForm: FieldErrors<FieldValues>;
+  error: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
   placeholder: string;
   label?: string;
   id?: string;
   type?: string;
 };
 
-const TextFiled: FC<TextFiledProps> = ({ registerInput, errorForm, name: nameError, placeholder, id, label, type, ...rest }) => {
-  const errorMessage = errorForm?.[nameError]?.message as string;
-  console.log("name=====>", nameError, errorForm, errorMessage);
+const TextFiled: FC<TextFiledProps> = ({ registerInput, error, name: nameError, placeholder, id, label, type, ...rest }) => {
+  //   const errorMessage = errorForm?.[nameError]?.message as string;
+  //   console.log("name=====>", nameError, errorForm, errorMessage);
+  console.log("r==>", error);
 
   return (
     <Stack>
@@ -26,7 +35,7 @@ const TextFiled: FC<TextFiledProps> = ({ registerInput, errorForm, name: nameErr
         label={label}
         {...rest}
       />
-      {errorMessage && <Typography color="red">{errorMessage}</Typography>}
+      {error && <Typography color="red">{error.message as string}</Typography>}
     </Stack>
   );
 };

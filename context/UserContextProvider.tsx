@@ -28,4 +28,8 @@ export const useUser = () => {
   return userContext;
 };
 
-export { UserContextProvider };
+function RenderClientData<T, U>(props: T | U) {
+  return <React.Fragment></React.Fragment>;
+}
+
+export { UserContextProvider, RenderClientData };

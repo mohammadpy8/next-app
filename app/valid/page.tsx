@@ -26,7 +26,7 @@ const ValidPage = () => {
   return (
     <Box>
       <form onSubmit={handleSubmit((d) => console.log("d==>", d))}>
-        <TextFiled name="email" errorForm={errors} registerInput={register} placeholder="email" id="1" label="email" />
+        <TextFiled name="email" error={errors.email} registerInput={register} placeholder="email" id="1" label="email" />
         <Button type="submit">send</Button>
       </form>
     </Box>
