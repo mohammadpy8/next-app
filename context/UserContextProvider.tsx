@@ -24,6 +24,7 @@ type EventRenderClientData = React.ChangeEvent<HTMLInputElement | HTMLTextAreaEl
 type UserContextType = {
   user: null | UserType<string, string>;
   setUser: React.Dispatch<React.SetStateAction<UserType<string, string> | null>>;
+  _changeHandlerRenderClientData: <T, U>(event: EventRenderClientData, value_render: U) => void;
 };
 
 const UserContext = createContext<UserContextType | null>(null);
@@ -31,19 +32,7 @@ const UserContext = createContext<UserContextType | null>(null);
 const UserContextProvider: FC<UserContextProviderProps> = ({ children }) => {
   const [user, setUser] = useState<UserType<string, string> | null>(null);
 
-  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
-};
-
-export const useUser = () => {
-  const userContext = useContext(UserContext);
-  if (userContext === undefined || userContext === null) throw new Error("UserContext invalid");
-  return userContext;
-};
-
-function RenderClientData<T, U>(props: T | U) {
-  const [valueTextField, setValueTextField] = useState<string>("");
-
-  const _changeHandlerRenderClientData = (event: EventRenderClientData, value_render: U): void => {
+  const _changeHandlerRenderClientData = <T, U>(event: EventRenderClientData, value_render: U): void => {
     const convertData = (data: Omit<ConvertDataType, "response_data">[]) => {
       let first_value: T[] = [] as T[] & { id: number }[];
       const instanseValue = event.target.value;
@@ -57,18 +46,27 @@ function RenderClientData<T, U>(props: T | U) {
           new_value,
         };
       });
-      return [...changedValue];
+      return [...changedValue, convertData];
     };
   };
+
+  return <UserContext.Provider value={{ user, setUser, _changeHandlerRenderClientData }}>{children}</UserContext.Provider>;
+};
+
+export const useUser = () => {
+  const userContext = useContext(UserContext);
+  if (userContext === undefined || userContext === null) throw new Error("UserContext invalid");
+  return userContext;
+};
+
+function RenderClientData<T, U>(props: T | U) {
+  const [valueTextField, setValueTextField] = useState<string>("");
 
   return (
     <React.Fragment>
       <Stack>
         <Box>
-          <TextField
-            onChange={({target: {value}}) => setValueTextField(value)}
-            value={valueTextField}
-          />
+          <TextField onChange={({ target: { value } }) => setValueTextField(value)} value={valueTextField} />
         </Box>
       </Stack>
     </React.Fragment>
