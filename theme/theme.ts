@@ -1,17 +1,13 @@
 "use client";
 
-import { createTheme } from "@mui/material";
-import { palette, typography } from "@/theme";
+import { createTheme } from "@mui/material/styles";
+import { palette } from "./palette";
+import { typography } from "./typography";
 
 const theme = createTheme({
-  palette:{},
+  palette,
   direction: "rtl",
-  typography: {
-    base_text: {
-      fontSize: "15px",
-      fontWeight: "500",
-    },
-  },
+  typography,
 });
 
 export { theme };

@@ -1,21 +1,24 @@
-import type { Palette, PaletteOptions, Typography, TypographyVariantsOptions } from "@mui/material";
+import type {
+  Palette,
+  PaletteOptions,
+  Typography,
+  TypographyVariantsOptions,
+  ThemeOptions,
+  ShapeOption,
+  Shape,
+} from "@mui/material";
 
-/**
- * Form for user login
- * @param {bool} submitting Shows if form submitting is in progress
- * @param {function} handleSubmit Form submit callback function
- */
 declare module "@mui/material/styles" {
   interface Palette {
-    customPalette?: {
+    customPalette: {
       firstColor: string;
-      green?: string;
+      green: string;
     };
   }
   interface PaletteOptions {
-    customPalette?: {
+    customPalette: {
       firstColor: string;
-      green?: string;
+      green: string;
     };
   }
 
@@ -30,6 +33,18 @@ declare module "@mui/material/styles" {
     base_text: {
       fontSize: string;
       fontWeight: string;
+    };
+  }
+
+  interface Shape {
+    CustomRounded: {
+      size: string;
+    };
+  }
+
+  interface ShapeOption {
+    CustomRounded: {
+      size: string;
     };
   }
 }

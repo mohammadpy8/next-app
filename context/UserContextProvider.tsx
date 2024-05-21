@@ -40,7 +40,7 @@ const UserContextProvider: FC<UserContextProviderProps> = ({ children }) => {
 
   const { typography, palette } = useTheme();
 
-  console.log("textBase==>", typography);
+  console.log("textBase==>", typography, palette.customPalette?.green);
   const _changeHandlerRenderClientData = <T, U>(event: EventRenderClientData, value_render: U): void => {
     const convertData = (data: Omit<ConvertDataType, "response_data">[]) => {
       let first_value: T[] = [] as T[] & { id: number }[];

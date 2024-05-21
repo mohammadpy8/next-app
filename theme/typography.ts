@@ -1,15 +1,11 @@
 "use client";
 
-import type { TypographyVariantsOptions } from "@mui/material/styles";
+import type { ThemeOptions } from "@mui/material";
 
-const typography: TypographyVariantsOptions = {
-  // base_text: {
-  //   fontSize: "15px",
-  //   fontWeight: "600",
-  // },
+const typography: ThemeOptions["typography"] = {
   base_text: {
-    fontSize: "",
-    fontWeight: "",
+    fontSize: "15px",
+    fontWeight: "700",
   },
 };
 

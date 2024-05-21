@@ -1,11 +1,12 @@
 "use client";
 
-import { PaletteOptions } from "@mui/material/styles";
+import type { ThemeOptions } from "@mui/material";
 
-const palette: PaletteOptions = {
+const palette: ThemeOptions["palette"] = {
   customPalette: {
-    firstColor: "red",
+    firstColor: "#00ff",
+    green: "#ff0",
   },
 };
 
-export { palette };
+export   {palette} ;
