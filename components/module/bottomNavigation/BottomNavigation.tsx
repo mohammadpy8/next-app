@@ -2,7 +2,7 @@
 
 import { ImageComponent } from "@/components/custom";
 import { Box, Button, Typography } from "@mui/material";
-// import Shop from "@/app/a/shop";
+import Shop from "@/app/a/shop";
 import Resalat from "@/app/a/Resalat";
 
 const BottomNavigation = () => {
