@@ -71,7 +71,7 @@ export default function RootLayout({ children, items, teams }: propsLayout) {
               {children}
             </Box>
             <Box position={"relative"}  bottom={10}>
-              <BottomNavigation />
+              {/* <BottomNavigation /> */}
             </Box>
           </Box>
         </ProviderLayout>

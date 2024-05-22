@@ -9,7 +9,7 @@ import { useUser } from "@/context";
 type inputType = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 const InputCard = () => {
-  const { setUser, user } = useUser();
+  const { setUser, user, _changeHandlerRenderClientData } = useUser();
 
   const [inputs, setInputs] = useState<string[]>(Array(4).fill(""));
   const [dataReq, setDataReq] = useState<any>(null);
