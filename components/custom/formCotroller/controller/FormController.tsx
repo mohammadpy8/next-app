@@ -48,12 +48,13 @@ const FormController = ({ validationForm = {}, dataForm, buttonData, ...restProp
     switch (typeForm) {
       case "INPUT":
         return (
-          <Input
-            key={id}
-            all_data={all_data ?? {}}
-            validation={validationFilter("input")[0]}
-            {...convertRestProps()?.input}
-          />
+          <div></div>
+          // <Input
+          //   key={id}
+          //   // all_data={all_data ?? {}}
+          //   // validation={validationFilter("input")[0]}
+          //   {...convertRestProps()?.input}
+          // />
         );
       case "TEXTAREA":
         return (

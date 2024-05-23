@@ -36,9 +36,9 @@ const ValidPage = () => {
       </form>
       <CSVReader />
       <TextField
-        onChange={(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, idx: number) =>
-          _changeHandlerRenderClientData(event ?? "", idx)
-        }
+        // onChange={(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, idx: number) =>
+        //   _changeHandlerRenderClientData(event ?? "", idx)
+        // }
       />
     </Box>
   );
