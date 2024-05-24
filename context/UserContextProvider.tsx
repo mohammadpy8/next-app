@@ -68,16 +68,16 @@ export const useUser = () => {
   return userContext;
 };
 
-function RenderClientData<T, U>(props: T) {
+function RenderClientData<T extends {id : number}, U>(props: T) {
   const [valueTextField, setValueTextField] = useState<string>("");
   const [uniqeId, setUniqeId] = useState<number | null>(0);
 
   const ConvertDefaultProps = (uId: number) => {
-    const loopProps = ((props as DefaultProps<U>).all_data as string[]).map((data: any, index: number) => ({
+    const loopProps = ((props as any).all_data as string[]).map((data: any, index: number) => ({
       id: index + 1,
       ...data,
     }));
-    const filterData = loopProps.filter((data: any) => data?.id === uId);
+    const filterData = loopProps.filter((data: T) => data.id === uId);
     return [{ ...filterData }];
   };
 
