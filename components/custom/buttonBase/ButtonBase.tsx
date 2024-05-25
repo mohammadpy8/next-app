@@ -53,6 +53,7 @@ const ButtonBase: FC<TButtonProps> = ({
     backgroundColor: "#979797",
     color: "#fff !important",
     borderRadius: "10px",
+    opacity: 0.5,
   };
 
   return (
