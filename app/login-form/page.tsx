@@ -7,13 +7,19 @@ const LoginForm = () => {
   return (
     <Stack width="100%" height="100%" display="flex" justifyContent="center" flexDirection="column" alignItems="center">
       <ButtonBase
-        lable="name"
+        lable="ارسال اطلاعات"
         type="submit"
         customSX={{
-          backgroundColor: "#ff0",
+          backgroundColor: "blue",
+          color: "#fff",
           "&:hover": {
-            backgroundColor: "red",
+            backgroundColor: "blue",
           },
+          width: "150px",
+          borderRadius: "15px",
+          height: "50px",
+          fontSize:"15px",
+          fontWeight:"700"
         }}
         onClick={() => console.log("click")}
       />

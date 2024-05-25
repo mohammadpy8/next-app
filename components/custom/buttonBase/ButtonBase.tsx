@@ -24,6 +24,10 @@ const ButtonBase: FC<TButtonProps> = ({
         type={typeButton}
         sx={{
           textTransform: "lowercase",
+          boxShadow: "none !important",
+          "&:hover": {
+            boxShadow: "none !importan",
+          },
           ...customSX,
         }}
         onClick={clickHandler}
