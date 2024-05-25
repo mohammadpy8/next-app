@@ -6,19 +6,21 @@ type TButtonProps = {
   lable: string;
   type: "submit" | "button";
   customSX?: MuiCSSObject;
-} & Omit<ComponentProps<typeof Button>, "type">;
+  variant: "contained" | "outlined";
+} & Omit<ComponentProps<typeof Button>, "type" | "variant">;
 
 const ButtonBase: FC<TButtonProps> = ({
   lable = "متن داخل دکمه",
   type: typeButton = "button",
   customSX,
   onClick: clickHandler = () => {},
+  variant = "contained",
   ...restButtonProps
 }) => {
   return (
     <Box>
       <Button
-        variant="contained"
+        variant={variant}
         {...restButtonProps}
         disableRipple
         type={typeButton}

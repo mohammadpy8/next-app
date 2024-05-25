@@ -18,10 +18,11 @@ const LoginForm = () => {
           width: "150px",
           borderRadius: "15px",
           height: "50px",
-          fontSize:"15px",
-          fontWeight:"700"
+          fontSize: "15px",
+          fontWeight: "700",
         }}
         onClick={() => console.log("click")}
+        variant="contained"
       />
     </Stack>
   );
