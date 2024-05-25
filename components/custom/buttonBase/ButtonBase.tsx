@@ -24,58 +24,22 @@ const ButtonBase: FC<TButtonProps> = ({
   disableMode = false,
   ...restButtonProps
 }) => {
-  const StyleModeButton = () => {
-    return {
-      SizeMode: (typeSize: TSizeButton) => {
-        switch (typeSize) {
-          case "base":
-            return {
-              width: "75px",
-            };
-          case "normal":
-            return {
-              width: "100px",
-            };
-          case "large":
-            return {
-              width: "125px",
-            };
-          case "extraLarge":
-            return {
-              width: "175px",
-            };
-          default:
-            throw new Error("تایپ مورد نظر وجود ندارد");
-        }
-      },
-      VariantMode: (typeVariant: TVariant, disableMode: boolean) => {
-        if (!disableMode) {
-          switch (typeVariant) {
-            case "contained":
-              return {
-                backgroundColor: "#ff0",
-                color: "#000",
-                borderRaduis: "15px",
-              };
-            case "outlined":
-              return {
-                backgroundColor: "transparent",
-                color: "blue",
-                border: "3px solid blue",
-                borderRaduis: "15px",
-              };
-            default:
-              throw new Error("تایپ مورد نظر وجود ندارد");
-          }
-        } else {
-          return {
-            backgroundColor: "#979797",
-            color: "#fff !important",
-            borderRaduis: "15px",
-          };
-        }
-      },
-    };
+  const StyleSizeMode = {
+    base: { width: "100px" },
+    normal: { width: "125px" },
+    large: { width: "175px" },
+    extraLarge: { width: "200px" },
+  };
+
+  const StyleVariantMode = {
+    contained: { backgroundColor: "#ff0", color: "#000", borderRaduis: "15px" },
+    outlined: { backgroundColor: "transparent", color: "blue", border: "3px solid blue", borderRaduis: "15px" },
+  };
+
+  const StyleDisable = {
+    backgroundColor: "#979797",
+    color: "#fff !important",
+    borderRaduis: "15px",
   };
 
   return (
@@ -88,13 +52,13 @@ const ButtonBase: FC<TButtonProps> = ({
           textTransform: "lowercase",
           boxShadow: "none !important",
           "&.MuiButtonBase-root": {
-            ...StyleModeButton().SizeMode(size),
+            ...StyleSizeMode[size],
           },
           "&:hover": {
             boxShadow: "none !important",
           },
           ...customSX,
-          ...StyleModeButton().VariantMode(variant, disableMode),
+          ...(!disableMode ? StyleVariantMode[variant] : StyleDisable),
         }}
         onClick={clickHandler}
         disabled={(disableMode ? true : false) ?? false}

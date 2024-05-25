@@ -11,8 +11,8 @@ const LoginForm = () => {
         type="submit"
         onClick={() => console.log("click")}
         variant="contained"
-        size="extraLarge"
-        disableMode={false}
+        size="large"
+        disableMode={true}
       />
     </Stack>
   );
