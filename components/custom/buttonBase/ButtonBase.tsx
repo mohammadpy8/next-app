@@ -25,21 +25,34 @@ const ButtonBase: FC<TButtonProps> = ({
   ...restButtonProps
 }) => {
   const StyleSizeMode = {
-    base: { width: "100px" },
-    normal: { width: "125px" },
-    large: { width: "175px" },
-    extraLarge: { width: "200px" },
+    base: { width: "100px", heigth: "50px" },
+    normal: { width: "125px", height: "55px" },
+    large: { width: "175px", height: "60px" },
+    extraLarge: { width: "200px", heigth: "65px" },
   };
 
   const StyleVariantMode = {
-    contained: { backgroundColor: "#ff0", color: "#000", borderRaduis: "15px" },
-    outlined: { backgroundColor: "transparent", color: "blue", border: "3px solid blue", borderRaduis: "15px" },
+    contained: {
+      backgroundColor: "blue",
+      color: "#fff",
+      borderRadius: "15px",
+      transition: "all 0.2s linear",
+      "&:hover": { backgroundColor: "blue", outline: "4px solid #6a76ff" },
+    },
+    outlined: {
+      backgroundColor: "transparent",
+      color: "blue",
+      border: "4px solid blue",
+      borderRadius: "15px",
+      transition: "all 0.2s linear",
+      "&:hover": { backgroundColor: "#e7e7fe" },
+    },
   };
 
   const StyleDisable = {
     backgroundColor: "#979797",
     color: "#fff !important",
-    borderRaduis: "15px",
+    borderRadius: "10px",
   };
 
   return (
