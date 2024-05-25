@@ -33,7 +33,7 @@ type UserContextType = {
   _changeHandlerRenderClientData: <T, U>(event: EventRenderClientData, value_render: U) => void;
 };
 
-const UserContext = createContext<UserContextType | null>(null);
+const UserContext = createContext({} as UserContextType);
 
 const UserContextProvider: FC<UserContextProviderProps> = ({ children }) => {
   const [user, setUser] = useState<UserType<string, string> | null>(null);
