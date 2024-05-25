@@ -1,6 +1,6 @@
-import { Box, ButtonProps, Button } from "@mui/material";
+import { Box, type ButtonProps, Button } from "@mui/material";
 import type { CSSObject as MuiCSSObject } from "@mui/material/styles";
-import type { ComponentProps, FC } from "react";
+import type { FC } from "react";
 
 type TSizeButton = "base" | "normal" | "large" | "extraLarge";
 type TVariant = "contained" | "outlined";
