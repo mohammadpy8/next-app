@@ -61,7 +61,7 @@ const ButtonBase: FC<TButtonProps> = ({
     } else {
       return {
         backgroundColor: "#979797",
-        color: "#fff",
+        color: "#fff !important",
         borderRaduis: "15px",
       };
     }

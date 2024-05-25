@@ -24,9 +24,9 @@ const LoginForm = () => {
           }
         }
         onClick={() => console.log("click")}
-        variant="outlined"
+        variant="contained"
         size="extraLarge"
-        disableMode={false}
+        disableMode={true}
       />
     </Stack>
   );
