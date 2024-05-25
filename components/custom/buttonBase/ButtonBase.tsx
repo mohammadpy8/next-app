@@ -80,7 +80,7 @@ const ButtonBase: FC<TButtonProps> = ({
             width: SizeMode(size),
           },
           "&:hover": {
-            boxShadow: "none !importan",
+            boxShadow: "none !important",
           },
           ...customSX,
           ...VariantMode(variant, disableMode),
