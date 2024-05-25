@@ -8,6 +8,23 @@ const theme = createTheme({
   palette,
   direction: "rtl",
   typography,
+  components: {
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: "text" },
+          style: {
+            fontWeight: "bold",
+            fontSize: "1rem",
+            borderRadius: "5rem",
+            padding: "0.2rem 1rem",
+            
+          },
+        },
+      ],
+    },
+    
+  },
 });
 
 export { theme };
