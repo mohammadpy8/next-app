@@ -9,24 +9,10 @@ const LoginForm = () => {
       <ButtonBase
         lable="ارسال اطلاعات"
         type="submit"
-        customSX={
-          {
-            // backgroundColor: "blue",
-            // color: "#fff",
-            // "&:hover": {
-            //   backgroundColor: "blue",
-            // },
-            // width: "150px",
-            // borderRadius: "15px",
-            // height: "50px",
-            // fontSize: "15px",
-            // fontWeight: "700",
-          }
-        }
         onClick={() => console.log("click")}
         variant="contained"
         size="extraLarge"
-        disableMode={true}
+        disableMode={false}
       />
     </Stack>
   );
