@@ -18,9 +18,9 @@ const LoginForm = () => {
         lable="ارسال اطلاعات"
         type="submit"
         onClick={() => console.log("click")}
-        variant="outlined"
+        variant="contained"
         size="large"
-        disableMode={true}
+        disableMode={false}
       />
     </Stack>
   );

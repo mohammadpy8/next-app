@@ -36,8 +36,8 @@ const ButtonBase: FC<TButtonProps> = ({
       backgroundColor: "blue",
       color: "#fff",
       borderRadius: "15px",
-      transition: "all 0.2s linear",
-      "&:hover": { backgroundColor: "blue", outline: "4px solid #6a76ff" },
+      transition: "all 0.1s linear",
+      "&:hover": { backgroundColor: "blue", outline: "5px solid #6a76ff" },
     },
     outlined: {
       backgroundColor: "transparent",
@@ -52,7 +52,7 @@ const ButtonBase: FC<TButtonProps> = ({
   const StyleDisable = {
     backgroundColor: "#979797",
     color: "#fff !important",
-    borderRadius: "10px",
+    borderRadius: "15px",
     opacity: 0.5,
   };
 
