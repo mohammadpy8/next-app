@@ -34,10 +34,10 @@ export const InputModelComponent = styled(TextField)(() => ({
       border: "3px solid #c8c8c8 !important",
       borderRadius: "15px",
       backgroundColor: "#ebebeb",
-      zIndex: 0,
     },
     "& label": {
       color: "#c8c8c8",
+      fontWeight: "bold",
     },
     "& input": {
       zIndex: 10,
