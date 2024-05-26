@@ -10,9 +10,12 @@ export const InputModelComponent = styled(TextField)(() => ({
     },
     "& label": {
       color: "red",
+      fontWeight: "bold",
     },
     "& input": {
       zIndex: 10,
+      color: "#a8a8a8",
+      fontWeight: "bold",
     },
   },
   "&.text-filed-model-warning": {
@@ -24,9 +27,12 @@ export const InputModelComponent = styled(TextField)(() => ({
     },
     "& label": {
       color: "#eebe00",
+      fontWeight: "bold",
     },
     "& input": {
       zIndex: 10,
+      color: "#a8a8a8",
+      fontWeight: "bold",
     },
   },
   "&.text-filed-model-normal": {

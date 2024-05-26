@@ -33,7 +33,7 @@ const LoginForm = () => {
         endIcon={<IoSend />}
       /> */}
       <Box mt="25px">
-        <InputModel model="base" label="متن"  />
+        <InputModel model="base" label="متن" status="warning" />
       </Box>
     </Stack>
   );
