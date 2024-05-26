@@ -1,7 +1,8 @@
 "use client";
 
-import { ButtonBase } from "@/components/custom";
+import { ButtonBase, ButtonWithIcon, InputModel } from "@/components/custom";
 import { Stack } from "@mui/material";
+import { IoSend } from "react-icons/io5"
 
 const LoginForm = () => {
   return (
@@ -22,6 +23,16 @@ const LoginForm = () => {
         size="large"
         disableMode={false}
       />
+      {/* <ButtonWithIcon
+        lable="با ایکون"
+        type="button"
+        onClick={() => {}}
+        variant="contained"
+        size="extraLarge"
+        disableMode={false}
+        endIcon={<IoSend />}
+      /> */}
+      <InputModel model="base" label="متن"/>
     </Stack>
   );
 };

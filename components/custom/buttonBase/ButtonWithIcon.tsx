@@ -1,20 +1,20 @@
-import { Box, type ButtonProps, Button } from "@mui/material";
+import { Box, Button, type ButtonProps } from "@mui/material";
 import type { CSSObject as MuiCSSObject } from "@mui/material/styles";
-import type { FC } from "react";
+import { FC, ReactNode } from "react";
 
 type TSizeButton = "base" | "normal" | "large" | "extraLarge";
 type TVariant = "contained" | "outlined";
-
-type TButtonProps = {
+type TButtonWithIconProps = {
   lable: string;
   type: "submit" | "button";
   customSX?: MuiCSSObject;
   variant: TVariant;
   size?: TSizeButton;
   disableMode: boolean;
-} & Omit<ButtonProps, "type" | "variant" | "size">;
+  endIcon: ReactNode;
+} & Omit<ButtonProps, "type" | "variant" | "size" | "endIcon">;
 
-const ButtonBase: FC<TButtonProps> = ({
+const ButtonWithIcon: FC<TButtonWithIconProps> = ({
   lable = "متن داخل دکمه",
   type: typeButton = "button",
   customSX,
@@ -29,7 +29,7 @@ const ButtonBase: FC<TButtonProps> = ({
     base: { width: "100px", heigth: "50px" },
     normal: { width: "125px", height: "55px" },
     large: { width: "175px", height: "60px" },
-    extraLarge: { width: "200px", heigth: "65px" },
+    extraLarge: { width: "200px", heigth: "100px" },
   };
 
   const StyleVariantMode = {
@@ -63,6 +63,7 @@ const ButtonBase: FC<TButtonProps> = ({
         {...restButtonProps}
         disableRipple
         type={typeButton}
+        endIcon={endIcon}
         sx={{
           textTransform: "lowercase",
           boxShadow: "none !important",
@@ -84,4 +85,6 @@ const ButtonBase: FC<TButtonProps> = ({
   );
 };
 
-export { ButtonBase };
+ButtonWithIcon.displayName = "ButtonComponent";
+
+export { ButtonWithIcon };
