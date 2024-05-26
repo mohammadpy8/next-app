@@ -41,6 +41,8 @@ export const InputModelComponent = styled(TextField)(() => ({
     },
     "& input": {
       zIndex: 10,
+      color: "#a8a8a8",
+      fontWeight: "bold",
     },
   },
 }));

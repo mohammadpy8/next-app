@@ -7,16 +7,16 @@ import { useState, type FC } from "react";
 
 type TInputModel = {
   model: "iconModel" | "base";
-  label?: string;
+  label?: string | null;
   customSX?: MuiCSSObject;
-  status: "error" | "warning" | "normal";
+  status?: "error" | "warning" | "normal";
 } & Omit<TextFieldProps, "label">;
 
 const InputModel: FC<TInputModel> = ({
   model = "base",
   onChange: changeHandler = () => {},
   placeholder = "متن داخل تکست فیلد",
-  label = "متن بالای تکست فیلد",
+  label = null,
   customSX,
   status = "normal",
   ...restInputModel
@@ -33,7 +33,7 @@ const InputModel: FC<TInputModel> = ({
             className={`text-filed-model-${status}`}
             onChange={(event) => setValue(event.target.value)}
             placeholder={placeholder}
-            label={label}
+            label={label ?? null}
             sx={{
               ...customSX,
             }}
