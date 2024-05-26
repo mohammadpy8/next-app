@@ -1,11 +1,15 @@
-import { Box, TextField, type TextFieldProps } from "@mui/material";
+"use client";
+
+import { Box, type TextFieldProps } from "@mui/material";
 import type { CSSObject as MuiCSSObject } from "@mui/material/styles";
-import type { FC } from "react";
+import { InputModelComponent } from "./input.styled";
+import { useState, type FC } from "react";
 
 type TInputModel = {
   model: "iconModel" | "base";
   label?: string;
   customSX?: MuiCSSObject;
+  status: "error" | "warning" | "normal";
 } & Omit<TextFieldProps, "label">;
 
 const InputModel: FC<TInputModel> = ({
@@ -14,14 +18,20 @@ const InputModel: FC<TInputModel> = ({
   placeholder = "متن داخل تکست فیلد",
   label = "متن بالای تکست فیلد",
   customSX,
+  status = "normal",
   ...restInputModel
 }) => {
+  const [value, setValue] = useState<string>("");
+  console.log("value===>", value);
+
   const InputView = () => {
     switch (model) {
       case "base":
         return (
-          <TextField
-            onChange={changeHandler}
+          <InputModelComponent
+            value={value}
+            className={`text-filed-model-${status}`}
+            onChange={(event) => setValue(event.target.value)}
             placeholder={placeholder}
             label={label}
             sx={{

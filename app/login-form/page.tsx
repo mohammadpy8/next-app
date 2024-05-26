@@ -1,8 +1,8 @@
 "use client";
 
 import { ButtonBase, ButtonWithIcon, InputModel } from "@/components/custom";
-import { Stack } from "@mui/material";
-import { IoSend } from "react-icons/io5"
+import { Box, Stack } from "@mui/material";
+import { IoSend } from "react-icons/io5";
 
 const LoginForm = () => {
   return (
@@ -32,7 +32,9 @@ const LoginForm = () => {
         disableMode={false}
         endIcon={<IoSend />}
       /> */}
-      <InputModel model="base" label="متن"/>
+      <Box mt="25px">
+        <InputModel model="base" label="متن" status="warning" />
+      </Box>
     </Stack>
   );
 };
