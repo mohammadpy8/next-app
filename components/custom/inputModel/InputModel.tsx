@@ -44,29 +44,24 @@ const InputModel: FC<TInputModel> = ({
         );
       case "iconModel":
         return (
-          // <InputModelComponent
-          //   value={value}
-          //   className={`text-filed-model-${status}`}
-          //   onChange={(event) => setValue(event.target.value)}
-          //   // placeholder={placeholder}
-          //   label={label ?? null}
-          //   sx={{
-          //     ...customSX,
-          //   }}
-          //   {...restInputModel}
-          //   inputProps={{
-          //     startAdornment: <InputAdornment position="start">mohammadf</InputAdornment>,
-          //   }}
-          // />
-          <InputModelComponent 
-            // label="With normal TextField"
+          <InputModelComponent
             className={`text-filed-model-${status}`}
-            // id="filled-start-adornment"
             sx={{ m: 1, width: "25ch" }}
             InputProps={{
-              startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+              startAdornment: (
+                <InputAdornment
+                  position="start"
+                  sx={{
+                    "& p": {
+                      color: "red",
+                      zIndex: 10,
+                    },
+                  }}
+                >
+                  kg
+                </InputAdornment>
+              ),
             }}
-            // variant="filled"
           />
         );
       default:
