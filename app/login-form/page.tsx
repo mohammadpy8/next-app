@@ -2,7 +2,10 @@
 
 import { ButtonBase, ButtonWithIcon, InputModel } from "@/components/custom";
 import { Box, Stack } from "@mui/material";
-import { FaUserAlt } from "react-icons/fa";
+import { HiOutlineUserPlus } from "react-icons/hi2";
+import { CiCreditCard1 } from "react-icons/ci";
+import { MdOutlinePhonelinkRing } from "react-icons/md";
+import { GrLocation } from "react-icons/gr";
 
 const LoginForm = () => {
   return (
@@ -34,13 +37,46 @@ const LoginForm = () => {
       /> */}
       <Box mt="25px">
         <InputModel
-          model="base"
-          label="متن"
+          model="iconModel"
+          label="نام و نام خانوادگی"
           status="normal"
-          // iconInput={<FaUserAlt color="#a8a8a8" />}
-          width="300px"
-          height="50px"
-          // positionIcon="start"
+          iconInput={<HiOutlineUserPlus color="#a8a8a8" size={25} />}
+          width="400px"
+          height="60px"
+          positionIcon="end"
+        />
+      </Box>
+      <Box mt="25px">
+        <InputModel
+          model="iconModel"
+          label="کد ملی"
+          status="normal"
+          iconInput={<CiCreditCard1 color="#a8a8a8" size={25} />}
+          width="400px"
+          height="60px"
+          positionIcon="end"
+        />
+      </Box>
+      <Box mt="25px">
+        <InputModel
+          model="iconModel"
+          label="شماره تلفن"
+          status="normal"
+          iconInput={<MdOutlinePhonelinkRing color="#a8a8a8" size={25} />}
+          width="400px"
+          height="60px"
+          positionIcon="end"
+        />
+      </Box>
+      <Box mt="25px">
+        <InputModel
+          model="iconModel"
+          label="آدرس محل سکونت"
+          status="normal"
+          iconInput={<GrLocation color="#a8a8a8" size={25} />}
+          width="400px"
+          height="60px"
+          positionIcon="end"
         />
       </Box>
     </Stack>
