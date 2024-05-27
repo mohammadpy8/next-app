@@ -27,7 +27,7 @@ const InputCard = () => {
       }
     }
   };
-
+  
   const checkDisable = (inputsGroup: string[]): boolean => {
     const loopInputs = inputsGroup.map((item) => item.length === 4);
     const checkValid = loopInputs.every((item) => item === true);

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, type TextFieldProps } from "@mui/material";
+import { Box, type TextFieldProps, InputAdornment, TextField } from "@mui/material";
 import type { CSSObject as MuiCSSObject } from "@mui/material/styles";
 import { InputModelComponent } from "./input.styled";
 import { useState, type FC } from "react";
@@ -12,6 +12,8 @@ type TInputModel = {
   status?: "error" | "warning" | "normal";
 } & Omit<TextFieldProps, "label">;
 
+type TInputBase = {};
+
 const InputModel: FC<TInputModel> = ({
   model = "base",
   onChange: changeHandler = () => {},
@@ -22,7 +24,7 @@ const InputModel: FC<TInputModel> = ({
   ...restInputModel
 }) => {
   const [value, setValue] = useState<string>("");
-  console.log("value===>", value);
+  console.log("value==>", value);
 
   const InputView = () => {
     switch (model) {
@@ -41,7 +43,32 @@ const InputModel: FC<TInputModel> = ({
           />
         );
       case "iconModel":
-        return;
+        return (
+          // <InputModelComponent
+          //   value={value}
+          //   className={`text-filed-model-${status}`}
+          //   onChange={(event) => setValue(event.target.value)}
+          //   // placeholder={placeholder}
+          //   label={label ?? null}
+          //   sx={{
+          //     ...customSX,
+          //   }}
+          //   {...restInputModel}
+          //   inputProps={{
+          //     startAdornment: <InputAdornment position="start">mohammadf</InputAdornment>,
+          //   }}
+          // />
+          <InputModelComponent 
+            // label="With normal TextField"
+            className={`text-filed-model-${status}`}
+            // id="filled-start-adornment"
+            sx={{ m: 1, width: "25ch" }}
+            InputProps={{
+              startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+            }}
+            // variant="filled"
+          />
+        );
       default:
         throw new Error("تایپ مورد نظر وجود ندارد");
     }

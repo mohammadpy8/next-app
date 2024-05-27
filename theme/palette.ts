@@ -9,4 +9,4 @@ const palette: ThemeOptions["palette"] = {
   },
 };
 
-export   {palette} ;
+export { palette };
