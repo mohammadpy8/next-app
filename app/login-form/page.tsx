@@ -37,7 +37,7 @@ const LoginForm = () => {
         <InputModel
           model="iconModel"
           label="متن"
-          status="normal"
+          status="warning"
           iconInput={<FaUserAlt color="#a8a8a8" />}
           width="400px"
           height="50px"

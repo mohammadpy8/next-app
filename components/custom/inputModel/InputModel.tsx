@@ -1,31 +1,7 @@
-import { Box, type TextFieldProps, InputAdornment, TextField } from "@mui/material";
-import type { CSSObject as MuiCSSObject } from "@mui/material/styles";
+import { Box } from "@mui/material";
 import { InputModelComponent, InputAdormentCustom } from "./input.styled";
-import React, { type FC, type ReactNode } from "react";
-
-type TInputBase = {
-  model: "base";
-  label?: string | null;
-  customSX?: MuiCSSObject;
-  status?: "error" | "warning" | "normal";
-  width?: string;
-  iconInput: never;
-  positionIcon: never;
-  height?: string;
-} & Omit<TextFieldProps, "label">;
-
-type TInputIconBase = {
-  model: "iconModel";
-  label?: string | null;
-  customSX?: MuiCSSObject;
-  status?: "error" | "warning" | "normal";
-  iconInput: ReactNode;
-  positionIcon: "start" | "end";
-  width?: string;
-  height?: string;
-} & Omit<TextFieldProps, "label">;
-
-type TInputModel = TInputBase | TInputIconBase;
+import React, { type FC } from "react";
+import type { TInputModel } from "./input.type";
 
 const InputModel: FC<TInputModel> = ({
   model = "base",
@@ -65,7 +41,8 @@ const InputModel: FC<TInputModel> = ({
             label={label ?? null}
             sx={{ ...customSX }}
             {...restInputModel}
-            {...{ width, height }}
+            width={width}
+            height={height}
           />
         );
       case "iconModel":
@@ -78,8 +55,9 @@ const InputModel: FC<TInputModel> = ({
             label={label ?? null}
             placeholder={placeholder}
             {...restInputModel}
-            {...{ width, height }}
             InputProps={PositionIconHandle()}
+            width={width}
+            height={height}
           />
         );
       default:
