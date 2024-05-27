@@ -68,7 +68,7 @@ export const useUser = () => {
   return userContext;
 };
 
-function RenderClientData<T extends {id : number}, U>(props: T) {
+function RenderClientData<T extends { id: number }, U>(props: T) {
   const [valueTextField, setValueTextField] = useState<string>("");
   const [uniqeId, setUniqeId] = useState<number | null>(0);
 

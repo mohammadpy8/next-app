@@ -1,11 +1,8 @@
 import { TextField, styled, useTheme, InputAdornment } from "@mui/material";
-
 import type { TInputModel } from "./input.type";
-
 
 const InputModelComponent = styled(TextField)((theme: Partial<TInputModel>) => {
   const { palette } = useTheme();
-  console.log("theme ---->", theme);
   const { width, height } = theme;
   return {
     "& .MuiInputBase-root": {

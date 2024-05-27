@@ -3,7 +3,6 @@
 import { ButtonBase, ButtonWithIcon, InputModel } from "@/components/custom";
 import { Box, Stack } from "@mui/material";
 import { FaUserAlt } from "react-icons/fa";
-import { IoSend } from "react-icons/io5";
 
 const LoginForm = () => {
   return (
@@ -35,13 +34,13 @@ const LoginForm = () => {
       /> */}
       <Box mt="25px">
         <InputModel
-          model="iconModel"
+          model="base"
           label="متن"
-          status="warning"
-          iconInput={<FaUserAlt color="#a8a8a8" />}
-          width="400px"
+          status="normal"
+          // iconInput={<FaUserAlt color="#a8a8a8" />}
+          width="300px"
           height="50px"
-          positionIcon="start"
+          // positionIcon="start"
         />
       </Box>
     </Stack>
