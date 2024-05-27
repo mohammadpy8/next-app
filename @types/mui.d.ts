@@ -14,11 +14,21 @@ declare module "@mui/material/styles" {
       firstColor: string;
       green: string;
     };
+    inputColor: {
+      first: string;
+      second: string;
+      last: string;
+    };
   }
   interface PaletteOptions {
     customPalette: {
       firstColor: string;
       green: string;
+    };
+    inputColor: {
+      first: string;
+      second: string;
+      last: string;
     };
   }
 

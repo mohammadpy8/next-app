@@ -1,20 +1,31 @@
-"use client";
-
 import { Box, type TextFieldProps, InputAdornment, TextField } from "@mui/material";
 import type { CSSObject as MuiCSSObject } from "@mui/material/styles";
-import { InputModelComponent } from "./input.styled";
-import React, { useState, type FC, type ReactNode } from "react";
-import { FaUserAlt } from "react-icons/fa";
+import { InputModelComponent, InputAdormentCustom } from "./input.styled";
+import React, { type FC, type ReactNode } from "react";
 
-type TInputModel = {
-  model: "iconModel" | "base";
+type TInputBase = {
+  model: "base";
   label?: string | null;
   customSX?: MuiCSSObject;
   status?: "error" | "warning" | "normal";
-  iconInput?: ReactNode;
+  width?: string;
+  iconInput: never;
+  positionIcon: never;
+  height?: string;
 } & Omit<TextFieldProps, "label">;
 
-type TInputBase = {};
+type TInputIconBase = {
+  model: "iconModel";
+  label?: string | null;
+  customSX?: MuiCSSObject;
+  status?: "error" | "warning" | "normal";
+  iconInput: ReactNode;
+  positionIcon: "start" | "end";
+  width?: string;
+  height?: string;
+} & Omit<TextFieldProps, "label">;
+
+type TInputModel = TInputBase | TInputIconBase;
 
 const InputModel: FC<TInputModel> = ({
   model = "base",
@@ -24,52 +35,51 @@ const InputModel: FC<TInputModel> = ({
   customSX,
   status = "normal",
   iconInput,
+  positionIcon = "start",
+  height,
+  width,
   ...restInputModel
 }) => {
-  const [value, setValue] = useState<string>("");
-  console.log("value==>", value);
+  const PositionIconHandle = () => {
+    if (positionIcon === "start") {
+      return {
+        startAdornment: <InputAdormentCustom position="start">{iconInput}</InputAdormentCustom>,
+      };
+    } else if (positionIcon === "end") {
+      return {
+        endAdornment: <InputAdormentCustom position="start">{iconInput}</InputAdormentCustom>,
+      };
+    }
+    return;
+  };
 
   const InputView = () => {
     switch (model) {
       case "base":
         return (
           <InputModelComponent
-            value={value}
+            autoComplete="off"
             className={`text-filed-model-${status}`}
-            onChange={(event) => setValue(event.target.value)}
+            onChange={changeHandler}
             placeholder={placeholder}
             label={label ?? null}
-            sx={{
-              ...customSX,
-            }}
+            sx={{ ...customSX }}
             {...restInputModel}
+            {...{ width, height }}
           />
         );
       case "iconModel":
         return (
           <InputModelComponent
+            autoComplete="off"
             className={`text-filed-model-${status}`}
-            sx={{ m: 1, width: "25ch", ...customSX }}
+            onChange={changeHandler}
+            sx={{ ...customSX }}
             label={label ?? null}
             placeholder={placeholder}
             {...restInputModel}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment
-                  position="start"
-                  sx={{
-                    color: "#a8a8a8 !important",
-                    zIndex: 10,
-                    "& p": {
-                      color: "#a8a8a8",
-                      zIndex: 10,
-                    },
-                  }}
-                >
-                  {iconInput}
-                </InputAdornment>
-              ),
-            }}
+            {...{ width, height }}
+            InputProps={PositionIconHandle()}
           />
         );
       default:

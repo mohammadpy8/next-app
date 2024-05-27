@@ -57,7 +57,7 @@ const Input: FC<InputProps> = ({
           xl={2}
           sx={{
             width: (theme: any) => {
-              console.log("any-them ====>", theme);
+              console.log("any-them ==>", theme);
               return "100vw";
             },
           }}

@@ -34,7 +34,15 @@ const LoginForm = () => {
         endIcon={<IoSend />}
       /> */}
       <Box mt="25px">
-        <InputModel model="iconModel" label="متن" status="normal" iconInput={<FaUserAlt color="#a8a8a8" />} />
+        <InputModel
+          model="iconModel"
+          label="متن"
+          status="normal"
+          iconInput={<FaUserAlt color="#a8a8a8" />}
+          width="400px"
+          height="50px"
+          positionIcon="start"
+        />
       </Box>
     </Stack>
   );
