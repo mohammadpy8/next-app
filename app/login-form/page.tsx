@@ -2,6 +2,7 @@
 
 import { ButtonBase, ButtonWithIcon, InputModel } from "@/components/custom";
 import { Box, Stack } from "@mui/material";
+import { FaUserAlt } from "react-icons/fa";
 import { IoSend } from "react-icons/io5";
 
 const LoginForm = () => {
@@ -33,7 +34,7 @@ const LoginForm = () => {
         endIcon={<IoSend />}
       /> */}
       <Box mt="25px">
-        <InputModel model="iconModel" label="متن" status="warning" />
+        <InputModel model="iconModel" label="متن" status="normal" iconInput={<FaUserAlt color="#a8a8a8" />} />
       </Box>
     </Stack>
   );

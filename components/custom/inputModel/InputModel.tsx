@@ -3,13 +3,15 @@
 import { Box, type TextFieldProps, InputAdornment, TextField } from "@mui/material";
 import type { CSSObject as MuiCSSObject } from "@mui/material/styles";
 import { InputModelComponent } from "./input.styled";
-import { useState, type FC } from "react";
+import React, { useState, type FC, type ReactNode } from "react";
+import { FaUserAlt } from "react-icons/fa";
 
 type TInputModel = {
   model: "iconModel" | "base";
   label?: string | null;
   customSX?: MuiCSSObject;
   status?: "error" | "warning" | "normal";
+  iconInput?: ReactNode;
 } & Omit<TextFieldProps, "label">;
 
 type TInputBase = {};
@@ -21,6 +23,7 @@ const InputModel: FC<TInputModel> = ({
   label = null,
   customSX,
   status = "normal",
+  iconInput,
   ...restInputModel
 }) => {
   const [value, setValue] = useState<string>("");
@@ -46,19 +49,24 @@ const InputModel: FC<TInputModel> = ({
         return (
           <InputModelComponent
             className={`text-filed-model-${status}`}
-            sx={{ m: 1, width: "25ch" }}
+            sx={{ m: 1, width: "25ch", ...customSX }}
+            label={label ?? null}
+            placeholder={placeholder}
+            {...restInputModel}
             InputProps={{
               startAdornment: (
                 <InputAdornment
                   position="start"
                   sx={{
+                    color: "#a8a8a8 !important",
+                    zIndex: 10,
                     "& p": {
-                      color: "red",
+                      color: "#a8a8a8",
                       zIndex: 10,
                     },
                   }}
                 >
-                  kg
+                  {iconInput}
                 </InputAdornment>
               ),
             }}
