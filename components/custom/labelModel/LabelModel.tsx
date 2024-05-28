@@ -6,17 +6,19 @@ type TLabelModel = {
   label: string;
 } & Omit<TypographyProps, "">;
 
-
-
 const LabelModel: FC<TLabelModel> = ({ label = "متن داخل لیبل", model = "subOne" }) => {
   const { typography } = useTheme();
-  console.log("theme=>", typography);
+
+  const stylesTypography = {
+    subOne: (typography as any).base_text,
+    subTwo: (typography as any).meduim_text,
+    subThree: (typography as any).large_text,
+  };
 
   const LabelShow = () => {
     switch (model) {
       case "subOne":
-        const styles = (typography as any).base_text;
-        return <Typography {...styles}>{label}</Typography>;
+        return <Typography {...stylesTypography[model]}>{label}</Typography>;
     }
   };
 
