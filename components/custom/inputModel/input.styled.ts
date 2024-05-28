@@ -5,6 +5,18 @@ const InputModelComponent = styled(TextField)((theme: Partial<TInputModel>) => {
   const { palette } = useTheme();
   const { width, height } = theme;
   return {
+    "& label[data-shrink='true']": {
+      color: "#85A8FF !important",
+    },
+    "& .MuiOutlinedInput-root": {
+      "&:hover fieldset": {
+        borderColor: "#c8c8c8 !important",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#85A8FF !important",
+        boxShadow: "1px 1px 9px 0px #85A8FF",
+      },
+    },
     "& .MuiInputBase-root": {
       width,
       height,
