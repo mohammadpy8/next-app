@@ -19,6 +19,12 @@ const LabelModel: FC<TLabelModel> = ({ label = "متن داخل لیبل", model
     switch (model) {
       case "subOne":
         return <Typography {...stylesTypography[model]}>{label}</Typography>;
+      case "subTwo":
+        return <Typography {...stylesTypography[model]}>{label}</Typography>;
+      case "subThree":
+        return <Typography {...stylesTypography[model]}>{label}</Typography>;
+      default:
+        throw new Error("تایپ مورد نظر یافت نشد");
     }
   };
 
