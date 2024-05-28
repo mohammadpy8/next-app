@@ -1,6 +1,6 @@
 "use client";
 
-import { ButtonBase, ButtonWithIcon, InputModel, ButtomModel } from "@/components/custom";
+import { ButtonBase, ButtonWithIcon, InputModel, ButtomModel, LabelModel } from "@/components/custom";
 import { Box, Stack } from "@mui/material";
 import { HiOutlineUserPlus } from "react-icons/hi2";
 import { CiCreditCard1 } from "react-icons/ci";
@@ -91,6 +91,9 @@ const LoginForm = () => {
           lable=" در حال ارسال"
           onClick={() => setLoadingMode(!loadingMode)}
         />
+      </Box>
+      <Box mt="25px">
+        <LabelModel model="subOne" label="این متن است"/>
       </Box>
     </Stack>
   );

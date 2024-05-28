@@ -12,18 +12,16 @@ const theme = createTheme({
     MuiButton: {
       variants: [
         {
-          props: { variant: "text" },
+          props: { variant: "fillMode" },
           style: {
             fontWeight: "bold",
             fontSize: "1rem",
             borderRadius: "5rem",
             padding: "0.2rem 1rem",
-            
           },
         },
       ],
     },
-    
   },
 });
 

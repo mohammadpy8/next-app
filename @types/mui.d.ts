@@ -1,12 +1,4 @@
-import type {
-  Palette,
-  PaletteOptions,
-  Typography,
-  TypographyVariantsOptions,
-  ThemeOptions,
-  ShapeOption,
-  Shape,
-} from "@mui/material";
+import type { Palette, PaletteOptions, Typography, TypographyVariantsOptions, ThemeOptions } from "@mui/material";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -45,16 +37,12 @@ declare module "@mui/material/styles" {
       fontWeight: string;
     };
   }
-
-  interface Shape {
-    CustomRounded: {
-      size: string;
-    };
-  }
-
-  interface ShapeOption {
-    CustomRounded: {
-      size: string;
-    };
+}
+declare module "@mui/material/Button" {
+  interface ButtonPropsVariantOverrides {
+    baseMode: true;
+    loadingMode: true;
+    outlineMode: true;
+    fillMode: true;
   }
 }
