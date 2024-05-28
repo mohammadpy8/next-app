@@ -55,6 +55,9 @@ const LoginForm = () => {
           width="400px"
           height="60px"
           positionIcon="end"
+          onChange={(e) => {
+            console.log("onChange InputModel", e.target.value);
+          }}
         />
       </Box>
       <Box mt="25px">
