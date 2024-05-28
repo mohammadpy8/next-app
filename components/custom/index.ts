@@ -16,3 +16,4 @@ export * from "@/components/custom/modalComponent/ModalComponent";
 export * from "@/components/custom/buttonBase/ButtonBase";
 export * from "@/components/custom/buttonBase/ButtonWithIcon";
 export * from "@/components/custom/inputModel/InputModel";
+export * from "@/components/custom/buttomModel/ButtomModel";

@@ -1,13 +1,16 @@
 "use client";
 
-import { ButtonBase, ButtonWithIcon, InputModel } from "@/components/custom";
+import { ButtonBase, ButtonWithIcon, InputModel, ButtomModel } from "@/components/custom";
 import { Box, Stack } from "@mui/material";
 import { HiOutlineUserPlus } from "react-icons/hi2";
 import { CiCreditCard1 } from "react-icons/ci";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
+import { useState } from "react";
 
 const LoginForm = () => {
+  const [loadingMode, setLoadingMode] = useState<boolean>(false);
+
   return (
     <Stack
       width="100%"
@@ -80,6 +83,13 @@ const LoginForm = () => {
           width="400px"
           height="60px"
           positionIcon="end"
+        />
+      </Box>
+      <Box mt="25px">
+        <ButtomModel
+          model={loadingMode ? "loading" : "fill"}
+          lable=" در حال ارسال"
+          onClick={() => setLoadingMode(!loadingMode)}
         />
       </Box>
     </Stack>
