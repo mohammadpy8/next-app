@@ -1,13 +1,19 @@
 import { Box, Typography, useTheme, type TypographyProps } from "@mui/material";
+import type { CSSObject as MuiCSSObject } from "@mui/material/styles";
 import { FC } from "react";
 
+type TModel = "subOne" | "subTwo" | "subThree";
+
 type TLabelModel = {
-  model?: "subOne" | "subTwo" | "subThree";
+  model?: TModel;
   label: string;
+  customSx?: MuiCSSObject;
 } & Omit<TypographyProps, "">;
 
-const LabelModel: FC<TLabelModel> = ({ label = "متن داخل لیبل", model = "subOne" }) => {
+const LabelModel: FC<TLabelModel> = ({ label = "متن داخل لیبل", model = "subOne", customSx }) => {
   const { typography } = useTheme();
+
+  const models = ["subOne", "subTwo", "subThree"];
 
   const stylesTypography = {
     subOne: (typography as any).base_text,
@@ -15,20 +21,15 @@ const LabelModel: FC<TLabelModel> = ({ label = "متن داخل لیبل", model
     subThree: (typography as any).large_text,
   };
 
-  const LabelShow = () => {
-    switch (model) {
-      case "subOne":
-        return <Typography {...stylesTypography[model]}>{label}</Typography>;
-      case "subTwo":
-        return <Typography {...stylesTypography[model]}>{label}</Typography>;
-      case "subThree":
-        return <Typography {...stylesTypography[model]}>{label}</Typography>;
-      default:
-        throw new Error("تایپ مورد نظر یافت نشد");
-    }
+  const ShowLabelModel = () => {
+    const findModel = models.find((m) => m === model) as TModel;
+    return (
+      <Typography sx={{ ...customSx }} {...stylesTypography[findModel]}>
+        {label}
+      </Typography>
+    );
   };
-
-  return <Box>{LabelShow()}</Box>;
+  return <Box>{ShowLabelModel()}</Box>;
 };
 
 export { LabelModel };

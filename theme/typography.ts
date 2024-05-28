@@ -4,8 +4,9 @@ import type { ThemeOptions } from "@mui/material";
 
 const typography: ThemeOptions["typography"] = {
   base_text: {
-    fontSize: "50px",
+    fontSize: "15px",
     fontWeight: "700",
+    color:"#00f"
   },
 };
 

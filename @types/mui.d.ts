@@ -28,6 +28,7 @@ declare module "@mui/material/styles" {
     base_text: {
       fontSize: string;
       fontWeight: string;
+      color: string;
     };
   }
 
@@ -35,6 +36,7 @@ declare module "@mui/material/styles" {
     base_text: {
       fontSize: string;
       fontWeight: string;
+      color: string;
     };
   }
 }
