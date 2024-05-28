@@ -93,7 +93,7 @@ const LoginForm = () => {
         />
       </Box>
       <Box mt="25px">
-        <LabelModel model="subOne" label="این متن است"/>
+        <LabelModel model="subOne" label="این متن است" />
       </Box>
     </Stack>
   );

@@ -6,7 +6,7 @@ const typography: ThemeOptions["typography"] = {
   base_text: {
     fontSize: "15px",
     fontWeight: "700",
-    color:"#00f"
+    color:"red"
   },
 };
 

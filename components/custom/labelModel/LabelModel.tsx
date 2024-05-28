@@ -1,6 +1,6 @@
 import { Box, Typography, useTheme, type TypographyProps } from "@mui/material";
 import type { CSSObject as MuiCSSObject } from "@mui/material/styles";
-import { FC } from "react";
+import type { FC } from "react";
 
 type TModel = "subOne" | "subTwo" | "subThree";
 
@@ -8,7 +8,7 @@ type TLabelModel = {
   model?: TModel;
   label: string;
   customSx?: MuiCSSObject;
-} & Omit<TypographyProps, "">;
+} & Omit<TypographyProps, "sx" | "fontFamily">;
 
 const LabelModel: FC<TLabelModel> = ({ label = "متن داخل لیبل", model = "subOne", customSx }) => {
   const { typography } = useTheme();
