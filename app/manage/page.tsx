@@ -5,8 +5,7 @@ import { Box } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "@/validation";
-import chalk from 'chalk';
-
+import chalk from "chalk";
 
 const Manage = () => {
   const {
@@ -25,7 +24,7 @@ const Manage = () => {
   });
 
   console.log("errors", errors, isValid, getValues);
-  console.log(chalk.blue('Hello world!'));
+  console.log(chalk.blue("Hello world!"));
 
   const formSubmitting = (data: any) => {
     console.log("data=>", data);

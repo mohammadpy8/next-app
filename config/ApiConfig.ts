@@ -3,7 +3,6 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { ApiError } from "next/dist/server/api-utils";
 
-
 type PromiseAllRequest = {
   name: string;
   endPoint: string;
