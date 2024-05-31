@@ -65,7 +65,7 @@
     "rgba(252, 154, 50, 0.08 )"
   ],
   "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.fontFamily": "'JetBrains Mono'",
+  "terminal.integrated.fontFamily": "'Fira Code'",
   "terminal.integrated.fontWeigth": "",
   "terminal.integrated.fontSize": 15.5,
   "tabnine.experimentalAutoImports": true,
