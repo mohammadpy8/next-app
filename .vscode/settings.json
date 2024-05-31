@@ -1,46 +1,46 @@
 {
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "One Dark Pro Mix",
   "workbench.iconTheme": "material-icon-theme",
   "files.autoSave": "afterDelay",
   "editor.fontFamily": "'Fira Code' , 'Vazirmatn'",
-  // "editor.fontSize": 17,
+  "editor.fontSize": 16.75,
   // "editor.lineHeight": 1.6,
   // "editor.fontLigature": true,
   "editor.fontLigatures": true,
-  "editor.fontWeight": "normal",
-  "window.zoomLevel": 0.85,
-  // "editor.tokenColorCustomizations": {
-  //   "textMateRules": [
-  //     {
-  //       "scope": [
-  //         "comment",
-  //         "export",
-  //         "function",
-  //         "component",
-  //         "react",
-  //         "entity.name.type.class", //class names
-  //         "constant", //String, Number, Boolean…, this, super
-  //         "storage.modifier", //static keyword
-  //         "storage.type.class.js" //class keyword
-  //       ],
-  //       "settings": {
-  //         "fontStyle": "italic"
-  //       }
-  //     },
-  //     {
-  //       "scope": [
-  //         "invalid",
-  //         "constant.numeric.css",
-  //         "keyword.other.unit.px.css",
-  //         "constant.numeric.decimal.js",
-  //         "constant.numeric.json"
-  //       ],
-  //       "settings": {
-  //         "fontStyle": "italic"
-  //       }
-  //     }
-  //   ]
-  // },
+  "window.zoomLevel": 0.5,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          // "",
+          "export",
+          "function",
+          "component",
+          "react",
+          "entity.name.type.class", //class names
+          "constant", //String, Number, Boolean…, this, super
+          "storage.modifier", //static keyword
+          "storage.type.class.js" //class keyword
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          "invalid",
+          "constant.numeric.css",
+          "keyword.other.unit.px.css",
+          "constant.numeric.decimal.js",
+          "constant.numeric.json"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
   "editor.tabSize": 2,
   "bracketPairColorizer.depreciation-notice": false,
   "editor.formatOnSave": true,
@@ -65,7 +65,8 @@
     "rgba(252, 154, 50, 0.08 )"
   ],
   "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.fontFamily": "'Fira Code'",
+  "terminal.integrated.fontFamily": "'JetBrains Mono'",
+  "terminal.integrated.fontWeigth": "",
   "terminal.integrated.fontSize": 15.5,
   "tabnine.experimentalAutoImports": true,
   "editor.inlineSuggest.enabled": true,
@@ -214,5 +215,6 @@
   "workbench.settings.applyToAllProfiles": [],
   "terminal.integrated.fontWeight": "500",
   "rapidapi.terminalLink.enabled": false,
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "github.copilot.editor.enableAutoCompletions": true
 }
