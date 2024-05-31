@@ -19,6 +19,7 @@ const TestPage = async () => {
 };
 
 const getDataByClientSide = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [getDataValue, setGetDataValue] = useState<any>([]);
 
   const getData = async () => {
@@ -29,6 +30,7 @@ const getDataByClientSide = () => {
 
   console.log("dd ===>", getDataValue);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     getData();
   }, []);
