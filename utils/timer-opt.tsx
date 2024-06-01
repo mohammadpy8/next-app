@@ -4,11 +4,11 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import type { FC } from "react";
 
-type propsTimerOtp = Readonly<{
+type PropsTimerOtp = Readonly<{
   time: number;
 }>;
 
-const TimerOtp: FC = () => {
+const TimerOtp: FC<PropsTimerOtp> = ({ time, ...restProps }) => {
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(0);
   const [otpValue, setOtpValue] = useState<string>("");
