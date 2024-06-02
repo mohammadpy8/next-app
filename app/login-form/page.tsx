@@ -1,7 +1,14 @@
 "use client";
 
-import { ButtonBase, ButtonWithIcon, InputModel, ButtomModel, LabelModel } from "@/components/custom";
-import { Box, Stack } from "@mui/material";
+import {
+  ButtonBase,
+  ButtonWithIcon,
+  InputModel,
+  ButtomModel,
+  LabelModel,
+  StepperModel,
+} from "@/components/custom";
+import { Box, Stack, Typography } from "@mui/material";
 import { HiOutlineUserPlus } from "react-icons/hi2";
 import { CiCreditCard1 } from "react-icons/ci";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
@@ -10,6 +17,21 @@ import { useState } from "react";
 
 const LoginForm = () => {
   const [loadingMode, setLoadingMode] = useState<boolean>(false);
+
+  const stepOne = () => {
+    return <Typography>one</Typography>;
+  };
+
+  const stepTwo = () => {
+    return <Typography>two</Typography>;
+  };
+
+  const stepThree = () => {
+    return <Typography>three</Typography>;
+  };
+
+  const steps = ["name", "lastName", "firstname"];
+  const dataStep = [stepOne(), stepTwo(), stepThree()];
 
   return (
     <Stack
@@ -94,6 +116,9 @@ const LoginForm = () => {
       </Box>
       <Box mt="25px">
         <LabelModel model="subOne" label="این متن است" />
+      </Box>
+      <Box mt="50px">
+        <StepperModel stepLabel={steps} stepData={dataStep}/>
       </Box>
     </Stack>
   );

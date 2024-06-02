@@ -128,7 +128,13 @@ const Main = () => {
       </Box>
       <Box display="flex" justifyContent="center" alignItems="center">
         <Box bgcolor="#000" width="90%" borderRadius="15px">
-          <LoaderComponent colorLoader="#fff" heigthLoader="60" widthLoader="60" radiusLoader="9" wrapperStyleLoader={{}} />
+          <LoaderComponent
+            colorLoader="#fff"
+            heigthLoader="60"
+            widthLoader="60"
+            radiusLoader="9"
+            wrapperStyleLoader={{}}
+          />
         </Box>
         <ButtonComponent buttonData={{}} onClickHandler={() => {}} />
         <Box>

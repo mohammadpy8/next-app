@@ -44,7 +44,7 @@ const InputModel: FC<TInputModel> = ({
             width={width}
             height={height}
           />
-        );
+        ); 
       case "iconModel":
         return (
           <InputModelComponent

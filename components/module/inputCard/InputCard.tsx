@@ -27,7 +27,7 @@ const InputCard = () => {
       }
     }
   };
-  
+
   const checkDisable = (inputsGroup: string[]): boolean => {
     const loopInputs = inputsGroup.map((item) => item.length === 4);
     const checkValid = loopInputs.every((item) => item === true);
@@ -37,7 +37,13 @@ const InputCard = () => {
   const { PostRequest } = ApiRegister();
 
   const joinValueInput = inputs.join("");
-  const { PostData, data, isSuccess } = PostRequest("users", null, { data: joinValueInput }, "check-numbers", true);
+  const { PostData, data, isSuccess } = PostRequest(
+    "users",
+    null,
+    { data: joinValueInput },
+    "check-numbers",
+    true
+  );
 
   console.log("isSuccess", data);
 
@@ -91,7 +97,13 @@ const InputCard = () => {
           }}
           onClick={_checkNumbers}
         >
-          <Box display="flex" columnGap="10px" flexDirection="row-reverse" alignItems="center" justifyContent="center">
+          <Box
+            display="flex"
+            columnGap="10px"
+            flexDirection="row-reverse"
+            alignItems="center"
+            justifyContent="center"
+          >
             <Typography fontSize="15px" fontWeight="500" color="#fff">
               بررسی شماره
             </Typography>
