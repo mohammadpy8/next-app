@@ -178,7 +178,12 @@ const ApiRegister = () => {
     };
   };
 
-  const DeleteRequest = (endPoint: string, IDRequest: number | null, keyName: string, infoResponse: boolean) => {
+  const DeleteRequest = (
+    endPoint: string,
+    IDRequest: number | null,
+    keyName: string,
+    infoResponse: boolean
+  ) => {
     const IDRequestHandler = IDRequest === null ? "" : `/${IDRequest}`;
 
     const {

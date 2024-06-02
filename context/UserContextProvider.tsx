@@ -45,16 +45,18 @@ const UserContextProvider: FC<UserContextProviderProps> = ({ children }) => {
     const convertData = (data: Omit<ConvertDataType, "response_data">[]) => {
       let first_value: T[] = [] as T[] & { id: number }[];
       const instanseValue = event.target.value;
-      const changedValue = data.map((item_data: Omit<ConvertDataType, "response_data">, index_data: number) => {
-        const new_value = first_value.push({
-          id: index_data,
-        } as T);
-        return {
-          ...item_data,
-          value: instanseValue,
-          new_value,
-        };
-      });
+      const changedValue = data.map(
+        (item_data: Omit<ConvertDataType, "response_data">, index_data: number) => {
+          const new_value = first_value.push({
+            id: index_data,
+          } as T);
+          return {
+            ...item_data,
+            value: instanseValue,
+            new_value,
+          };
+        }
+      );
       return [...changedValue, convertData];
     };
   };
