@@ -6,7 +6,11 @@ type TButtonModel = {
   lable: string;
 } & Omit<ButtonProps, "">;
 
-const ButtomModel: FC<TButtonModel> = ({ model = "fill", onClick: clickHandler = () => {}, lable = "متن داخل دکمه" }) => {
+const ButtomModel: FC<TButtonModel> = ({
+  model = "fill",
+  onClick: clickHandler = () => {},
+  lable = "متن داخل دکمه",
+}) => {
   const ButtonShow = () => {
     switch (model) {
       case "loading":

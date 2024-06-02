@@ -59,7 +59,11 @@ const UserContextProvider: FC<UserContextProviderProps> = ({ children }) => {
     };
   };
 
-  return <UserContext.Provider value={{ user, setUser, _changeHandlerRenderClientData }}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user, setUser, _changeHandlerRenderClientData }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
 export const useUser = () => {

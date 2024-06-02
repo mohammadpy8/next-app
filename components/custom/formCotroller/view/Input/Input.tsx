@@ -63,7 +63,11 @@ const Input: FC<InputProps> = ({
           }}
         >
           <Box width="100%" margin="25px" sx={sxParentInput}>
-            <InputComponent label={placeholderInput ?? "نام و نام خانوادگی"} onChange={onChangeInput} sx={sxInputCustom} />
+            <InputComponent
+              label={placeholderInput ?? "نام و نام خانوادگی"}
+              onChange={onChangeInput}
+              sx={sxInputCustom}
+            />
           </Box>
         </Grid>
       </Grid>
