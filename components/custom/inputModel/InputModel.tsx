@@ -14,8 +14,11 @@ const InputModel: FC<TInputModel> = ({
   positionIcon = "start",
   height,
   width,
+  name,
+  registerInput,
   ...restInputModel
 }) => {
+  console.log("data of input=====>", restInputModel);
   const PositionIconHandle = () => {
     if (positionIcon === "start") {
       return {
@@ -36,28 +39,32 @@ const InputModel: FC<TInputModel> = ({
           <InputModelComponent
             autoComplete="off"
             className={`text-filed-model-${status}`}
-            onChange={changeHandler}
+            // onChange={changeHandler}
             placeholder={placeholder}
             label={label ?? null}
             sx={{ ...customSX }}
             {...restInputModel}
+            {...registerInput(name)}
             width={width}
             height={height}
+            name={name}
           />
-        ); 
+        );
       case "iconModel":
         return (
           <InputModelComponent
             autoComplete="off"
             className={`text-filed-model-${status}`}
-            onChange={changeHandler}
+            // onChange={changeHandler}
             sx={{ ...customSX }}
             label={label ?? null}
             placeholder={placeholder}
             {...restInputModel}
             InputProps={PositionIconHandle()}
             width={width}
+            {...registerInput(name)}
             height={height}
+            name={name}
           />
         );
       default:

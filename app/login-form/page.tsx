@@ -14,6 +14,9 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z, ZodType } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const LoginForm = () => {
   const [loadingMode, setLoadingMode] = useState<boolean>(false);
@@ -31,7 +34,27 @@ const LoginForm = () => {
   };
 
   const steps = ["name", "lastName", "firstname"];
-  const dataStep = [stepOne(), stepTwo(), stepThree()];
+  const dataStep = [
+    { id: 0, Component: stepOne() },
+    { id: 1, Component: stepTwo() },
+    { id: 2, Component: stepThree() },
+  ];
+
+  const FormValidation: z.infer<ZodType> = z.object({
+    email: z
+      .string({ message: "فرمت را وارد کنید" })
+      .email({ message: "فرمت ایمیل نادرست می باشد" })
+      .min(10, { message: "حداقل کاراکتر باید 10 کلمه باشد" })
+      .max(25, { message: "حداکثر ایمیل باید 25 کلمه باید باشد" }),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(FormValidation) });
+
+  console.log("error ====>", errors);
 
   return (
     <Stack
@@ -60,7 +83,7 @@ const LoginForm = () => {
         disableMode={false}
         endIcon={<IoSend />}
       /> */}
-      <Box mt="25px">
+      {/* <Box mt="25px">
         <InputModel
           model="iconModel"
           label="نام و نام خانوادگی"
@@ -70,8 +93,8 @@ const LoginForm = () => {
           height="60px"
           positionIcon="end"
         />
-      </Box>
-      <Box mt="25px">
+      </Box> */}
+      {/* <Box mt="25px">
         <InputModel
           model="iconModel"
           label="کد ملی"
@@ -84,8 +107,8 @@ const LoginForm = () => {
             console.log("onChange InputModel", e.target.value);
           }}
         />
-      </Box>
-      <Box mt="25px">
+      </Box> */}
+      {/* <Box mt="25px">
         <InputModel
           model="iconModel"
           label="شماره تلفن"
@@ -95,30 +118,34 @@ const LoginForm = () => {
           height="60px"
           positionIcon="end"
         />
-      </Box>
+      </Box> */}
       <Box mt="25px">
-        <InputModel
-          model="iconModel"
-          label="آدرس محل سکونت"
-          status="normal"
-          iconInput={<GrLocation color="#a8a8a8" size={25} />}
-          width="400px"
-          height="60px"
-          positionIcon="end"
-        />
-      </Box>
-      <Box mt="25px">
-        <ButtomModel
-          model={loadingMode ? "loading" : "fill"}
-          lable=" در حال ارسال"
-          onClick={() => setLoadingMode(!loadingMode)}
-        />
+        <form onSubmit={handleSubmit((data) => console.log("data log ==>", data))}>
+          <InputModel
+            model="iconModel"
+            label="آدرس محل سکونت"
+            status={errors.email && "error"}
+            iconInput={<GrLocation color="#a8a8a8" size={25} />}
+            width="400px"
+            height="60px"
+            positionIcon="end"
+            registerInput={register}
+            name="email"
+          />
+          <ButtomModel
+            model={loadingMode ? "loading" : "fill"}
+            lable=" در حال ارسال"
+            // onClick={() => setLoadingMode(!loadingMode)}
+            type="submit"
+          />
+          <button type="submit">send</button>
+        </form>
       </Box>
       <Box mt="25px">
         <LabelModel model="subOne" label="این متن است" />
       </Box>
       <Box mt="50px">
-        <StepperModel stepLabel={steps} stepData={dataStep}/>
+        <StepperModel stepLabel={steps} stepData={dataStep} errorData={1} />
       </Box>
     </Stack>
   );

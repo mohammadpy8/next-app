@@ -3,12 +3,18 @@
 import { Box, Step, Stepper, StepLabel, Button } from "@mui/material";
 import React, { type ReactNode, useState, type FC } from "react";
 
+type IStepData = Array<{
+  id: number;
+  Component: ReactNode;
+}>;
+
 type TStepperModel = {
   stepLabel: string[];
-  stepData: ReactNode[];
+  stepData: IStepData;
+  errorData: any;
 };
 
-const StepperModel: FC<TStepperModel> = ({ stepLabel, stepData }) => {
+const StepperModel: FC<TStepperModel> = ({ stepLabel, stepData, errorData }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
 
   const handleNextStep = () => setActiveStep((prevStep) => prevStep + 1);
@@ -30,7 +36,7 @@ const StepperModel: FC<TStepperModel> = ({ stepLabel, stepData }) => {
         ""
       ) : (
         <Box>
-          {stepData && <Box>{stepData[activeStep]}</Box>}
+          {stepData && <Box>{stepData[activeStep].Component}</Box>}
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             {activeStep >= 1 && (
               <Button color="inherit" onClick={handleBackStep} sx={{ mr: 1 }}>
@@ -38,7 +44,7 @@ const StepperModel: FC<TStepperModel> = ({ stepLabel, stepData }) => {
               </Button>
             )}
             <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleNextStep}>
+            <Button onClick={handleNextStep} disabled={errorData}>
               {activeStep === stepLabel.length - 1 ? "Finish" : "Next"}
             </Button>
           </Box>
