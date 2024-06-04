@@ -17,6 +17,7 @@ import { GrLocation } from "react-icons/gr";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z, ZodType } from "zod";
+import { IoSettingsOutline, IoAddCircleOutline, IoVideocam } from "react-icons/io5";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const LoginForm = () => {
@@ -39,6 +40,12 @@ const LoginForm = () => {
     { id: 0, Component: stepOne() },
     { id: 1, Component: stepTwo() },
     { id: 2, Component: stepThree() },
+  ];
+
+  const stepIcons = [
+    { id: 1, icon: <IoSettingsOutline /> },
+    { id: 2, icon: <IoAddCircleOutline /> },
+    { id: 3, icon: <IoVideocam /> },
   ];
 
   const FormValidation: z.infer<ZodType> = z.object({
@@ -146,7 +153,7 @@ const LoginForm = () => {
         <LabelModel model="subOne" label="این متن است" />
       </Box>
       <Box mt="50px">
-        <StepperModel stepLabel={steps} stepData={dataStep} errorData={1} />
+        <StepperModel stepLabel={steps} stepData={dataStep} errorData={1} stepIcons={stepIcons}/>
       </Box>
       <Box mt="25px" width="350px">
         <StepperFrom />
