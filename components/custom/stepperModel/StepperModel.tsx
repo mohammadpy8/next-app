@@ -1,26 +1,10 @@
 "use client";
 
 import { Box, Step, Stepper, StepLabel, Button } from "@mui/material";
-import React, { type ReactNode, useState, type FC } from "react";
+import React, { useState, type FC } from "react";
 import { StepIconProps } from "@mui/material/StepIcon";
 import { ColorlibStepIconRoot, ColorlibConnector } from "./StepperModel.styled";
-
-type IStepData = Array<{
-  id: number;
-  Component: ReactNode;
-}>;
-
-type TStepIcons = Array<{
-  id: number;
-  icon: JSX.Element;
-}>;
-
-type TStepperModel = {
-  stepLabel: string[];
-  stepData: IStepData;
-  errorData: any;
-  stepIcons: TStepIcons;
-};
+import { TStepperModel } from "./StepperModel.type";
 
 const StepperModel: FC<TStepperModel> = ({ stepLabel, stepData, errorData, stepIcons }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -39,7 +23,7 @@ const StepperModel: FC<TStepperModel> = ({ stepLabel, stepData, errorData, stepI
 
   function ColorlibStepIcon(props: StepIconProps) {
     const { active, completed, className } = props;
-    const icons = convertStepIcons() as TStepIcons;
+    const icons = convertStepIcons();
     return (
       <ColorlibStepIconRoot ownerState={{ completed, active }} className={className}>
         {icons[String(props.icon as number) as any] as any}
