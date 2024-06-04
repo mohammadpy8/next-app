@@ -7,6 +7,7 @@ import {
   ButtomModel,
   LabelModel,
   StepperModel,
+  StepperFrom,
 } from "@/components/custom";
 import { Box, Stack, Typography } from "@mui/material";
 import { HiOutlineUserPlus } from "react-icons/hi2";
@@ -146,6 +147,9 @@ const LoginForm = () => {
       </Box>
       <Box mt="50px">
         <StepperModel stepLabel={steps} stepData={dataStep} errorData={1} />
+      </Box>
+      <Box mt="25px" width="350px">
+        <StepperFrom />
       </Box>
     </Stack>
   );

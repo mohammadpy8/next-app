@@ -19,3 +19,5 @@ export * from "@/components/custom/inputModel/InputModel";
 export * from "@/components/custom/buttomModel/ButtomModel";
 export * from "@/components/custom/labelModel/LabelModel";
 export * from "@/components/custom/stepperModel/StepperModel";
+export * from "@/components/custom/stepperFrom/StepperFrom";
+export * from "@/components/custom/stepperFrom/StepperView";
