@@ -153,7 +153,7 @@ const LoginForm = () => {
         <LabelModel model="subOne" label="این متن است" />
       </Box>
       <Box mt="50px">
-        <StepperModel stepLabel={steps} stepData={dataStep} errorData={1} stepIcons={stepIcons}/>
+        <StepperModel stepLabel={steps} stepData={dataStep} errorData={1} stepIcons={stepIcons} />
       </Box>
       <Box mt="25px" width="350px">
         <StepperFrom />

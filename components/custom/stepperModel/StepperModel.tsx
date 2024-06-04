@@ -1,10 +1,9 @@
 "use client";
 
 import { Box, Step, Stepper, StepLabel, Button } from "@mui/material";
-import React, { type ReactNode, useState, type FC, ReactElement } from "react";
+import React, { type ReactNode, useState, type FC } from "react";
 import { StepIconProps } from "@mui/material/StepIcon";
 import { ColorlibStepIconRoot, ColorlibConnector } from "./StepperModel.styled";
-import { IoSettingsOutline, IoAddCircleOutline, IoVideocam } from "react-icons/io5";
 
 type IStepData = Array<{
   id: number;
@@ -12,8 +11,8 @@ type IStepData = Array<{
 }>;
 
 type TStepIcons = Array<{
-  id: string;
-  icon: ReactElement;
+  id: number;
+  icon: JSX.Element;
 }>;
 
 type TStepperModel = {
@@ -25,44 +24,25 @@ type TStepperModel = {
 
 const StepperModel: FC<TStepperModel> = ({ stepLabel, stepData, errorData, stepIcons }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [stepIconss, setStepIcons] = useState<TStepIcons>([]);
-  const icons = stepIcons.map((item, index) => ({
-    [index + 1]: item.icon,
-  }));
-
-  const convertIcons = () => {
-    for (let i = 0; i <= stepIcons.length; i++) {
-      
-    }
-  };
-
-  console.log("j", convertIcons());
-
-  console.log("iitem==>", icons);
 
   const handleNextStep = () => setActiveStep((prevStep) => prevStep + 1);
 
   const handleBackStep = () => setActiveStep((prevStep) => prevStep - 1);
 
-  const convertIconsStep = (iconsList: TStepIcons) => {
-    const listIcons = iconsList.map(({ id, icon }) => ({
-      [id]: icon,
-    }));
-    return listIcons;
+  const convertStepIcons = () => {
+    const icons = stepIcons.reduce((acc: any, dataIcon: { id: number; icon: JSX.Element }) => {
+      acc[dataIcon.id] = dataIcon.icon;
+      return acc;
+    }, {});
+    return icons;
   };
 
   function ColorlibStepIcon(props: StepIconProps) {
     const { active, completed, className } = props;
-
-    // const icons: { [index: string]: React.ReactElement } = convertIconsStep(stepIcons);
-    const icons = stepIcons.map((item, index) => ({
-      [index + 1]: item.icon,
-    }));
-
-    console.log("ite===>", icons);
+    const icons = convertStepIcons() as TStepIcons;
     return (
       <ColorlibStepIconRoot ownerState={{ completed, active }} className={className}>
-        {/* {icons[String(props.icon)]} */}
+        {icons[String(props.icon as number) as any] as any}
       </ColorlibStepIconRoot>
     );
   }
@@ -90,9 +70,7 @@ const StepperModel: FC<TStepperModel> = ({ stepLabel, stepData, errorData, stepI
               </Button>
             )}
             <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleNextStep} disabled={errorData}>
-              {activeStep === stepLabel.length - 1 ? "Finish" : "Next"}
-            </Button>
+            <Button onClick={handleNextStep}>{activeStep === stepLabel.length - 1 ? "Finish" : "Next"}</Button>
           </Box>
         </Box>
       )}
