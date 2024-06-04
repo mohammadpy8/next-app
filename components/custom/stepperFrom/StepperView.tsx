@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
-import { FC } from "react";
+import type { FC } from "react";
+import { TiTick } from "react-icons/ti";
 
 type TStepperView = {
   activeStep: number;
