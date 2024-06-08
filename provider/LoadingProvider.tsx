@@ -13,9 +13,8 @@ const LoadingProvider: FC<TLoadingProvider> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleChangeRoute = () => {
-      setLoading(true);
-    };
+    const handleChangeRoute = () => setLoading(true);
+
     router.events.on("routeChangeStart", handleChangeRoute);
     return () => {
       router.events.off("routeChangeStart", handleChangeRoute);
