@@ -10,11 +10,12 @@ import { Box } from "@mui/material";
 import "../globals.css";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const inter = Vazirmatn({ subsets: ["arabic"] });
 const allFont = localFont({
   src: [
     {
-      path: "../public/font/Qs_Iranyekan medium.ttf",
+      path: "../public/font/Qs_Iranyekan_medium.ttf",
       weight: "400",
       style: "normal",
     },
