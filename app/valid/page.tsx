@@ -31,14 +31,21 @@ const ValidPage = () => {
   return (
     <Box>
       <form onSubmit={handleSubmit((d) => console.log("d==>", d))}>
-        <TextFiled name="email" error={errors.email} registerInput={register} placeholder="email" id="1" label="email" />
+        <TextFiled
+          name="email"
+          error={errors.email}
+          registerInput={register}
+          placeholder="email"
+          id="1"
+          label="email"
+        />
         <Button type="submit">send</Button>
       </form>
       <CSVReader />
       <TextField
-        // onChange={(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, idx: number) =>
-        //   _changeHandlerRenderClientData(event ?? "", idx)
-        // }
+      // onChange={(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, idx: number) =>
+      //   _changeHandlerRenderClientData(event ?? "", idx)
+      // }
       />
     </Box>
   );

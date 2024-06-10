@@ -67,7 +67,12 @@ const FormController = ({ validationForm = {}, dataForm, buttonData, ...restProp
         );
       case "SWITCH":
         return (
-          <Switch key={id} all_data={all_data} validation={validationFilter("switch")[0]} {...convertRestProps()?.switch} />
+          <Switch
+            key={id}
+            all_data={all_data}
+            validation={validationFilter("switch")[0]}
+            {...convertRestProps()?.switch}
+          />
         );
       case "RADIOBUTTON":
         return (
