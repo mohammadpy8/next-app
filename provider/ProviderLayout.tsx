@@ -6,7 +6,7 @@ import {
   ReactQueryClientProvider,
   ToastProvider,
   RTLProvider,
-  LoadingProvider,
+  // LoadingProvider,
 } from "@/provider";
 import { UserContextProvider } from "@/context";
 
@@ -16,7 +16,7 @@ type PropsProviderLayout = Readonly<{
 
 const ProviderLayout: FC<PropsProviderLayout> = ({ children }) => {
   return (
-    <LoadingProvider>
+    // <LoadingProvider>
       <MuiProvider>
         <RTLProvider>
           <UserContextProvider>
@@ -29,7 +29,7 @@ const ProviderLayout: FC<PropsProviderLayout> = ({ children }) => {
           </UserContextProvider>
         </RTLProvider>
       </MuiProvider>
-    </LoadingProvider>
+    // </LoadingProvider>
   );
 };
 

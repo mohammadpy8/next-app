@@ -1,12 +1,21 @@
-import { Stack } from "@mui/material";
-import { InputCard } from "@/components/module";
+"use client";
 
+import { Box } from "@mui/material";
+import axios from "axios";
+import { cookies } from "next/headers";
+import { useEffect } from "react";
+import { fetchAccess } from "./action";
 const About = () => {
-  return (
-    <Stack>
-      <InputCard />
-    </Stack>
-  );
+  // const cookieFile = cookies();
+  // cookieFile.set("name", "alireza", { secure: true });
+
+  // console.log("cc------------------>", cookieFile.get("name"));
+
+  useEffect(() => {
+    fetchAccess();
+  }, []);
+
+  return <Box></Box>;
 };
 
 export default About;
